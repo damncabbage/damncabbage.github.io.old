@@ -5,8 +5,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rob Howard</title>
+  <title>Rob Howard: Category: SSH</title>
   <meta name="author" content="Rob Howard">
+  
+    <meta name="description" content="Category: SSH"/>
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -16,7 +18,7 @@
 
   
 
-  <link rel="canonical" href="http://robhoward.id.au/index.html"/>
+  <link rel="canonical" href="http://robhoward.id.aublog/categories/SSH/index.html"/>
   <link href="/favicon.png" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -84,69 +86,40 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
-
-
-
-  <article>
-    
+      <div>
+<article>
+  
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/">Stop GNOME &#8220;Hijacking&#8221; SSH Key Entry</a></h1>
-    
-    
-      <p class="meta">
-
-
-
-
-<time datetime="2011-03-26 19:17:00 +1100" pubdate  updated >Mar 26<span>th</span>, 2011</time>
-
-
-</p>
+    <h1 class="entry-title">Category: SSH</h1>
     
   </header>
-
-
-  <div class="entry-content"><p>Here’s the scenario:</p>
-
-<ol>
-<li>You’re sitting at your desktop, and you start a Screen session.</li>
-<li>You do a bunch of work (say, lots of vim and a <code>git commit</code>); and then rush off.</li>
-<li>You log in remotely, reconnect your Screen session with <code>screen -dR</code>, and try to do something that uses an SSH key (say, you <code>git push</code> to github).</li>
-<li>Your SSH session mysteriously hangs.</li>
-<li>A Ctrl-C later and a head-scratch later, you run <code>ssh -v git@github.com</code>, and you get as far as <code>debug1: Server accepts key: pkalg ssh-rsa ...</code></li>
-</ol>
-
-
-<p>Meanwhile, back on your desktop at home, GNOME has popped up this dialog:</p>
-
-<p><img class='' src='/images/posts/gnome-password-lock.png' width='' height='' alt='GNOME says, "Enter password to unlock private key"' title='GNOME says, "Enter password to unlock private key"'></p>
-
-<p>Bollocks.</p>
-
-<h3>The Fix</h3>
-
-<p>To stop this happening again, run the following:</p>
-
-<pre><code>sudo gconftool-2 --set -t bool /apps/gnome-keyring/daemon-components/ssh false
-</code></pre>
-</div>
   
+  <div id="blog-archives" class="category">
+
+
+
   
+  <h2>2011</h2>
+
+<article>
+  
+<h1><a href="/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/">Stop GNOME &#8220;Hijacking&#8221; SSH Key Entry</a></h1>
+<time datetime="2011-03-26 19:17:00 +1100" pubdate><span class='month'>Mar</span> <span class='day'>26</span> <span class='year'>2011</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/Linux/'>Linux</a>, <a class='category' href='/blog/categories/SSH/'>SSH</a></span>
+</footer>
 
 
-  </article>
-
-<nav role="pagination">
-  <div>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</nav>
+</article>
 
 </div>
+
+  
+</article>
+
+</div>
+
 <aside role=sidebar>
   
     <section>
@@ -186,6 +159,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Rob Howard</title>
+  <link href="http://robhoward.id.au/atom.xml" rel="self"/>
+  <link href="http://robhoward.id.au/"/>
+  <updated>2011-08-30T03:46:10+10:00</updated>
+  <id>http://robhoward.id.au/</id>
+  <author>
+    <name>Rob Howard</name>
+    
+      <email>robert.john.howard@gmail.com</email>
+    
+  </author>
+
+  
+  <entry>
+    <title>Stop GNOME "Hijacking" SSH Key Entry</title>
+    <link href="http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/"/>
+    <updated>2011-03-26T19:17:00+11:00</updated>
+    <id>http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry</id>
+    <content type="html">&lt;p&gt;Here’s the scenario:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You’re sitting at your desktop, and you start a Screen session.&lt;/li&gt;
+&lt;li&gt;You do a bunch of work (say, lots of vim and a &lt;code&gt;git commit&lt;/code&gt;); and then rush off.&lt;/li&gt;
+&lt;li&gt;You log in remotely, reconnect your Screen session with &lt;code&gt;screen -dR&lt;/code&gt;, and try to do something that uses an SSH key (say, you &lt;code&gt;git push&lt;/code&gt; to github).&lt;/li&gt;
+&lt;li&gt;Your SSH session mysteriously hangs.&lt;/li&gt;
+&lt;li&gt;A Ctrl-C later and a head-scratch later, you run &lt;code&gt;ssh -v git@github.com&lt;/code&gt;, and you get as far as &lt;code&gt;debug1: Server accepts key: pkalg ssh-rsa ...&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Meanwhile, back on your desktop at home, GNOME has popped up this dialog:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class='' src='http://robhoward.id.au/images/posts/gnome-password-lock.png' width='' height='' alt='GNOME says, &quot;Enter password to unlock private key&quot;' title='GNOME says, &quot;Enter password to unlock private key&quot;'&gt;&lt;/p&gt;
+
+&lt;p&gt;Bollocks.&lt;/p&gt;
+
+&lt;h3&gt;The Fix&lt;/h3&gt;
+
+&lt;p&gt;To stop this happening again, run the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo gconftool-2 --set -t bool /apps/gnome-keyring/daemon-components/ssh false
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+</feed>

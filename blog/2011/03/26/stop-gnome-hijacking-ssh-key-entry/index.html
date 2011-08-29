@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rob Howard</title>
+  <title>Rob Howard: Stop GNOME "Hijacking" SSH Key Entry</title>
   <meta name="author" content="Rob Howard">
   
 
@@ -16,7 +16,7 @@
 
   
 
-  <link rel="canonical" href="http://robhoward.id.au/index.html"/>
+  <link rel="canonical" href="http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/"/>
   <link href="/favicon.png" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -84,15 +84,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
-
-
-
-  <article>
-    
+      <div>
+<article class="hentry">
+  
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/">Stop GNOME &#8220;Hijacking&#8221; SSH Key Entry</a></h1>
+      <h1 class="entry-title">Stop GNOME &#8220;Hijacking&#8221; SSH Key Entry</h1>
     
     
       <p class="meta">
@@ -108,7 +105,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Here’s the scenario:</p>
+<div class="entry-content"><p>Here’s the scenario:</p>
 
 <ol>
 <li>You’re sitting at your desktop, and you start a Screen session.</li>
@@ -132,21 +129,48 @@
 <pre><code>sudo gconftool-2 --set -t bool /apps/gnome-keyring/daemon-components/ssh false
 </code></pre>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Rob Howard</span></span>
+
+      
+
+
+
+
+<time datetime="2011-03-26 19:17:00 +1100" pubdate  updated >Mar 26<span>th</span>, 2011</time>
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/Linux/'>Linux</a>, <a class='category' href='/blog/categories/SSH/'>SSH</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/" data-via="damncabbage" data-counturl="http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/" >Tweet</a>
   
   
+</div>
 
-
-  </article>
-
-<nav role="pagination">
-  <div>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</nav>
+  </footer>
+</article>
 
 </div>
+
 <aside role=sidebar>
   
     <section>
@@ -186,6 +210,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

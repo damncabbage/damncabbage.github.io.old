@@ -4,7 +4,7 @@
   <title>Rob Howard</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2011-08-30T03:46:10+10:00</updated>
+  <updated>2011-09-21T00:28:48+10:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -13,6 +13,56 @@
     
   </author>
 
+  
+  <entry>
+    <title>Less wood behind more arrows: nested_form</title>
+    <link href="http://robhoward.id.au/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/"/>
+    <updated>2011-09-20T20:15:00+10:00</updated>
+    <id>http://robhoward.id.au/blog/2011/09/20/less-wood-behind-more-arrows-nested-form</id>
+    <content type="html">&lt;p&gt;&lt;em&gt;(Or, &quot;Crazy forks everywhere&quot;.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;All the way back in &lt;a href=&quot;http://railscasts.com/episodes/197-nested-model-form-part-2&quot;&gt;RailsCast 197&lt;/a&gt; Ryan Bates introduced us to his javascript-powered dynamic nested form gem, &lt;a href=&quot;http://github.com/ryanb/nested_form&quot;&gt;nested_form&lt;/a&gt;. It's pretty useful, and in concert with Rails' existing &lt;code&gt;accepts_nested_attributes_for :relation&lt;/code&gt;, got pretty close to solving a problem I haven't ever seen cleanly solved without unwieldy controller code and custom javascript.&lt;/p&gt;
+
+&lt;p&gt;Ryan has previously kept it up to date (bless his socks), but now after a three months and a gradual accumulation of about twenty outstanding pull requests (some that fix niggles like hardcoded markup, the undocumented testing environment, and weird jumbled-attribute record creation bugs), I need to move on so I can &lt;a href=&quot;https://github.com/smashcon/lincoln&quot;&gt;get back to work&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, &lt;a href=&quot;https://github.com/elmatou&quot;&gt;elmatou&lt;/a&gt; forked &lt;code&gt;nested_form&lt;/code&gt;, merged a bunch of changes and made plenty of his own, and put it all in &lt;a href=&quot;https://github.com/elmatou/nested_form/tree/defacto&quot;&gt;a branch called 'defacto'&lt;/a&gt;. These changes include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configurable wrapper markup,&lt;/li&gt;
+&lt;li&gt;Actual removal of 'removed' forms,&lt;/li&gt;
+&lt;li&gt;Positionable insertion of newly-added nested forms,&lt;/li&gt;
+&lt;li&gt;Storage of the field template in a javascript variable, not inside a hidden &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; (meaning your markup doesn't break when using Formtastic).&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Also fortunately, &lt;a href=&quot;https://github.com/fxposter&quot;&gt;fxposter&lt;/a&gt; (a long-time &lt;code&gt;nested_form&lt;/code&gt; committer) has &lt;a href=&quot;https://github.com/fxposter/nested_form&quot;&gt;also forked&lt;/a&gt;, and improved the testing situation by swapping out Appraisal with an integrated dummy app.&lt;/p&gt;
+
+&lt;p&gt;As is tradition for any moderately popular project, there are a ton more forks and the situation is as messy as hell, but if you need one of the above fixes sooner than later, then pull in one of these versions of &lt;code&gt;nested_form&lt;/code&gt; by putting the following in your Gemfile:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;span class='line'&gt;6&lt;/span&gt;
+&lt;span class='line'&gt;7&lt;/span&gt;
+&lt;span class='line'&gt;8&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;div class='line'&gt;&lt;span class=&quot;c1&quot;&gt;# The Ryan Bates original:&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;c1&quot;&gt;#gem &amp;#39;nested_form&amp;#39; # The Ryan Bates original&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;c1&quot;&gt;# Fxposter&amp;#39;s fork:&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;nested_form&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:git&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;git://github.com/fxposter/nested_form.git&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;c1&quot;&gt;# Elmatou&amp;#39;s fork:&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;nested_form&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:git&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;git://github.com/elmatou/nested_form.git&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:branch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;defacto&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I've elected to go with Elmatou's fork (for the moment) for the configurable markup. Formtastic's ordered &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; field setup is not friendly at all with Ryan's hardcoded &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;(tl;dr &lt;a href=&quot;https://github.com/ryanb/nested_form&quot;&gt;nested_form&lt;/a&gt; has some odd bugs, &lt;a href=&quot;https://github.com/elmatou/nested_form/tree/defacto&quot;&gt;elmatou's fork&lt;/a&gt; has less, but &lt;a href=&quot;https://github.com/fxposter/nested_form&quot;&gt;fxposter's fork&lt;/a&gt; has a better testing setup. I'm using elmatou's to &lt;a href=&quot;https://github.com/smashcon/lincoln&quot;&gt;get on with building stuff&lt;/a&gt;. It's all kind of sad right now.)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Stop GNOME "Hijacking" SSH Key Entry</title>

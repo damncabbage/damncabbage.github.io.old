@@ -4,7 +4,7 @@
   <title>Rob Howard</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2011-09-21T00:28:48+10:00</updated>
+  <updated>2011-12-13T00:37:21+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -13,6 +13,136 @@
     
   </author>
 
+  
+  <entry>
+    <title>PHP Sadness: Short Long Days of the Week</title>
+    <link href="http://robhoward.id.au/blog/2011/12/12/php-sadness-short-long-days-of-the-week/"/>
+    <updated>2011-12-12T22:52:00+11:00</updated>
+    <id>http://robhoward.id.au/blog/2011/12/12/php-sadness-short-long-days-of-the-week</id>
+    <content type="html">&lt;p&gt;Here's an example: say we have a number (1) stored in a database table row, and we want to turn it into a human-readable day name, such as &quot;Tuesday&quot;.&lt;/p&gt;
+
+&lt;p&gt;Here was my attempt at getting it done in PHP, after checking through the arse end of the manual for the obscure date functions:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;span class='line'&gt;6&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;// Method Signature (from http://www.php.net/manual/en/function.jddayofweek.php )&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;// mixed jddayofweek ( int $julianday [, int $mode = CAL_DOW_DAYNO ] )&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;// In use:&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo jddayofweek(1, CAL_DOW_LONG);  // Produces &amp;quot;Tue&amp;quot;&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo jddayofweek(1, CAL_DOW_SHORT); // Produces &amp;quot;Tuesday&amp;quot;&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We have a &quot;set&quot; of calendar constants that would seem to apply:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CAL_DOW_DAYNO&lt;/code&gt; (evaluates to &lt;code&gt;0&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CAL_DOW_SHORT&lt;/code&gt; (evaluates to &lt;code&gt;1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CAL_DOW_LONG&lt;/code&gt; (evaluates to &lt;code&gt;2&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Looking at the method signature, &lt;code&gt;jddayofweek&lt;/code&gt; clearly uses &lt;code&gt;CAL_DOW_DAYNO&lt;/code&gt;, which would imply that &lt;code&gt;CAL_DOW_LONG&lt;/code&gt; and &lt;code&gt;CAL_DOW_SHORT&lt;/code&gt; are also usable. Right? Nope.&lt;/p&gt;
+
+&lt;p&gt;It turns out &lt;code&gt;jddayofweek&lt;/code&gt; doesn't use anything other than &lt;code&gt;CAL_DOW_DAYNO&lt;/code&gt;. &lt;code&gt;1&lt;/code&gt; returns the full day, and &lt;code&gt;2&lt;/code&gt; returns an abbreviated day. &lt;code&gt;jddayofweek&lt;/code&gt; doesn't use the rest of the &lt;code&gt;CAL_DOW_...&lt;/code&gt; constants at all, just the plain numbers instead.&lt;/p&gt;
+
+&lt;h2&gt;Learnings&lt;/h2&gt;
+
+&lt;p&gt;This is a good argument for symbols a la Ruby (or atoms as per Erlang, or similar concepts across a host of other languages).&lt;/p&gt;
+
+&lt;h3&gt;Constants&lt;/h3&gt;
+
+&lt;p&gt;With PHP (and C, Ruby, Perl and a bunch of other languages), constants are thin veils draped over values like integers and strings; you can see right through them if you get close enough. Several PHP constants could evaluate to the same value. Here's a sampler of constants that evaluate to &lt;code&gt;2&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CAL_DOW_LONG&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CAL_EASTER_ALWAYS_GREGORIAN&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IMG_JPG&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MYSQLI_NUM&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;X509_PURPOSE_SSL_SERVER&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EXTR_PREFIX_SAME&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;E_WARNING&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Say we have this function:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;const(&amp;quot;STATUS_PEACE&amp;quot;, 1);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;const(&amp;quot;STATUS_WAR&amp;quot;, 2);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;function should_launch_nukes($status) {&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;  return ($status == STATUS_WAR);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;These are functionally equivalent:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;// All indicate we should launch the nukes.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo should_launch_nukes(STATUS_WAR);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo should_launch_nukes(CAL_DOW_LONG);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo should_launch_nukes(MYSQLI_NUM);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;x&quot;&gt;echo should_launch_nukes(2);&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Ruby Symbols&lt;/h3&gt;
+
+&lt;p&gt;With Ruby, a symbol is like a block of granite; it's the same thing all the way through. A function that accepts &lt;code&gt;:jpg&lt;/code&gt; is never going to accidentally accept a symbol like &lt;code&gt;:dow_long&lt;/code&gt;. As far as the guy typing in the code cares, &lt;code&gt;:jpg&lt;/code&gt; means neither &lt;code&gt;2&lt;/code&gt; nor &lt;code&gt;&quot;jpg&quot;&lt;/code&gt;; it just means &lt;code&gt;:jpg&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;span class='line'&gt;6&lt;/span&gt;
+&lt;span class='line'&gt;7&lt;/span&gt;
+&lt;span class='line'&gt;8&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;launch_nukes?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;  &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:war&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;launch_nukes?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:peace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Nope.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;launch_nukes?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:dow_long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Nope.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;launch_nukes?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Nope.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;n&quot;&gt;launch_nukes?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:war&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Fire ze missiles.&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Strings vs Symbols&lt;/h3&gt;
+
+&lt;p&gt;So why not strings instead? &lt;code&gt;launch_nukes?(&quot;peace&quot;)&lt;/code&gt; would be just as good, right?&lt;/p&gt;
+
+&lt;p&gt;With the bonus semantic benefits aside, symbols are just plain efficient. &lt;code&gt;:jpg&lt;/code&gt; is &lt;code&gt;:jpg&lt;/code&gt; is &lt;code&gt;:jpg&lt;/code&gt;. Inspect a bunch of &lt;code&gt;:jpg&lt;/code&gt; symbols, and you'll find they'll all be references to the one object. Try this out:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;div class='line'&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jpg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 454088&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jpg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 454088&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jpg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 454088&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(This is, though, arguably a problem with Ruby. Python treats strings as immutable, and are thus the same as symbols in this regard. Ruby strings are mutable (eg. &lt;code&gt;str = &quot;foo&quot;; str &amp;lt;&amp;lt; &quot;bar&quot;; puts str&lt;/code&gt; outputs &quot;foobar&quot;), so we need a separate classification for the immutable variant. Consider, though, that PHP strings are mutable, &lt;em&gt;and&lt;/em&gt; there is no separate symbol-alike type.)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/&quot;&gt;This article by Robert Sosinski&lt;/a&gt; goes into greater depth about the inner workings of symbols and how they differ from strings. (Cheers to Mr Sosinski for the idea for the Nukes example.)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Less wood behind more arrows: nested_form</title>

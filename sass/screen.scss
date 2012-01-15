@@ -7,6 +7,8 @@ em { font-style: italic; }
 // Library includes
 @import "blueprint";
 @import "compass/utilities";
+@import "compass/css3";
+@import "partials/utilities";
 
 // Typography
 @import "partials/fonts";
@@ -139,3 +141,10 @@ article {
 	@include prepend($navigation-columns);
 	@include adjust-font-size-to(12px);
 }
+
+
+// Syntax Highlighting
+$solarized: light;
+@import "partials/_solarized";
+@import "partials/_syntax";
+

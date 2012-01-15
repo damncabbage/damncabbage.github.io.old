@@ -1,0 +1,19 @@
+<p class="meta">Posted on
+{% capture date %}{{ page.date }}{{ post.date }}{% endcapture %}
+{% capture has_date %}{{ date | size }}{% endcapture %}
+{% capture updated %}{{ page.updated }}{{ post.updated }}{% endcapture %}
+{% capture was_updated %}{{ updated | size }}{% endcapture %}
+{% if has_date != '0' %}
+  <time datetime="{{ date | datetime }}" pubdate {% if updated %} updated {% endif %}>{{ date | ordinalize }}</time>
+{% endif %}
+{% if was_updated != '0' %}
+  <time class="updated" datetime="{{ updated | datetime }}">{{ updated | ordinalize }}</time>
+{% endif %}
+{% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
+{% unless category == '0' %}
+  {% if post %}
+    under {{ post.categories | category_links }}
+  {% else %}
+    under {{ page.categories | category_links }}
+  {% endif %}
+{% endunless %}

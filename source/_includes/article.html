@@ -6,7 +6,7 @@
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
     {% unless page.meta == false %}
-      <p class="meta">Posted on {% include post/date.html %}</p>
+      {% include post/meta.html %}
     {% endunless %}
   </header>
 {% endunless %}

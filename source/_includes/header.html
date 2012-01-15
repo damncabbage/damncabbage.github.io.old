@@ -1,1 +1,4 @@
-{% include custom/header.html %}
+<h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+{% if site.subtitle %}
+  <p class="tagline">{{ site.subtitle }}</p>
+{% endif %}

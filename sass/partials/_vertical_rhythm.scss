@@ -1,0 +1,10 @@
+// The height of the filler needed to push content down to the
+// next vertical-rhythm line.
+//
+// eg. margin-bottom: fill-to-nearest-line(image-height('cabbage.png'));
+//
+@function fill-to-nearest-line($block-height-in-px, $line-height: $base-line-height) {
+	$unitless-block-height: $block-height-in-px / 1px;
+	$unitless-line-height:  $line-height / 1px;
+	@return (ceil($unitless-block-height / $unitless-line-height) * $line-height) - $block-height-in-px;
+}

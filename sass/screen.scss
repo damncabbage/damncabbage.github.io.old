@@ -1,9 +1,127 @@
-@import "compass";
-@include global-reset;
-@include reset-html5;
 
-@import "custom/colors";
-@import "custom/layout";
-@import "base";
-@import "partials";
-@import "custom/styles";
+// Resets
+@import "blueprint/reset";
+li { list-style: none; }
+em { font-style: italic; }
+
+// Library includes
+@import "blueprint";
+@import "compass/utilities";
+
+// Typography
+@import "partials/fonts";
+// Sizes: 12, 14, 16, 18, 21, 24, 36, 48, 60, 72
+.heading-font { font-family: 'Sorts Mill Goudy', 'Georgia', 'Times', 'Times New Roman', serif; }
+.copy-font    { font-family: 'Helvetica Neue', 'Arial', sans-serif; }
+
+// Vertical Rhythm
+@import "compass/typography/vertical_rhythm";
+@import "partials/vertical_rhythm";
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+// Blueprint Grid
+$blueprint-grid-columns: 24;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: 10px;
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+// Colours
+$base: #222;
+$feature: #777;
+
+
+// Site-Wide Container
+#container {
+	@extend .copy-font;
+	@include container;
+	@include prepend-top;
+	color: $base;
+	//@include grid-background;
+}
+
+.link {
+	text-decoration: none;
+	color: $feature;
+}
+
+$navigation-columns: 4;
+$content-columns: 20;
+
+nav#primary {
+	@include span($navigation-columns);
+	display: block;
+	position: fixed;
+
+	a.illustration {
+		display: block;
+		@include replace-text-with-dimensions('cabbage.png');
+		margin-bottom: fill-to-nearest-line(image-height('cabbage.png'));
+		position: relative; left: -5px; // Pull to the left to have the leaves hang out a little.
+	}
+
+	li a {
+		@extend .link;
+		@include adjust-font-size-to(14px);
+		display: block;
+		font-weight: bold;
+	}
+}
+
+#content {
+	@include prepend($navigation-columns);
+	@include column($content-columns, true);
+}
+
+header#masthead {
+	h1 {
+		@extend .heading-font;
+		@include adjust-font-size-to(72px);
+		position: relative; left: -2px; // Pull left to counteract glyph padding.
+		& > a { color: $base; text-decoration: none; }
+	}
+	.tagline {
+		@include adjust-font-size-to(14px);
+		position: relative; top: $base-line-height * -1; left: 11px; // Pull it up a line, push to the right.
+	}
+}
+
+
+article {
+	@include trailer(3);
+
+	h1, h2, h3, h4 { @extend .heading-font; }
+	h1 { @include adjust-font-size-to(32px); }
+	h2 { @include adjust-font-size-to(24px); }
+	h3 { @include adjust-font-size-to(21px); }
+	h4 { @include adjust-font-size-to(18px); }
+
+	header {
+		h1 {
+			position: relative; top: -4px; left: -1px; // Pull up to line up with menu, and left to counteract glyph padding.
+			& > a { color: $base; text-decoration: none; }
+		}
+		p {
+			@include adjust-font-size-to(14px);
+			position: relative; top: -14px; // Pull up underneath heading, create 2/3rds gap before article copy.
+		}
+	}
+}
+
+.copy {
+	p {
+		@include trailer(1);
+	}
+	& > div, & > blockquote, & > ul, & > ol {
+		@include trailer(1);
+		@include prepend(1); @include span($content-columns - 2); // Skinnier box; pull in a column either side.
+	}
+	a { @extend .link; }
+}
+
+#container > footer {
+	@include leader(1);
+	@include prepend($navigation-columns);
+	@include adjust-font-size-to(12px);
+}

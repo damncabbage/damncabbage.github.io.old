@@ -6,12 +6,12 @@
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
     {% unless page.meta == false %}
-      <p class="meta">{% include post/date.html %}</p>
+      <p class="meta">Posted on {% include post/date.html %}</p>
     {% endunless %}
   </header>
 {% endunless %}
 {% if index %}
-  <div class="entry-content">{{ content | excerpt }}</div>
+  <div class="copy">{{ content | excerpt }}</div>
   {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
   {% if excerpted == 'true' %}
     <footer>
@@ -19,5 +19,5 @@
     </footer>
   {% endif %}
 {% else %}
-<div class="entry-content">{{ content }}</div>
+<div class="copy">{{ content }}</div>
 {% endif %}

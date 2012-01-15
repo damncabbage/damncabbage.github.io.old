@@ -1,0 +1,26 @@
+/*
+ * This is a Compass Sass stylesheet; the canonical source for these styles are in scss/screen.scss
+ * Use the following to import the generated screen stylesheet:
+ * <link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ */
+
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3";
+
+
+/* Global Vars */
+$fullWidth: 960px;
+
+$colorText: #222;
+$colorHighlight: #48f;
+$colorFullGrey: #222;
+$colorTwoThirdsGrey: #777;
+$colorOneThirdGrey: #aaa;
+
+$underlineWeight: 4px;
+
+/* Drag in all the regular styles */
+@import "partials/fonts";
+@import "partials/article";
+

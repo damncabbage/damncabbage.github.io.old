@@ -1,0 +1,35 @@
+/*
+ * This is a Compass Sass stylesheet; the canonical source for these styles are in scss/print.scss
+ * Use the following to import the generated print stylesheet:
+ * <link href="print.css" media="print" rel="stylesheet" type="text/css" />
+ */
+
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3";
+
+
+/* Global Vars */
+$fullWidth: 960px;
+
+$colorText: #222;
+$colorHighlight: #48f;
+
+/* Print stylesheet needs darker greys, otherwise everything
+   appears washed out. */
+$colorFullGrey: #222;
+$colorTwoThirdsGrey: #555;
+$colorOneThirdGrey: #999;
+
+$underlineWeight: 4px;
+
+/* Drag in all the regular styles */
+@import "partials/fonts";
+@import "partials/article";
+
+/* HACK: Alter the positioning of some elements that look weird when printed. */
+section h2 {
+	.position, .timespan {
+		top: 0.29em;
+	}
+}

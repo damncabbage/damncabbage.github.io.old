@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Rob Howard</title>
+  <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2011-12-13T14:28:04+11:00</updated>
+  <updated>2012-01-15T21:45:12+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
     
-      <email>robert.john.howard@gmail.com</email>
+      <email>rob@robhoward.id.au</email>
     
   </author>
 
   
   <entry>
     <title>PHP Sadness: Short Long Days of the Week</title>
-    <link href="http://robhoward.id.au/blog/2011/12/12/php-sadness-short-long-days-of-the-week/"/>
+    <link href="http://robhoward.id.au/blog/2011/12/php-sadness-short-long-days-of-the-week/"/>
     <updated>2011-12-12T22:52:00+11:00</updated>
-    <id>http://robhoward.id.au/blog/2011/12/12/php-sadness-short-long-days-of-the-week</id>
+    <id>http://robhoward.id.au/blog/2011/12/php-sadness-short-long-days-of-the-week</id>
     <content type="html">&lt;p&gt;Here's an example: say we have a number (1) stored in a database table row, and we want to turn it into a human-readable day name, such as &quot;Tuesday&quot;.&lt;/p&gt;
 
 &lt;p&gt;Here was my attempt at getting it done in PHP, after checking through the arse end of the manual for the obscure date functions:&lt;/p&gt;
@@ -146,9 +146,9 @@
   
   <entry>
     <title>Less wood behind more arrows: nested_form</title>
-    <link href="http://robhoward.id.au/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/"/>
+    <link href="http://robhoward.id.au/blog/2011/09/less-wood-behind-more-arrows-nested-form/"/>
     <updated>2011-09-20T20:15:00+10:00</updated>
-    <id>http://robhoward.id.au/blog/2011/09/20/less-wood-behind-more-arrows-nested-form</id>
+    <id>http://robhoward.id.au/blog/2011/09/less-wood-behind-more-arrows-nested-form</id>
     <content type="html">&lt;p&gt;&lt;em&gt;(Or, &quot;Crazy forks everywhere&quot;.)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;All the way back in &lt;a href=&quot;http://railscasts.com/episodes/197-nested-model-form-part-2&quot;&gt;RailsCast 197&lt;/a&gt; Ryan Bates introduced us to his javascript-powered dynamic nested form gem, &lt;a href=&quot;http://github.com/ryanb/nested_form&quot;&gt;nested_form&lt;/a&gt;. It's pretty useful, and in concert with Rails' existing &lt;code&gt;accepts_nested_attributes_for :relation&lt;/code&gt;, got pretty close to solving a problem I haven't ever seen cleanly solved without unwieldy controller code and custom javascript.&lt;/p&gt;
@@ -196,9 +196,9 @@
   
   <entry>
     <title>Stop GNOME "Hijacking" SSH Key Entry</title>
-    <link href="http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry/"/>
+    <link href="http://robhoward.id.au/blog/2011/03/stop-gnome-hijacking-ssh-key-entry/"/>
     <updated>2011-03-26T19:17:00+11:00</updated>
-    <id>http://robhoward.id.au/blog/2011/03/26/stop-gnome-hijacking-ssh-key-entry</id>
+    <id>http://robhoward.id.au/blog/2011/03/stop-gnome-hijacking-ssh-key-entry</id>
     <content type="html">&lt;p&gt;Here’s the scenario:&lt;/p&gt;
 
 &lt;ol&gt;

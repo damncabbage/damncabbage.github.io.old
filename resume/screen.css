@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/*
+ * This is a Compass Sass stylesheet; the canonical source for these styles are in scss/screen.scss
+ * Use the following to import the generated screen stylesheet:
+ * <link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: "" "";
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+a img {
+  border: none;
+}
+
+/* Global Vars */
+/* Drag in all the regular styles */
+/* Header */
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url("fonts/League_Gothic-webfont.eot");
+  src: local("☺"), url("fonts/League_Gothic-webfont.woff") format("woff"), url("fonts/League_Gothic-webfont.ttf") format("truetype"), url("fonts/League_Gothic-webfont.svg#webfont1Lb5Pdit") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Verdana', 'Arial', sans-serif;
+  background: #fff;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  color: #222222;
+}
+
+a {
+  text-decoration: none;
+  color: #777777;
+}
+a:hover, a:active {
+  border-bottom: 1px solid #777777;
+}
+
+#article {
+  width: 960px;
+  margin: 2em auto;
+}
+
+.header h1 {
+  float: left;
+  font-family: 'LeagueGothicRegular', 'Helvetica Condensed Black', 'Helvetica Condensed', 'Arial Black', 'Arial', sans-serif;
+  font-size: 6em;
+  line-height: 1em;
+  text-indent: -0.02em;
+  /* The font glyph has internal padding, which becomes
+     evident at large sizes; counteract this. */
+}
+.header .details {
+  display: block;
+  float: right;
+}
+.header .details li {
+  display: block;
+  font-size: 0.9em;
+  line-height: 1.47em;
+  text-align: right;
+  color: #777777;
+}
+
+.section {
+  padding-top: 2em;
+  clear: both;
+}
+.section li, .section p {
+  text-align: justify;
+}
+.section h2, .section h3, .section h4 {
+  text-transform: uppercase;
+}
+.section h2, .section h3 {
+  display: block;
+  font-size: 1.1em;
+  line-height: 15px;
+  text-indent: -0.05em;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.2em;
+}
+.section h2 {
+  float: left;
+  width: 225px;
+  margin-right: 15px;
+  font-weight: bold;
+  color: #aaaaaa;
+  /* Hack to force consistent height across headings. */
+  line-height: 16px;
+}
+.section .listing {
+  float: right;
+  width: 720px;
+  padding: 1.4em 0 1em;
+}
+.section .listing.first {
+  padding-top: 0;
+}
+.section .listing h3 {
+  *zoom: 1;
+  color: #aaaaaa;
+  /* Hack to force consistent height on the underlined headings. */
+  height: 16px;
+  line-height: 16px;
+}
+.section .listing h3:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.section .listing h3 .principal, .section .listing h3 .position {
+  font-weight: bold;
+}
+.section .listing h3 .principal {
+  color: #222222;
+  font-weight: bold;
+}
+.section .listing h3 .position, .section .listing h3 .timespan {
+  font-size: 0.8em;
+  vertical-align: baseline;
+  color: #777777;
+}
+.section .listing p, .section .listing h4, .section .listing ul {
+  font-size: 0.92em;
+}
+.section .listing h4 {
+  color: #4488ff;
+  padding: 1.2em 0 0;
+  font-weight: bold;
+}
+.section .listing h5 {
+  padding: 0.3em 0 0.4em;
+  font-size: 0.82em;
+  line-height: 1em;
+}
+.section .listing ul {
+  padding: 0.4em 0;
+  display: block;
+}
+.section .listing ul li {
+  margin-left: 17px;
+  padding-left: 5px;
+  padding-bottom: 0.4em;
+  list-style: square outside url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sBCgoAO1ps42oAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAFklEQVQY02NUUlL6z4AHMDEQAMNDAQB0twF1MNyz0gAAAABJRU5ErkJggg==');
+}
+.section .listing ul li .mini-heading {
+  display: block;
+  padding-bottom: 0.15em;
+  font-weight: bold;
+}
+.section .listing ul li .mini-heading a {
+  padding-left: 0.1em;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+.section .skills {
+  *zoom: 1;
+  margin-top: -0.2em;
+}
+.section .skills:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.section .skills li {
+  float: left;
+  padding-right: 0.8em;
+  color: #777777;
+}
+.section .skills li.strong {
+  font-weight: bold;
+}
+.section .skills li.weak {
+  color: #aaaaaa;
+}
+.section .skills li:after {
+  content: ',';
+}
+.section .skills li.last:after {
+  content: '';
+}

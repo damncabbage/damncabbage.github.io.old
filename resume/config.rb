@@ -1,0 +1,13 @@
+# Require any additional compass plugins here.
+# Set this to the root of your project when deployed:
+http_path = "/res/"
+css_dir = ""
+sass_dir = "scss"
+images_dir = "images"
+javascripts_dir = "js"
+
+# To enable relative paths to assets via compass helper functions. Uncomment:
+relative_assets = true
+
+# Turn off the debugging comments
+line_comments = false

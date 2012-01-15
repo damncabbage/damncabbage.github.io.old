@@ -41,9 +41,16 @@ $feature: #777;
 	//@include grid-background;
 }
 
-.link {
+a {
+	color: $base;
 	text-decoration: none;
+}
+
+a.link {
 	color: $feature;
+	&:hover, &:active {
+		text-decoration: underline;
+	}
 }
 
 $navigation-columns: 4;
@@ -62,7 +69,7 @@ nav#primary {
 	}
 
 	li a {
-		@extend .link;
+		@extend a.link;
 		@include adjust-font-size-to(14px);
 		display: block;
 		font-weight: bold;
@@ -79,7 +86,6 @@ header#masthead {
 		@extend .heading-font;
 		@include adjust-font-size-to(72px);
 		position: relative; left: -2px; // Pull left to counteract glyph padding.
-		& > a { color: $base; text-decoration: none; }
 	}
 	.tagline {
 		@include adjust-font-size-to(14px);
@@ -100,12 +106,20 @@ article {
 	header {
 		h1 {
 			position: relative; top: -4px; left: -1px; // Pull up to line up with menu, and left to counteract glyph padding.
-			& > a { color: $base; text-decoration: none; }
 		}
 		p {
 			@include adjust-font-size-to(14px);
 			position: relative; top: -14px; // Pull up underneath heading, create 2/3rds gap before article copy.
+			a { @extend a.link; }
 		}
+	}
+}
+
+#blog-archives {
+	ul li {
+		display: block;
+		@include trailer(1);
+		p.meta a { @extend a.link; }
 	}
 }
 
@@ -117,11 +131,11 @@ article {
 		@include trailer(1);
 		@include prepend(1); @include span($content-columns - 2); // Skinnier box; pull in a column either side.
 	}
-	a { @extend .link; }
+	a { @extend a.link; }
 }
 
 #container > footer {
-	@include leader(1);
+	@include trailer(1);
 	@include prepend($navigation-columns);
 	@include adjust-font-size-to(12px);
 }

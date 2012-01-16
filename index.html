@@ -110,109 +110,63 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>We have a &#8220;set&#8221; of calendar constants that would seem to apply:</p>
+<p>Ow. So what&#8217;s going on?</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/php-sadness-short-long-days-of-the-week/">Read more &rarr;</a>
+    </footer>
+  
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/languages-and-languages/">Languages and Languages</a></h1>
+    
+    
+      <p class="meta">Posted on
+
+
+
+
+
+  <time datetime="2011-10-14 09:47:00 +1100" pubdate  updated >Oct 14<span>th</span>, 2011</time>
+
+
+
+
+
+    
+  </header>
+
+
+  <div class="copy"><blockquote><p>C is very much the Latin of modern programming. Learning it helps your understanding
+of so many other things. (In case you&#8217;re curious, Lisp is Greek and I mean that affectionately.)
+&#8211; (bitops)[http://news.ycombinator.com/item?id=3108923]</p></blockquote>
+
+<p>In a similar vein:</p>
 
 <ul>
-<li><code>CAL_DOW_DAYNO</code> (evaluates to <code>0</code>)</li>
-<li><code>CAL_DOW_SHORT</code> (evaluates to <code>1</code>)</li>
-<li><code>CAL_DOW_LONG</code> (evaluates to <code>2</code>)</li>
+<li><p><strong>Java is French.</strong> A relative new-comer, loaded down with seemingly excess baggage (cf: all those goddamn silent letters), but is still efficient and gets the point across in a nuanced fashion.</p></li>
+<li><p><strong>Perl is heavily-accented regional English.</strong> Like, say, Nottingham English. It&#8217;s incomprehensible as hell, but pretty good once you realise what <em>&#8220;Unfort he&#8217;s notawith&#8217;s nymore, but-he&#8217;s still &#8216;ere ina &#8216;arts&#8221;</em> means.</p></li>
+<li><p><strong>Ruby is plain-form Japanese.</strong> Sparse, flexible, but low on context. Better have figured out the subject of the sentence when someone says the equivalent of &#8220;tomorrow 4pm at library&#8221;.</p></li>
+<li><p><strong>Smalltalk is Japanese Keigo.</strong> Same deal, but older and more decorated.</p></li>
+<li><p><em>Brainfuck is Morse Code</em>&#8230; Made by blowing raspberries.</p></li>
+<li><p><strong>XSLT is Pig Latin.</strong> I&#8217;m sure it was very funny the first couple of times it was used.</p></li>
+<li><p><strong>PHP is Singaporean English.</strong> A blended language, mixing of a bunch of different styles in one package. Familiar-sounding but tough to fully understand, seemingly backwards anyone who recognises where the words originally came from, and needs years of practice before you don&#8217;t sound like a complete tool when using it. (<em>&#8220;This ger arh, she siao 4D.&#8221;</em>)</p></li>
+<li><p><strong>Dart is Esperanto.</strong> I&#8217;m sure it&#8217;ll totally catch on.</p></li>
+<li><p><strong>Clojure is Danish.</strong> Nobody <a href="http://www.youtube.com/watch?v=s-mOy8VUEBk">actually speaks Danish</a>.</p></li>
 </ul>
 
 
-<p>Looking at the method signature, <code>jddayofweek</code> clearly uses <code>CAL_DOW_DAYNO</code>, which would imply that <code>CAL_DOW_LONG</code> and <code>CAL_DOW_SHORT</code> are also usable. Right? Nope.</p>
+<p>Finally, years of language study put to practical use.</p>
 
-<p>It turns out <code>jddayofweek</code> doesn&#8217;t use anything other than <code>CAL_DOW_DAYNO</code>. <code>1</code> returns the full day, and <code>2</code> returns an abbreviated day. <code>jddayofweek</code> doesn&#8217;t use the rest of the <code>CAL_DOW_...</code> constants at all, just the plain numbers instead.</p>
-
-<h2>Learnings</h2>
-
-<p>This is a good argument for symbols a la Ruby (or atoms as per Erlang, or similar concepts across a host of other languages).</p>
-
-<h3>Constants</h3>
-
-<p>With PHP (and C, Ruby, Perl and a bunch of other languages), constants are thin veils draped over values like integers and strings; you can see right through them if you get close enough. Several PHP constants could evaluate to the same value. Here&#8217;s a sampler of constants that evaluate to <code>2</code>:</p>
-
-<ul>
-<li><code>CAL_DOW_LONG</code></li>
-<li><code>CAL_EASTER_ALWAYS_GREGORIAN</code></li>
-<li><code>IMG_JPG</code></li>
-<li><code>MYSQLI_NUM</code></li>
-<li><code>X509_PURPOSE_SSL_SERVER</code></li>
-<li><code>EXTR_PREFIX_SAME</code></li>
-<li><code>E_WARNING</code></li>
-</ul>
-
-
-<p>Say we have this function:</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-</pre></td><td class='code' width='100%'><pre><code class='php'><div class='line'><span class="x">const(&quot;STATUS_PEACE&quot;, 1);</span>
-</div><div class='line'><span class="x">const(&quot;STATUS_WAR&quot;, 2);</span>
-</div><div class='line'><span class="x">function should_launch_nukes($status) {</span>
-</div><div class='line'><span class="x">  return ($status == STATUS_WAR);</span>
-</div><div class='line'><span class="x">}</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<p>These are functionally equivalent:</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-</pre></td><td class='code' width='100%'><pre><code class='php'><div class='line'><span class="x">// All indicate we should launch the nukes.</span>
-</div><div class='line'><span class="x">echo should_launch_nukes(STATUS_WAR);</span>
-</div><div class='line'><span class="x">echo should_launch_nukes(CAL_DOW_LONG);</span>
-</div><div class='line'><span class="x">echo should_launch_nukes(MYSQLI_NUM);</span>
-</div><div class='line'><span class="x">echo should_launch_nukes(2);</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<h3>Ruby Symbols</h3>
-
-<p>With Ruby, a symbol is like a block of granite; it&#8217;s the same thing all the way through. A function that accepts <code>:jpg</code> is never going to accidentally accept a symbol like <code>:dow_long</code>. As far as the guy typing in the code cares, <code>:jpg</code> means neither <code>2</code> nor <code>"jpg"</code>; it just means <code>:jpg</code>.</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-<span class='line'>7</span>
-<span class='line'>8</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="k">def</span> <span class="nf">launch_nukes?</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-</div><div class='line'>  <span class="n">status</span> <span class="o">==</span> <span class="ss">:war</span>
-</div><div class='line'><span class="k">end</span>
-</div><div class='line'>
-</div><div class='line'><span class="n">launch_nukes?</span><span class="p">(</span><span class="ss">:peace</span><span class="p">)</span>    <span class="c1"># =&gt; Nope.</span>
-</div><div class='line'><span class="n">launch_nukes?</span><span class="p">(</span><span class="ss">:dow_long</span><span class="p">)</span> <span class="c1"># =&gt; Nope.</span>
-</div><div class='line'><span class="n">launch_nukes?</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>         <span class="c1"># =&gt; Nope.</span>
-</div><div class='line'><span class="n">launch_nukes?</span><span class="p">(</span><span class="ss">:war</span><span class="p">)</span>      <span class="c1"># =&gt; Fire ze missiles.</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<h3>Strings vs Symbols</h3>
-
-<p>So why not strings instead? <code>launch_nukes?("peace")</code> would be just as good, right?</p>
-
-<p>With the bonus semantic benefits aside, symbols are just plain efficient. <code>:jpg</code> is <code>:jpg</code> is <code>:jpg</code>. Inspect a bunch of <code>:jpg</code> symbols, and you&#8217;ll find they&#8217;ll all be references to the one object. Try this out:</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="nb">puts</span> <span class="ss">:jpg</span><span class="o">.</span><span class="n">object_id</span> <span class="c1"># =&gt; 454088</span>
-</div><div class='line'><span class="nb">puts</span> <span class="ss">:jpg</span><span class="o">.</span><span class="n">object_id</span> <span class="c1"># =&gt; 454088</span>
-</div><div class='line'><span class="nb">puts</span> <span class="ss">:jpg</span><span class="o">.</span><span class="n">object_id</span> <span class="c1"># =&gt; 454088</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<p>(This is, though, arguably a problem with Ruby. Python treats strings as immutable, and are thus the same as symbols in this regard. Ruby strings are mutable (eg. <code>str = "foo"; str &lt;&lt; "bar"; puts str</code> outputs &#8220;foobar&#8221;), so we need a separate classification for the immutable variant. Consider, though, that PHP strings are mutable, <em>and</em> there is no separate symbol-alike type.)</p>
-
-<p><a href="http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/">This article by Robert Sosinski</a> goes into greater depth about the inner workings of symbols and how they differ from strings. (Cheers to Mr Sosinski for the idea for the Nukes example.)</p>
+<p>(Props to <a href="http://blackicemedia.com">Geoff</a> for <em>Dart</em> and <em>Brainfuck</em>.)</p>
 </div>
   
   

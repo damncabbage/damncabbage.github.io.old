@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-16T12:55:01+11:00</updated>
+  <updated>2012-01-16T12:56:26+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -141,31 +141,6 @@
 &lt;p&gt;(This is, though, arguably a problem with Ruby. Python treats strings as immutable, and are thus the same as symbols in this regard. Ruby strings are mutable (eg. &lt;code&gt;str = &quot;foo&quot;; str &amp;lt;&amp;lt; &quot;bar&quot;; puts str&lt;/code&gt; outputs &quot;foobar&quot;), so we need a separate classification for the immutable variant. Consider, though, that PHP strings are mutable, &lt;em&gt;and&lt;/em&gt; there is no separate symbol-alike type.)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/&quot;&gt;This article by Robert Sosinski&lt;/a&gt; goes into greater depth about the inner workings of symbols and how they differ from strings. (Cheers to Mr Sosinski for the idea for the Nukes example.)&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Bridging the PHP/Ruby Divide: Testing With Timecop</title>
-    <link href="http://robhoward.id.au/blog/2011/10/bridging-the-divide-testing-with-timecop/"/>
-    <updated>2011-10-25T11:32:00+11:00</updated>
-    <id>http://robhoward.id.au/blog/2011/10/bridging-the-divide-testing-with-timecop</id>
-    <content type="html">&lt;p&gt;&lt;em&gt;This is the first in a short series of posts showing you how to use some of the advances made in the Ruby world in your PHP work.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2&gt;Timecop (Ruby)&lt;/h2&gt;
-
-&lt;h2&gt;Timecop-PHP&lt;/h2&gt;
-
-&lt;p&gt;(These instructions are aimed at those with a Debian/Ubuntu development box.)&lt;/p&gt;
-
-&lt;p&gt;{{{
-$ git clone https://github.com/zenovich/runkit.git
-$ cd runkit
-$ sudo pecl install package.xml
-$ sudo su -c 'echo -e &quot;extension=runkit.so\nrunkit.internal_override=1&quot; &gt; /etc/php5/conf.d/runkit.ini'
-$ sudo service apache2 restart # Or 'sudo service php5-fpm restart' instead
-}}}&lt;/p&gt;
-
-&lt;p&gt;Clone Timecop-PHP with &lt;code&gt;git clone git://github.com/erikfercak/Timecop-PHP.git&lt;/code&gt;, and include it in your&lt;/p&gt;
 </content>
   </entry>
   

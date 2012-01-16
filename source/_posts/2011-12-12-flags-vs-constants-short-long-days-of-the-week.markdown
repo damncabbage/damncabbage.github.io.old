@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PHP Sadness: Short Long Days of the Week"
+title: "Flags vs Constants, and Short-Long Days of the Week"
 date: 2011-12-12 22:52
 comments: true
 categories:

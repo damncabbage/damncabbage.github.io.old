@@ -136,6 +136,8 @@ article {
 		@include trailer(1);
 		@include prepend(1); @include span($content-columns - 2); // Skinnier box; pull in a column either side.
 	}
+	ul li { list-style: disc outside none; }
+	ol li { list-style: number outside none; }
 	a { @extend a.link; }
 }
 

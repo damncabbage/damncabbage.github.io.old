@@ -3,7 +3,8 @@ layout: post
 title: "PHP Sadness: Short Long Days of the Week"
 date: 2011-12-12 22:52
 comments: true
-categories: 
+categories:
+- PHP
 ---
 
 Here's an example: say we have a number (1) stored in a database table row, and we want to turn it into a human-readable day name, such as "Tuesday".
@@ -18,6 +19,8 @@ Here was my attempt at getting it done in PHP, after checking through the arse e
 echo jddayofweek(1, CAL_DOW_LONG);  // Produces "Tue"
 echo jddayofweek(1, CAL_DOW_SHORT); // Produces "Tuesday"
 {% endcodeblock %}
+
+Ow. So what's going on?<!--more-->
 
 We have a "set" of calendar constants that would seem to apply:
 

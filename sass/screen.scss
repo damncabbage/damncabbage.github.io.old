@@ -40,7 +40,10 @@ $feature: #777;
 	@include container;
 	@include prepend-top;
 	color: $base;
-	//@include grid-background;
+}
+
+body.grid #container {
+	@include grid-background; // Just for debugging.
 }
 
 a {

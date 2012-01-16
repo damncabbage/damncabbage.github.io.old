@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-16T13:20:10+11:00</updated>
+  <updated>2012-01-17T08:06:13+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -143,36 +143,6 @@
 &lt;p&gt;(This is, though, arguably a problem with Ruby. Python treats strings as immutable, and are thus the same as symbols in this regard. Ruby strings are mutable (eg. &lt;code&gt;str = &quot;foo&quot;; str &amp;lt;&amp;lt; &quot;bar&quot;; puts str&lt;/code&gt; outputs &quot;foobar&quot;), so we need a separate classification for the immutable variant. Consider, though, that PHP strings are mutable, &lt;em&gt;and&lt;/em&gt; there is no separate symbol-alike type.)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/&quot;&gt;This article by Robert Sosinski&lt;/a&gt; goes into greater depth about the inner workings of symbols and how they differ from strings. (Cheers to Mr Sosinski for the idea for the Nukes example.)&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Languages and Languages</title>
-    <link href="http://robhoward.id.au/blog/2011/10/languages-and-languages/"/>
-    <updated>2011-10-14T09:47:00+11:00</updated>
-    <id>http://robhoward.id.au/blog/2011/10/languages-and-languages</id>
-    <content type="html">&lt;blockquote&gt;&lt;p&gt;C is very much the Latin of modern programming. Learning it helps your understanding
-of so many other things. (In case you're curious, Lisp is Greek and I mean that affectionately.)
--- (bitops)[http://news.ycombinator.com/item?id=3108923]&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;In a similar vein:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Java is French.&lt;/strong&gt; A relative new-comer, loaded down with seemingly excess baggage (cf: all those goddamn silent letters), but is still efficient and gets the point across in a nuanced fashion.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perl is heavily-accented regional English.&lt;/strong&gt; Like, say, Nottingham English. It's incomprehensible as hell, but pretty good once you realise what &lt;em&gt;&quot;Unfort he's notawith's nymore, but-he's still 'ere ina 'arts&quot;&lt;/em&gt; means.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Ruby is plain-form Japanese.&lt;/strong&gt; Sparse, flexible, but low on context. Better have figured out the subject of the sentence when someone says the equivalent of &quot;tomorrow 4pm at library&quot;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Smalltalk is Japanese Keigo.&lt;/strong&gt; Same deal, but older and more decorated.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Brainfuck is Morse Code&lt;/em&gt;... Made by blowing raspberries.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;XSLT is Pig Latin.&lt;/strong&gt; I'm sure it was very funny the first couple of times it was used.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;PHP is Singaporean English.&lt;/strong&gt; A blended language, mixing of a bunch of different styles in one package. Familiar-sounding but tough to fully understand, seemingly backwards anyone who recognises where the words originally came from, and needs years of practice before you don't sound like a complete tool when using it. (&lt;em&gt;&quot;This ger arh, she siao 4D.&quot;&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Dart is Esperanto.&lt;/strong&gt; I'm sure it'll totally catch on.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Clojure is Danish.&lt;/strong&gt; Nobody &lt;a href=&quot;http://www.youtube.com/watch?v=s-mOy8VUEBk&quot;&gt;actually speaks Danish&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Finally, years of language study put to practical use.&lt;/p&gt;
-
-&lt;p&gt;(Props to &lt;a href=&quot;http://blackicemedia.com&quot;&gt;Geoff&lt;/a&gt; for &lt;em&gt;Dart&lt;/em&gt; and &lt;em&gt;Brainfuck&lt;/em&gt;.)&lt;/p&gt;
 </content>
   </entry>
   

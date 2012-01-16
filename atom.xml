@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-16T13:12:57+11:00</updated>
+  <updated>2012-01-16T13:20:10+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -15,10 +15,10 @@
 
   
   <entry>
-    <title>PHP Sadness: Short Long Days of the Week</title>
-    <link href="http://robhoward.id.au/blog/2011/12/php-sadness-short-long-days-of-the-week/"/>
+    <title>Flags vs Constants, and Short-Long Days of the Week</title>
+    <link href="http://robhoward.id.au/blog/2011/12/flags-vs-constants-short-long-days-of-the-week/"/>
     <updated>2011-12-12T22:52:00+11:00</updated>
-    <id>http://robhoward.id.au/blog/2011/12/php-sadness-short-long-days-of-the-week</id>
+    <id>http://robhoward.id.au/blog/2011/12/flags-vs-constants-short-long-days-of-the-week</id>
     <content type="html">&lt;p&gt;Here's an example: say we have a number (1) stored in a database table row, and we want to turn it into a human-readable day name, such as &quot;Tuesday&quot;.&lt;/p&gt;
 
 &lt;p&gt;Here was my attempt at getting it done in PHP, after checking through the arse end of the manual for the obscure date functions:&lt;/p&gt;

@@ -82,6 +82,10 @@
 
 
 
+  
+    under <a class='category' href='/blog/categories/PHP/'>PHP</a>
+  
+
 
     
   </header>
@@ -209,6 +213,58 @@
 <p>(This is, though, arguably a problem with Ruby. Python treats strings as immutable, and are thus the same as symbols in this regard. Ruby strings are mutable (eg. <code>str = "foo"; str &lt;&lt; "bar"; puts str</code> outputs &#8220;foobar&#8221;), so we need a separate classification for the immutable variant. Consider, though, that PHP strings are mutable, <em>and</em> there is no separate symbol-alike type.)</p>
 
 <p><a href="http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/">This article by Robert Sosinski</a> goes into greater depth about the inner workings of symbols and how they differ from strings. (Cheers to Mr Sosinski for the idea for the Nukes example.)</p>
+</div>
+  
+  
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/bridging-the-divide-testing-with-timecop/">Bridging the PHP/Ruby Divide: Testing With Timecop</a></h1>
+    
+    
+      <p class="meta">Posted on
+
+
+
+
+
+  <time datetime="2011-10-25 11:32:00 +1100" pubdate  updated >Oct 25<span>th</span>, 2011</time>
+
+
+
+
+  
+    under <a class='category' href='/blog/categories/PHP/'>PHP</a>, <a class='category' href='/blog/categories/Ruby/'>Ruby</a>, <a class='category' href='/blog/categories/Testing/'>Testing</a>
+  
+
+
+    
+  </header>
+
+
+  <div class="copy"><p><em>This is the first in a short series of posts showing you how to use some of the advances made in the Ruby world in your PHP work.</em></p>
+
+<h2>Timecop (Ruby)</h2>
+
+<h2>Timecop-PHP</h2>
+
+<p>(These instructions are aimed at those with a Debian/Ubuntu development box.)</p>
+
+<p>{{{
+$ git clone https://github.com/zenovich/runkit.git
+$ cd runkit
+$ sudo pecl install package.xml
+$ sudo su -c &#8216;echo -e &#8220;extension=runkit.so\nrunkit.internal_override=1&#8221; > /etc/php5/conf.d/runkit.ini&#8217;
+$ sudo service apache2 restart # Or &#8216;sudo service php5-fpm restart&#8217; instead
+}}}</p>
+
+<p>Clone Timecop-PHP with <code>git clone git://github.com/erikfercak/Timecop-PHP.git</code>, and include it in your</p>
 </div>
   
   
@@ -360,11 +416,6 @@
 </nav>
 
 </div>
-<aside role=sidebar>
-  
-    
-  
-</aside>
 
     </div>
     <footer><p>

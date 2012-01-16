@@ -10,7 +10,7 @@ categories:
 
 > C is very much the Latin of modern programming. Learning it helps your understanding
 > of so many other things. (In case you're curious, Lisp is Greek and I mean that affectionately.)
--- (bitops)[http://news.ycombinator.com/item?id=3108923]
+-- [bitops](http://news.ycombinator.com/item?id=3108923)
 
 In a similar vein:
 

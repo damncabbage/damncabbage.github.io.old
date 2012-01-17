@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Bridging the PHP/Ruby Divide: Testing With Timecop"
-date: 2011-10-25 11:32
+title: "Pilfering Gems: Testing With Timecop"
+date: 2012-01-05 11:32
 comments: true
 categories:
 - Ruby

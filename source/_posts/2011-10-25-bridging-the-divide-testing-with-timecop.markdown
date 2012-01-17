@@ -2,15 +2,15 @@
 layout: post
 title: "Bridging the PHP/Ruby Divide: Testing With Timecop"
 date: 2011-10-25 11:32
-published: false
 comments: true
 categories:
 - Ruby
 - PHP
 - Testing
+- Pilfering Gems
 ---
 
-*This is the first in a short series of posts showing you how to use some of the niftier features from the Ruby world in your PHP work.*
+*This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work.*
 
 [Timecop](https://github.com/jtrupiano/timecop) is a library that makes testing time-dependant code a cinch.
 
@@ -22,7 +22,7 @@ Let's run through how we tackle testing this with Timecop.<!--more-->
 
 ## Timecop (Ruby)
 
-Let's assume we have two classes, `Competition` and `Entry`. You set up a competition by giving it the open and close dates; calling `enter` on the competition with your details will give you back an `Entry` object to interrogate:
+Let's assume we have two classes: `Competition` and `Entry`. You set up a competition by giving it the open and close dates; calling `enter` on the competition with your details will give you back an `Entry` object to interrogate:
 
 {% codeblock lang=ruby %}
 competition = Competition.new(:open => "2012-01-01 09:00", :close => "2015-12-30 23:59")
@@ -30,21 +30,25 @@ entry       = competition.enter(:name => "Sam")
 entry.valid? # => true
 {% endcodeblock %}
 
-Pretty simple. Let's set up some basic tests; we'll fill the missing ones in later:
+Pretty simple. To start with, let's just get a taste of how to test something like this with Timecop; we'll go through the nitty-gritty of setting it up a little further on.
+
+Here's a bare-bones [RSpec](http://rspec.info) test, with the easiest test case filled out:
 
 {% codeblock lang=ruby %}
 require 'spec_helper'
+require 'timecop'
 
 describe Competition do
-  let :competition do
-  	# Opens a day from now, closes a day after that.
-  	Competition.new(:open => Time.now + 86400, :close => Time.now + 86400*2)
+  let!(:competition) do
+    # Opens a day from now, closes a day after that.
+	day = 86400
+    Competition.new(:open => Time.now + day, :close => Time.now + day*2)
   end
 
   it "should reject early entries" do
-	entry = competition.enter(:name => "Bert")
-	entry.valid?.should == false
-	entry.errors.should include("Too early!")
+    entry = competition.enter(:name => "Bert")
+    entry.valid?.should == false
+    entry.errors.should include("Too early!")
   end
 
   it "should accept timely entries" do
@@ -55,11 +59,11 @@ describe Competition do
   	# TODO
   end
 end
-{% end %}
+{% endcodeblock %}
 
-The open date is always a day from now, so the early condition is easy. The other two are a bit tougher.
+The open date is always a day from now, so the "early entry" condition is easy. The other two are a bit tougher.
 
-Timecop provides a couple of ways of altering time: `jump` (jump to a particular time), or `freeze` (jump to a particular time *and* freeze the clock). In both cases, a `return` will revert back to reality.
+Timecop provides a couple of ways of altering time: `Timecop.travel` (jump to a particular time), or `Timecop.freeze` (jump to a particular time *and* freeze the clock). In both cases, a `Timecop.return` will revert back to reality.
 
 In addition to this, you can pass `freeze` a block (a closure, eg. `do ... end`), and have it automatically return for you after the block has been called.
 
@@ -67,22 +71,24 @@ Let's fill out those test cases:
 
 {% codeblock lang=ruby %}
 require 'spec_helper'
+require 'timecop'
 
 describe Competition do
-  let :competition do
-  	# Opens a day from now, closes a day after that.
-  	Competition.new(:open => Time.now + 86400, :close => Time.now + 86400*2)
+  let (:day) { 86400 }
+  let!(:competition) do
+    # Opens a day from now, closes a day after that.
+    Competition.new(:open => Time.now + day, :close => Time.now + day*2)
   end
 
   it "should reject early entries" do
-	entry = competition.enter(:name => "Bert")
-	entry.valid?.should == false
-	entry.errors.should include("Too early!")
+    entry = competition.enter(:name => "Bert")
+    entry.valid?.should == false
+    entry.errors.should include("Too early!")
   end
 
   it "should accept timely entries" do
-    # A bit more than a day from now.
-  	Timecop.jump(Time.now + 89000) do
+    # A day and a half from now.
+    Timecop.freeze(Time.now + day*1.5) do
       entry = competition.enter(:name => "Sam")
       entry.valid?.should == true
     end
@@ -90,44 +96,31 @@ describe Competition do
 
   it "should reject late entries" do
     # Three days from now, after competition closure.
-    Timecop.jump(Time.now + 86400*3) do
+    Timecop.freeze(Time.now + day*3) do
       entry = competition.enter(:name => "Frank")
       entry.valid?.should == false
       entry.errors.should include("Too late!")
     end
   end
 end
-{% end %}
+{% endcodeblock %}
 
-You can get the sample classes, full test suite and running instructions from [this GitHub project](https://github.com/damncabbage/bridging-the-divide/blob/master/timecop/ruby).
+You can get the sample classes, full test suite and running instructions from [the ruby directory in this GitHub project](https://github.com/damncabbage/pilfering-gems-examples/blob/master/timecop/ruby).
 
 
 ## Timecop-PHP
 
-Timecop was [ported to PHP by Erik Ferčák](https://github.com/erikfercak/Timecop-PHP). It depends on PHP5.3+ and the [https://github.com/zenovich/runkit.git](Runkit Extension) (in order to mess around with core functions).
+Timecop was [ported to PHP by Erik Ferčák](https://github.com/erikfercak/Timecop-PHP). It depends on PHP5.3+ and the [https://github.com/zenovich/runkit.git](Runkit Extension) (in order to mess around with core functions, such as `time()`).
 
-Follow these instructions to get it set up; these instructions are aimed at those with a Debian/Ubuntu development box, but should work on Fedora/Centos and the like too:
+Again, let's just run through an example before diving into setting it up.
 
-{% codeblock %}
-$ git clone https://github.com/zenovich/runkit.git
-$ cd runkit
-$ sudo pecl install package.xml
-$ sudo su -c 'echo -e "extension=runkit.so\nrunkit.internal_override=1" > /etc/php5/conf.d/runkit.ini'
-$ sudo service apache2 restart # Or 'sudo service php5-fpm restart' if you use that and nginx.
-{% endcodeblock %}
-
-Set up a tests directory and grab Timecop-PHP with the following:
-
-{% codeblock %}
-$ mkdir -p tests/support && cd tests
-$ git clone git://github.com/erikfercak/Timecop-PHP.git support/Timecop
-{% endcodeblock %}
-
-To start with, set up a basic test case, and just require() it into your test file:
+Starting with a basic PHPUnit test case, again with the easiest test case filled out:
 
 {% codeblock lang=php %}
 <?php
-require_once dirname(__FILE__).'/support/Timecop/lib/Timecop.php';
+require_once dirname(__FILE__).'/../lib/Competition.php';
+require_once dirname(__FILE__).'/../lib/Entry.php';
+require_once dirname(__FILE__).'/support/Timecop.php';
 
 class CompetitionTest extends PHPUnit_Framework_TestCase
 {
@@ -139,9 +132,9 @@ class CompetitionTest extends PHPUnit_Framework_TestCase
 	}
 
 	public function testEarlyEntry() {
-		$entry = $this->competition->enter(array('Name' => 'Bert'));
+		$entry = $this->competition->enter(array('name' => 'Bert'));
 		$this->assertFalse($entry->isValid());
-		$this->assertContains("Too early!", $entry->getErrors());
+		$this->assertContains("Too early!", $entry->errors);
 	}
 
 	public function testTimelyEntry() {
@@ -155,4 +148,57 @@ class CompetitionTest extends PHPUnit_Framework_TestCase
 {% endcodeblock %}
 
 (If you wish, you can set this up to autoload later by putting Timecop.php into `/usr/share/php`, or wherever else your PEAR directory is.)
+
+Timecop-PHP provides a similar way to hop around to it's Ruby progenitor. Before jumping through time, though, you need to tell Timecop to prepare first with `Timecop::warpTime()`.
+After that, you can use `Timecop::travel()` to move forward and back through time. `Timecop::freeze()` is also supported, but you must first call `travel()` to set the destination time.
+
+Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:
+
+{% codeblock lang=php %}
+<?php
+require_once dirname(__FILE__).'/support/Timecop/lib/Timecop.php';
+
+class CompetitionTest extends PHPUnit_Framework_TestCase
+{
+	const DAY_IN_SECONDS = 86400;
+
+	protected $competition;
+
+	// Runs before each test
+	public function setUp() {
+		// Opens a day from now, closes a day after that.
+		$this->competition = new Competition($opens = strtotime('+1 day'), $closes = strtotime('+2 day'));
+		Timecop::warpTime(); // Setup
+	}
+
+	public function testEarlyEntry() {
+		$entry = $this->competition->enter(array('name' => 'Bert'));
+		$this->assertFalse($entry->isValid());
+		$this->assertContains("Too early!", $entry->errors);
+	}
+
+	public function testTimelyEntry() {
+		// Jump a day and a half from now.
+		Timecop::travel(time() + self::DAY_IN_SECONDS * 1.5);
+		$entry = $this->competition->enter(array('name' => 'Sam'));
+		$this->assertTrue($entry->isValid());
+	}
+
+	public function testLateEntry() {
+		// Jump three days from now.
+		Timecop::travel(time() + self::DAY_IN_SECONDS * 3);
+		$entry = $this->competition->enter(array('name' => 'Frank'));
+		$this->assertFalse($entry->isValid());
+		$this->assertContains("Too late!", $entry->errors);
+	}
+
+	// Runs after each test
+	public function tearDown() {
+		// Always make sure we're back in the present.
+		Timecop::unwarpTime();
+	}
+}
+{% endcodeblock %}
+
+You can get the sample classes, full test suite and running instructions from [the php directory in this GitHub project](https://github.com/damncabbage/pilfering-gems-examples/blob/master/timecop/php).
 

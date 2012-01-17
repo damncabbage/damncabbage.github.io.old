@@ -252,8 +252,7 @@
 
 <p>Starting with a basic PHPUnit test case, again with the easiest test case filled out:</p>
 
-<div><figure role=code><figcaption><span>lang=php </span></figcaption>
-<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
 <span class='line'>3</span>
 <span class='line'>4</span>
@@ -281,34 +280,35 @@
 <span class='line'>26</span>
 <span class='line'>27</span>
 <span class='line'>28</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>&lt;?php
-</div><div class='line'>require_once dirname(__FILE__).'/../lib/Competition.php';
-</div><div class='line'>require_once dirname(__FILE__).'/../lib/Entry.php';
-</div><div class='line'>require_once dirname(__FILE__).'/support/Timecop.php';
+</pre></td><td class='code' width='100%'><pre><code class='php'><div class='line'><span class="cp">&lt;?php</span>
+</div><div class='line'><span class="k">require_once</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/../lib/Competition.php&#39;</span><span class="p">;</span>
+</div><div class='line'><span class="k">require_once</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/../lib/Entry.php&#39;</span><span class="p">;</span>
+</div><div class='line'><span class="k">require_once</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/support/Timecop.php&#39;</span><span class="p">;</span>
 </div><div class='line'>
-</div><div class='line'>class CompetitionTest extends PHPUnit_Framework_TestCase
-</div><div class='line'>{
-</div><div class='line'>    protected $competition;
+</div><div class='line'><span class="k">class</span> <span class="nc">CompetitionTest</span> <span class="k">extends</span> <span class="nx">PHPUnit_Framework_TestCase</span>
+</div><div class='line'><span class="p">{</span>
+</div><div class='line'>    <span class="k">protected</span> <span class="nv">$competition</span><span class="p">;</span>
 </div><div class='line'>
-</div><div class='line'>    public function setUp() {
-</div><div class='line'>        // Opens a day from now, closes a day after that.
-</div><div class='line'>        $this->competition = new Competition($opens = strtotime('+1 day'), $closes = strtotime('+2 day'));
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// Opens a day from now, closes a day after that.</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Competition</span><span class="p">(</span><span class="nv">$opens</span> <span class="o">=</span> <span class="nb">strtotime</span><span class="p">(</span><span class="s1">&#39;+1 day&#39;</span><span class="p">),</span> <span class="nv">$closes</span> <span class="o">=</span> <span class="nb">strtotime</span><span class="p">(</span><span class="s1">&#39;+2 day&#39;</span><span class="p">));</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testEarlyEntry() {
-</div><div class='line'>        $entry = $this->competition->enter(array('name' => 'Bert'));
-</div><div class='line'>        $this->assertFalse($entry->isValid());
-</div><div class='line'>        $this->assertContains("Too early!", $entry->errors);
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testEarlyEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nv">$entry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span><span class="o">-&gt;</span><span class="na">enter</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bert&#39;</span><span class="p">));</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertFalse</span><span class="p">(</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">());</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertContains</span><span class="p">(</span><span class="s2">&quot;Too early!&quot;</span><span class="p">,</span> <span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testTimelyEntry() {
-</div><div class='line'>        // TODO
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testTimelyEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// TODO</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testLateEntry() {
-</div><div class='line'>        // TODO
-</div><div class='line'>    }
-</div><div class='line'>}</div></code></pre></td></tr></table></div></figure></div>
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testLateEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// TODO</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'><span class="p">}</span>
+</div></code></pre></td></tr></table></div></figure></div>
 
 
 <p>(If you wish, you can set this up to autoload later by putting Timecop.php into <code>/usr/share/php</code>, or wherever else your PEAR directory is.)</p>
@@ -318,8 +318,7 @@ After that, you can use <code>Timecop::travel()</code> to move forward and back 
 
 <p>Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:</p>
 
-<div><figure role=code><figcaption><span>lang=php </span></figcaption>
-<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
 <span class='line'>3</span>
 <span class='line'>4</span>
@@ -362,49 +361,50 @@ After that, you can use <code>Timecop::travel()</code> to move forward and back 
 <span class='line'>41</span>
 <span class='line'>42</span>
 <span class='line'>43</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>&lt;?php
-</div><div class='line'>require_once dirname(__FILE__).'/support/Timecop/lib/Timecop.php';
+</pre></td><td class='code' width='100%'><pre><code class='php'><div class='line'><span class="cp">&lt;?php</span>
+</div><div class='line'><span class="k">require_once</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/support/Timecop/lib/Timecop.php&#39;</span><span class="p">;</span>
 </div><div class='line'>
-</div><div class='line'>class CompetitionTest extends PHPUnit_Framework_TestCase
-</div><div class='line'>{
-</div><div class='line'>    const DAY_IN_SECONDS = 86400;
+</div><div class='line'><span class="k">class</span> <span class="nc">CompetitionTest</span> <span class="k">extends</span> <span class="nx">PHPUnit_Framework_TestCase</span>
+</div><div class='line'><span class="p">{</span>
+</div><div class='line'>    <span class="k">const</span> <span class="no">DAY_IN_SECONDS</span> <span class="o">=</span> <span class="mi">86400</span><span class="p">;</span>
 </div><div class='line'>
-</div><div class='line'>    protected $competition;
+</div><div class='line'>    <span class="k">protected</span> <span class="nv">$competition</span><span class="p">;</span>
 </div><div class='line'>
-</div><div class='line'>    // Runs before each test
-</div><div class='line'>    public function setUp() {
-</div><div class='line'>        // Opens a day from now, closes a day after that.
-</div><div class='line'>        $this->competition = new Competition($opens = strtotime('+1 day'), $closes = strtotime('+2 day'));
-</div><div class='line'>        Timecop::warpTime(); // Setup
-</div><div class='line'>    }
+</div><div class='line'>    <span class="c1">// Runs before each test</span>
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// Opens a day from now, closes a day after that.</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Competition</span><span class="p">(</span><span class="nv">$opens</span> <span class="o">=</span> <span class="nb">strtotime</span><span class="p">(</span><span class="s1">&#39;+1 day&#39;</span><span class="p">),</span> <span class="nv">$closes</span> <span class="o">=</span> <span class="nb">strtotime</span><span class="p">(</span><span class="s1">&#39;+2 day&#39;</span><span class="p">));</span>
+</div><div class='line'>        <span class="nx">Timecop</span><span class="o">::</span><span class="na">warpTime</span><span class="p">();</span> <span class="c1">// Setup</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testEarlyEntry() {
-</div><div class='line'>        $entry = $this->competition->enter(array('name' => 'Bert'));
-</div><div class='line'>        $this->assertFalse($entry->isValid());
-</div><div class='line'>        $this->assertContains("Too early!", $entry->errors);
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testEarlyEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="nv">$entry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span><span class="o">-&gt;</span><span class="na">enter</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bert&#39;</span><span class="p">));</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertFalse</span><span class="p">(</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">());</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertContains</span><span class="p">(</span><span class="s2">&quot;Too early!&quot;</span><span class="p">,</span> <span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testTimelyEntry() {
-</div><div class='line'>        // Jump a day and a half from now.
-</div><div class='line'>        Timecop::travel(time() + self::DAY_IN_SECONDS * 1.5);
-</div><div class='line'>        $entry = $this->competition->enter(array('name' => 'Sam'));
-</div><div class='line'>        $this->assertTrue($entry->isValid());
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testTimelyEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// Jump a day and a half from now.</span>
+</div><div class='line'>        <span class="nx">Timecop</span><span class="o">::</span><span class="na">travel</span><span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="nx">self</span><span class="o">::</span><span class="na">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">);</span>
+</div><div class='line'>        <span class="nv">$entry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span><span class="o">-&gt;</span><span class="na">enter</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sam&#39;</span><span class="p">));</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">());</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    public function testLateEntry() {
-</div><div class='line'>        // Jump three days from now.
-</div><div class='line'>        Timecop::travel(time() + self::DAY_IN_SECONDS * 3);
-</div><div class='line'>        $entry = $this->competition->enter(array('name' => 'Frank'));
-</div><div class='line'>        $this->assertFalse($entry->isValid());
-</div><div class='line'>        $this->assertContains("Too late!", $entry->errors);
-</div><div class='line'>    }
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testLateEntry</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// Jump three days from now.</span>
+</div><div class='line'>        <span class="nx">Timecop</span><span class="o">::</span><span class="na">travel</span><span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="nx">self</span><span class="o">::</span><span class="na">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+</div><div class='line'>        <span class="nv">$entry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">competition</span><span class="o">-&gt;</span><span class="na">enter</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Frank&#39;</span><span class="p">));</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertFalse</span><span class="p">(</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">());</span>
+</div><div class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertContains</span><span class="p">(</span><span class="s2">&quot;Too late!&quot;</span><span class="p">,</span> <span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">);</span>
+</div><div class='line'>    <span class="p">}</span>
 </div><div class='line'>
-</div><div class='line'>    // Runs after each test
-</div><div class='line'>    public function tearDown() {
-</div><div class='line'>        // Always make sure we're back in the present.
-</div><div class='line'>        Timecop::unwarpTime();
-</div><div class='line'>    }
-</div><div class='line'>}</div></code></pre></td></tr></table></div></figure></div>
+</div><div class='line'>    <span class="c1">// Runs after each test</span>
+</div><div class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">tearDown</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>        <span class="c1">// Always make sure we&#39;re back in the present.</span>
+</div><div class='line'>        <span class="nx">Timecop</span><span class="o">::</span><span class="na">unwarpTime</span><span class="p">();</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'><span class="p">}</span>
+</div></code></pre></td></tr></table></div></figure></div>
 
 
 <p>You can get the sample classes, full test suite and running instructions from <a href="https://github.com/damncabbage/pilfering-gems-examples/blob/master/timecop/php">the php directory in this GitHub project</a>.</p>

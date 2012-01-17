@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-18T03:08:15+11:00</updated>
+  <updated>2012-01-18T03:09:38+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -184,8 +184,7 @@
 
 &lt;p&gt;Starting with a basic PHPUnit test case, again with the easiest test case filled out:&lt;/p&gt;
 
-&lt;div&gt;&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;lang=php &lt;/span&gt;&lt;/figcaption&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
 &lt;span class='line'&gt;2&lt;/span&gt;
 &lt;span class='line'&gt;3&lt;/span&gt;
 &lt;span class='line'&gt;4&lt;/span&gt;
@@ -213,34 +212,35 @@
 &lt;span class='line'&gt;26&lt;/span&gt;
 &lt;span class='line'&gt;27&lt;/span&gt;
 &lt;span class='line'&gt;28&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;div class='line'&gt;&amp;lt;?php
-&lt;/div&gt;&lt;div class='line'&gt;require_once dirname(__FILE__).'/../lib/Competition.php';
-&lt;/div&gt;&lt;div class='line'&gt;require_once dirname(__FILE__).'/../lib/Entry.php';
-&lt;/div&gt;&lt;div class='line'&gt;require_once dirname(__FILE__).'/support/Timecop.php';
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;div class='line'&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/../lib/Competition.php&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/../lib/Entry.php&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/support/Timecop.php&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;class CompetitionTest extends PHPUnit_Framework_TestCase
-&lt;/div&gt;&lt;div class='line'&gt;{
-&lt;/div&gt;&lt;div class='line'&gt;    protected $competition;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CompetitionTest&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PHPUnit_Framework_TestCase&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$competition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function setUp() {
-&lt;/div&gt;&lt;div class='line'&gt;        // Opens a day from now, closes a day after that.
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;competition = new Competition($opens = strtotime('+1 day'), $closes = strtotime('+2 day'));
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// Opens a day from now, closes a day after that.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Competition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$opens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtotime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;+1 day&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$closes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtotime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;+2 day&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testEarlyEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        $entry = $this-&gt;competition-&gt;enter(array('name' =&gt; 'Bert'));
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertFalse($entry-&gt;isValid());
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertContains(&quot;Too early!&quot;, $entry-&gt;errors);
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testEarlyEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Bert&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertFalse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertContains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Too early!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testTimelyEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        // TODO
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testTimelyEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// TODO&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testLateEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        // TODO
-&lt;/div&gt;&lt;div class='line'&gt;    }
-&lt;/div&gt;&lt;div class='line'&gt;}&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testLateEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// TODO&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
 
 
 &lt;p&gt;(If you wish, you can set this up to autoload later by putting Timecop.php into &lt;code&gt;/usr/share/php&lt;/code&gt;, or wherever else your PEAR directory is.)&lt;/p&gt;
@@ -250,8 +250,7 @@ After that, you can use &lt;code&gt;Timecop::travel()&lt;/code&gt; to move forwa
 
 &lt;p&gt;Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:&lt;/p&gt;
 
-&lt;div&gt;&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;lang=php &lt;/span&gt;&lt;/figcaption&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
 &lt;span class='line'&gt;2&lt;/span&gt;
 &lt;span class='line'&gt;3&lt;/span&gt;
 &lt;span class='line'&gt;4&lt;/span&gt;
@@ -294,49 +293,50 @@ After that, you can use &lt;code&gt;Timecop::travel()&lt;/code&gt; to move forwa
 &lt;span class='line'&gt;41&lt;/span&gt;
 &lt;span class='line'&gt;42&lt;/span&gt;
 &lt;span class='line'&gt;43&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;div class='line'&gt;&amp;lt;?php
-&lt;/div&gt;&lt;div class='line'&gt;require_once dirname(__FILE__).'/support/Timecop/lib/Timecop.php';
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;div class='line'&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/support/Timecop/lib/Timecop.php&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;class CompetitionTest extends PHPUnit_Framework_TestCase
-&lt;/div&gt;&lt;div class='line'&gt;{
-&lt;/div&gt;&lt;div class='line'&gt;    const DAY_IN_SECONDS = 86400;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CompetitionTest&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PHPUnit_Framework_TestCase&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DAY_IN_SECONDS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;86400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    protected $competition;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$competition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    // Runs before each test
-&lt;/div&gt;&lt;div class='line'&gt;    public function setUp() {
-&lt;/div&gt;&lt;div class='line'&gt;        // Opens a day from now, closes a day after that.
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;competition = new Competition($opens = strtotime('+1 day'), $closes = strtotime('+2 day'));
-&lt;/div&gt;&lt;div class='line'&gt;        Timecop::warpTime(); // Setup
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;c1&quot;&gt;// Runs before each test&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// Opens a day from now, closes a day after that.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Competition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$opens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtotime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;+1 day&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$closes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtotime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;+2 day&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nx&quot;&gt;Timecop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;warpTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Setup&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testEarlyEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        $entry = $this-&gt;competition-&gt;enter(array('name' =&gt; 'Bert'));
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertFalse($entry-&gt;isValid());
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertContains(&quot;Too early!&quot;, $entry-&gt;errors);
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testEarlyEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Bert&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertFalse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertContains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Too early!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testTimelyEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        // Jump a day and a half from now.
-&lt;/div&gt;&lt;div class='line'&gt;        Timecop::travel(time() + self::DAY_IN_SECONDS * 1.5);
-&lt;/div&gt;&lt;div class='line'&gt;        $entry = $this-&gt;competition-&gt;enter(array('name' =&gt; 'Sam'));
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertTrue($entry-&gt;isValid());
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testTimelyEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// Jump a day and a half from now.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nx&quot;&gt;Timecop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;travel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DAY_IN_SECONDS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Sam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    public function testLateEntry() {
-&lt;/div&gt;&lt;div class='line'&gt;        // Jump three days from now.
-&lt;/div&gt;&lt;div class='line'&gt;        Timecop::travel(time() + self::DAY_IN_SECONDS * 3);
-&lt;/div&gt;&lt;div class='line'&gt;        $entry = $this-&gt;competition-&gt;enter(array('name' =&gt; 'Frank'));
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertFalse($entry-&gt;isValid());
-&lt;/div&gt;&lt;div class='line'&gt;        $this-&gt;assertContains(&quot;Too late!&quot;, $entry-&gt;errors);
-&lt;/div&gt;&lt;div class='line'&gt;    }
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testLateEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// Jump three days from now.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nx&quot;&gt;Timecop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;travel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DAY_IN_SECONDS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;competition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Frank&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertFalse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertContains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Too late!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/div&gt;&lt;div class='line'&gt;
-&lt;/div&gt;&lt;div class='line'&gt;    // Runs after each test
-&lt;/div&gt;&lt;div class='line'&gt;    public function tearDown() {
-&lt;/div&gt;&lt;div class='line'&gt;        // Always make sure we're back in the present.
-&lt;/div&gt;&lt;div class='line'&gt;        Timecop::unwarpTime();
-&lt;/div&gt;&lt;div class='line'&gt;    }
-&lt;/div&gt;&lt;div class='line'&gt;}&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;c1&quot;&gt;// Runs after each test&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tearDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;c1&quot;&gt;// Always make sure we&amp;#39;re back in the present.&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;        &lt;span class=&quot;nx&quot;&gt;Timecop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;unwarpTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;div class='line'&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can get the sample classes, full test suite and running instructions from &lt;a href=&quot;https://github.com/damncabbage/pilfering-gems-examples/blob/master/timecop/php&quot;&gt;the php directory in this GitHub project&lt;/a&gt;.&lt;/p&gt;

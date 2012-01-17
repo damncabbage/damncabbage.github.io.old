@@ -14,7 +14,7 @@ categories:
 
 [Timecop](https://github.com/jtrupiano/timecop) is a library that makes testing time-dependant code a cinch.
 
-The results from a graphing calculator isn't going to change if you run it now or next week. Something like a prize-draw competition, though, will produce wildly different results depending when a punter puts in an entry, and testing this is where you wedge Timecop.
+Some code is temporally bound. The output of a graphing calculator isn't going to change if you run it now or next week, but something like a prize-draw competition will produce wildly different results depending when a punter puts in an entry. Testing this latter case is where you wedge Timecop.
 
 Take the example of that prize-draw competition. It's initially closed, no entries allowed; it opens for a while, during which you can enter, and then finally, it closes again and a winner is drawn.
 

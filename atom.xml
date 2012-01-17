@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-18T03:10:11+11:00</updated>
+  <updated>2012-01-18T03:42:16+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/jtrupiano/timecop&quot;&gt;Timecop&lt;/a&gt; is a library that makes testing time-dependant code a cinch.&lt;/p&gt;
 
-&lt;p&gt;The results from a graphing calculator isn't going to change if you run it now or next week. Something like a prize-draw competition, though, will produce wildly different results depending when a punter puts in an entry, and testing this is where you wedge Timecop.&lt;/p&gt;
+&lt;p&gt;Some code is temporally bound. The output of a graphing calculator isn't going to change if you run it now or next week, but something like a prize-draw competition will produce wildly different results depending when a punter puts in an entry. Testing this latter case is where you wedge Timecop.&lt;/p&gt;
 
 &lt;p&gt;Take the example of that prize-draw competition. It's initially closed, no entries allowed; it opens for a while, during which you can enter, and then finally, it closes again and a winner is drawn.&lt;/p&gt;
 

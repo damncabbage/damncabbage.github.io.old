@@ -101,21 +101,20 @@
 
 <p>Let&#8217;s assume we have two classes: <code>Competition</code> and <code>Entry</code>. You set up a competition by giving it the open and close dates; calling <code>enter</code> on the competition with your details will give you back an <code>Entry</code> object to interrogate:</p>
 
-<div><figure role=code><figcaption><span>lang=ruby </span></figcaption>
-<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
 <span class='line'>3</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>competition = Competition.new(:open => "2012-01-01 09:00", :close => "2015-12-30 23:59")
-</div><div class='line'>entry       = competition.enter(:name => "Sam")
-</div><div class='line'>entry.valid? # => true</div></code></pre></td></tr></table></div></figure></div>
+</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="n">competition</span> <span class="o">=</span> <span class="no">Competition</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:open</span> <span class="o">=&gt;</span> <span class="s2">&quot;2012-01-01 09:00&quot;</span><span class="p">,</span> <span class="ss">:close</span> <span class="o">=&gt;</span> <span class="s2">&quot;2015-12-30 23:59&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="n">entry</span>       <span class="o">=</span> <span class="n">competition</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;Sam&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="n">entry</span><span class="o">.</span><span class="n">valid?</span> <span class="c1"># =&gt; true</span>
+</div></code></pre></td></tr></table></div></figure></div>
 
 
 <p>Pretty simple. To start with, let&#8217;s just get a taste of how to test something like this with Timecop; we&#8217;ll go through the nitty-gritty of setting it up a little further on.</p>
 
 <p>Here&#8217;s a bare-bones <a href="http://rspec.info">RSpec</a> test, with the easiest test case filled out:</p>
 
-<div><figure role=code><figcaption><span>lang=ruby </span></figcaption>
-<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
 <span class='line'>3</span>
 <span class='line'>4</span>
@@ -139,30 +138,31 @@
 <span class='line'>22</span>
 <span class='line'>23</span>
 <span class='line'>24</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>require 'spec_helper'
-</div><div class='line'>require 'timecop'
+</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+</div><div class='line'><span class="nb">require</span> <span class="s1">&#39;timecop&#39;</span>
 </div><div class='line'>
-</div><div class='line'>describe Competition do
-</div><div class='line'>  let!(:competition) do
-</div><div class='line'>    # Opens a day from now, closes a day after that.
-</div><div class='line'>    day = 86400
-</div><div class='line'>    Competition.new(:open => Time.now + day, :close => Time.now + day*2)
-</div><div class='line'>  end
+</div><div class='line'><span class="n">describe</span> <span class="no">Competition</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">let!</span><span class="p">(</span><span class="ss">:competition</span><span class="p">)</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># Opens a day from now, closes a day after that.</span>
+</div><div class='line'>    <span class="n">day</span> <span class="o">=</span> <span class="mi">86400</span>
+</div><div class='line'>    <span class="no">Competition</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:open</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="p">,</span> <span class="ss">:close</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should reject early entries" do
-</div><div class='line'>    entry = competition.enter(:name => "Bert")
-</div><div class='line'>    entry.valid?.should == false
-</div><div class='line'>    entry.errors.should include("Too early!")
-</div><div class='line'>  end
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should reject early entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="n">entry</span> <span class="o">=</span> <span class="n">competition</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
+</div><div class='line'>    <span class="n">entry</span><span class="o">.</span><span class="n">valid?</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">false</span>
+</div><div class='line'>    <span class="n">entry</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s2">&quot;Too early!&quot;</span><span class="p">)</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should accept timely entries" do
-</div><div class='line'>    # TODO
-</div><div class='line'>  end
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should accept timely entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># TODO</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should reject late entries" do
-</div><div class='line'>    # TODO
-</div><div class='line'>  end
-</div><div class='line'>end</div></code></pre></td></tr></table></div></figure></div>
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should reject late entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># TODO</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></code></pre></td></tr></table></div></figure></div>
 
 
 <p>The open date is always a day from now, so the &#8220;early entry&#8221; condition is easy. The other two are a bit tougher.</p>
@@ -173,8 +173,7 @@
 
 <p>Let&#8217;s fill out those test cases:</p>
 
-<div><figure role=code><figcaption><span>lang=ruby </span></figcaption>
-<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
 <span class='line'>3</span>
 <span class='line'>4</span>
@@ -207,39 +206,40 @@
 <span class='line'>31</span>
 <span class='line'>32</span>
 <span class='line'>33</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>require 'spec_helper'
-</div><div class='line'>require 'timecop'
+</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+</div><div class='line'><span class="nb">require</span> <span class="s1">&#39;timecop&#39;</span>
 </div><div class='line'>
-</div><div class='line'>describe Competition do
-</div><div class='line'>  let (:day) { 86400 }
-</div><div class='line'>  let!(:competition) do
-</div><div class='line'>    # Opens a day from now, closes a day after that.
-</div><div class='line'>    Competition.new(:open => Time.now + day, :close => Time.now + day*2)
-</div><div class='line'>  end
+</div><div class='line'><span class="n">describe</span> <span class="no">Competition</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">let</span> <span class="p">(</span><span class="ss">:day</span><span class="p">)</span> <span class="p">{</span> <span class="mi">86400</span> <span class="p">}</span>
+</div><div class='line'>  <span class="n">let!</span><span class="p">(</span><span class="ss">:competition</span><span class="p">)</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># Opens a day from now, closes a day after that.</span>
+</div><div class='line'>    <span class="no">Competition</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:open</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="p">,</span> <span class="ss">:close</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should reject early entries" do
-</div><div class='line'>    entry = competition.enter(:name => "Bert")
-</div><div class='line'>    entry.valid?.should == false
-</div><div class='line'>    entry.errors.should include("Too early!")
-</div><div class='line'>  end
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should reject early entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="n">entry</span> <span class="o">=</span> <span class="n">competition</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
+</div><div class='line'>    <span class="n">entry</span><span class="o">.</span><span class="n">valid?</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">false</span>
+</div><div class='line'>    <span class="n">entry</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s2">&quot;Too early!&quot;</span><span class="p">)</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should accept timely entries" do
-</div><div class='line'>    # A day and a half from now.
-</div><div class='line'>    Timecop.freeze(Time.now + day*1.5) do
-</div><div class='line'>      entry = competition.enter(:name => "Sam")
-</div><div class='line'>      entry.valid?.should == true
-</div><div class='line'>    end
-</div><div class='line'>  end
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should accept timely entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># A day and a half from now.</span>
+</div><div class='line'>    <span class="no">Timecop</span><span class="o">.</span><span class="n">freeze</span><span class="p">(</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="o">*</span><span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="k">do</span>
+</div><div class='line'>      <span class="n">entry</span> <span class="o">=</span> <span class="n">competition</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;Sam&quot;</span><span class="p">)</span>
+</div><div class='line'>      <span class="n">entry</span><span class="o">.</span><span class="n">valid?</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">true</span>
+</div><div class='line'>    <span class="k">end</span>
+</div><div class='line'>  <span class="k">end</span>
 </div><div class='line'>
-</div><div class='line'>  it "should reject late entries" do
-</div><div class='line'>    # Three days from now, after competition closure.
-</div><div class='line'>    Timecop.freeze(Time.now + day*3) do
-</div><div class='line'>      entry = competition.enter(:name => "Frank")
-</div><div class='line'>      entry.valid?.should == false
-</div><div class='line'>      entry.errors.should include("Too late!")
-</div><div class='line'>    end
-</div><div class='line'>  end
-</div><div class='line'>end</div></code></pre></td></tr></table></div></figure></div>
+</div><div class='line'>  <span class="n">it</span> <span class="s2">&quot;should reject late entries&quot;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="c1"># Three days from now, after competition closure.</span>
+</div><div class='line'>    <span class="no">Timecop</span><span class="o">.</span><span class="n">freeze</span><span class="p">(</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="n">day</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="k">do</span>
+</div><div class='line'>      <span class="n">entry</span> <span class="o">=</span> <span class="n">competition</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;Frank&quot;</span><span class="p">)</span>
+</div><div class='line'>      <span class="n">entry</span><span class="o">.</span><span class="n">valid?</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">false</span>
+</div><div class='line'>      <span class="n">entry</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s2">&quot;Too late!&quot;</span><span class="p">)</span>
+</div><div class='line'>    <span class="k">end</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></code></pre></td></tr></table></div></figure></div>
 
 
 <p>You can get the sample classes, full test suite and running instructions from <a href="https://github.com/damncabbage/pilfering-gems-examples/blob/master/timecop/ruby">the ruby directory in this GitHub project</a>.</p>

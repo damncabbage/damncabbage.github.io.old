@@ -116,7 +116,7 @@ Again, let's just run through an example before diving into setting it up.
 
 Starting with a basic PHPUnit test case, again with the easiest test case filled out:
 
-{% codeblock lang=php %}
+{% codeblock lang:php %}
 <?php
 require_once dirname(__FILE__).'/../lib/Competition.php';
 require_once dirname(__FILE__).'/../lib/Entry.php';
@@ -154,7 +154,7 @@ After that, you can use `Timecop::travel()` to move forward and back through tim
 
 Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:
 
-{% codeblock lang=php %}
+{% codeblock lang:php %}
 <?php
 require_once dirname(__FILE__).'/support/Timecop/lib/Timecop.php';
 

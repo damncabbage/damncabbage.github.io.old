@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-18T03:09:38+11:00</updated>
+  <updated>2012-01-18T03:10:11+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -245,7 +245,7 @@
 
 &lt;p&gt;(If you wish, you can set this up to autoload later by putting Timecop.php into &lt;code&gt;/usr/share/php&lt;/code&gt;, or wherever else your PEAR directory is.)&lt;/p&gt;
 
-&lt;p&gt;Timecop-PHP provides a similar way to hop around to it's Ruby progenitor. Before jumping through time, though, you need to tell Timecop to prepare first with &lt;code&gt;Timecop::warpTime()&lt;/code&gt;.
+&lt;p&gt;Timecop-PHP provides a similar way to hop around to its Ruby progenitor. Before jumping through time, though, you need to tell Timecop to prepare first with &lt;code&gt;Timecop::warpTime()&lt;/code&gt;.
 After that, you can use &lt;code&gt;Timecop::travel()&lt;/code&gt; to move forward and back through time. &lt;code&gt;Timecop::freeze()&lt;/code&gt; is also supported, but you must first call &lt;code&gt;travel()&lt;/code&gt; to set the destination time.&lt;/p&gt;
 
 &lt;p&gt;Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:&lt;/p&gt;

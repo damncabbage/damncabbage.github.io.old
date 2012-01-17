@@ -24,7 +24,7 @@ Let's run through how we tackle testing this with Timecop.<!--more-->
 
 Let's assume we have two classes: `Competition` and `Entry`. You set up a competition by giving it the open and close dates; calling `enter` on the competition with your details will give you back an `Entry` object to interrogate:
 
-{% codeblock lang=ruby %}
+{% codeblock lang:ruby %}
 competition = Competition.new(:open => "2012-01-01 09:00", :close => "2015-12-30 23:59")
 entry       = competition.enter(:name => "Sam")
 entry.valid? # => true
@@ -34,7 +34,7 @@ Pretty simple. To start with, let's just get a taste of how to test something li
 
 Here's a bare-bones [RSpec](http://rspec.info) test, with the easiest test case filled out:
 
-{% codeblock lang=ruby %}
+{% codeblock lang:ruby %}
 require 'spec_helper'
 require 'timecop'
 
@@ -69,7 +69,7 @@ In addition to this, you can pass `freeze` a block (a closure, eg. `do ... end`)
 
 Let's fill out those test cases:
 
-{% codeblock lang=ruby %}
+{% codeblock lang:ruby %}
 require 'spec_helper'
 require 'timecop'
 

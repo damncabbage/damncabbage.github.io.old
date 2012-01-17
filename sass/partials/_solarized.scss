@@ -1,31 +1,31 @@
-$base03:          #002b36 !default; //darkest blue
-$base02:          #073642 !default; //dark blue
-$base01:          #586e75 !default; //darkest gray
-$base00:          #657b83 !default; //dark gray
-$base0:           #839496 !default; //medium gray
-$base1:           #93a1a1 !default; //medium light gray
-$base2:           #eee8d5 !default; //cream
-$base3:           #fdf6e3 !default; //white
-$solar-yellow:    #b58900 !default;
-$solar-orange:    #cb4b16 !default;
-$solar-red:       #dc322f !default;
-$solar-magenta:   #d33682 !default;
-$solar-violet:    #6c71c4 !default;
-$solar-blue:      #268bd2 !default;
-$solar-cyan:      #2aa198 !default;
-$solar-green:     #859900 !default;
+$base03:          darken(#002b36, 15%) !default; //darkest blue
+$base02:          darken(#073642, 15%) !default; //dark blue
+$base01:          darken(#586e75, 15%) !default; //darkest gray
+$base00:          darken(#657b83, 15%) !default; //dark gray
+$base0:           darken(#839496, 15%) !default; //medium gray
+$base1:           darken(#93a1a1, 15%) !default; //medium light gray
+$base2:           lighten(#eee8d5, 5%) !default; //cream
+$base3:           lighten(#fdf6e3, 5%) !default; //white
+$solar-yellow:    darken(#b58900, 15%) !default;
+$solar-orange:    darken(#cb4b16, 15%) !default;
+$solar-red:       darken(#dc322f, 15%) !default;
+$solar-magenta:   darken(#d33682, 15%) !default;
+$solar-violet:    darken(#6c71c4, 15%) !default;
+$solar-blue:      darken(#268bd2, 15%) !default;
+$solar-cyan:      darken(#2aa198, 15%) !default;
+$solar-green:     darken(#859900, 15%) !default;
 
 $solarized: dark !default;
 
 @if $solarized == light {
-  $base03: #fdf6e3;
-  $base02: #eee8d5;
-  $base01: #93a1a1;
-  $base00: #839496;
-  $base0:  #657b83;
-  $base1:  #586e75;
-  $base2:  #073642;
-  $base3:  #002b36;
+  $base03: lighten(#fdf6e3, 5%);
+  $base02: lighten(#eee8d5, 5%);
+  $base01: darken(#93a1a1, 15%);
+  $base00: darken(#839496, 15%);
+  $base0:  darken(#657b83, 15%);
+  $base1:  darken(#586e75, 15%);
+  $base2:  darken(#073642, 15%);
+  $base3:  darken(#002b36, 15%);
 }
 
 /* non highlighted code colors */

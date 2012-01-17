@@ -10,7 +10,7 @@ categories:
 - Pilfering Gems
 ---
 
-*This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work.*
+*This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work. All code examples are [available here in this GitHub repo](https://github.com/damncabbage/pilfering-gems-examples).*
 
 [Timecop](https://github.com/jtrupiano/timecop) is a library that makes testing time-dependant code a cinch.
 

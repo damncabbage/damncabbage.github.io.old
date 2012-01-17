@@ -149,7 +149,7 @@ class CompetitionTest extends PHPUnit_Framework_TestCase
 
 (If you wish, you can set this up to autoload later by putting Timecop.php into `/usr/share/php`, or wherever else your PEAR directory is.)
 
-Timecop-PHP provides a similar way to hop around to it's Ruby progenitor. Before jumping through time, though, you need to tell Timecop to prepare first with `Timecop::warpTime()`.
+Timecop-PHP provides a similar way to hop around to its Ruby progenitor. Before jumping through time, though, you need to tell Timecop to prepare first with `Timecop::warpTime()`.
 After that, you can use `Timecop::travel()` to move forward and back through time. `Timecop::freeze()` is also supported, but you must first call `travel()` to set the destination time.
 
 Here are the rest of the entry test cases, using Timecop to leap forward through the three competition states:

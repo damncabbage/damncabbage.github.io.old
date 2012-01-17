@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-01-18T03:05:34+11:00</updated>
+  <updated>2012-01-18T03:08:15+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -19,7 +19,7 @@
     <link href="http://robhoward.id.au/blog/2012/01/pilfering-gems-testing-with-timecop/"/>
     <updated>2012-01-05T11:32:00+11:00</updated>
     <id>http://robhoward.id.au/blog/2012/01/pilfering-gems-testing-with-timecop</id>
-    <content type="html">&lt;p&gt;&lt;em&gt;This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work.&lt;/em&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;em&gt;This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work. All code examples are &lt;a href=&quot;https://github.com/damncabbage/pilfering-gems-examples&quot;&gt;available here in this GitHub repo&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/jtrupiano/timecop&quot;&gt;Timecop&lt;/a&gt; is a library that makes testing time-dependant code a cinch.&lt;/p&gt;
 

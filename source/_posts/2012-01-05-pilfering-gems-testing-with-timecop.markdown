@@ -18,7 +18,7 @@ Some code is temporally bound. The output of a graphing calculator isn't going t
 
 Take the example of that prize-draw competition. It's initially closed, no entries allowed; it opens for a while, during which you can enter, and then finally, it closes again and a winner is drawn.
 
-Let's run through how we tackle testing this with Timecop.<!--more-->
+Let's run through how we can tackle testing this.<!--more-->
 
 ## Timecop (Ruby)
 

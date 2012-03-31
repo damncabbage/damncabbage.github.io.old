@@ -13,4 +13,4 @@ categories:
 3. Go to your project directory, and run `ctags -R`
 4. When editing, put your cursor over a variable, method or class and hit `Ctrl-]` to jump to its definition.
 
-(*Bonus step*: Go back to secretly covetting Intellisense)
+(*Bonus step*: Go back to secretly coveting Intellisense.)

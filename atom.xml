@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-02-20T07:14:06+11:00</updated>
+  <updated>2012-03-31T18:04:31+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -13,6 +13,23 @@
     
   </author>
 
+  
+  <entry>
+    <title>CTags With Vim, the Quick Version</title>
+    <link href="http://robhoward.id.au/blog/2012/03/ctags-with-vim/"/>
+    <updated>2012-03-31T17:54:00+11:00</updated>
+    <id>http://robhoward.id.au/blog/2012/03/ctags-with-vim</id>
+    <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;sudo apt-get install ctags&lt;/code&gt; (Debian/Ubuntu Linux), or &lt;code&gt;brew install ctags&lt;/code&gt; (OS X).&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;~/.vimrc&lt;/code&gt;, add &lt;code&gt;set tags=tags&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Go to your project directory, and run &lt;code&gt;ctags -R&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;When editing, put your cursor over a variable, method or class and hit &lt;code&gt;Ctrl-]&lt;/code&gt; to jump to its definition.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;(&lt;em&gt;Bonus step&lt;/em&gt;: Go back to secretly covetting Intellisense)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Pilfering Gems: Testing With Timecop</title>

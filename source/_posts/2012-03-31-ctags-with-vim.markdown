@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CTags With Vim, the Quick Version"
+title: "CTags with Vim, the Quick Version"
 date: 2012-03-31 17:54
 comments: true
 categories:

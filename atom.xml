@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-03-31T18:06:26+11:00</updated>
+  <updated>2012-03-31T22:45:24+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -15,7 +15,7 @@
 
   
   <entry>
-    <title>CTags With Vim, the Quick Version</title>
+    <title>CTags with Vim, the Quick Version</title>
     <link href="http://robhoward.id.au/blog/2012/03/ctags-with-vim/"/>
     <updated>2012-03-31T17:54:00+11:00</updated>
     <id>http://robhoward.id.au/blog/2012/03/ctags-with-vim</id>

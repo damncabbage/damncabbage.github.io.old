@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-03-31T22:45:24+11:00</updated>
+  <updated>2012-04-15T02:39:38+10:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -13,6 +13,26 @@
     
   </author>
 
+  
+  <entry>
+    <title>Installing Mari0 on Ubuntu 11.x / 12.x</title>
+    <link href="http://robhoward.id.au/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x/"/>
+    <updated>2012-04-15T02:31:00+10:00</updated>
+    <id>http://robhoward.id.au/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x</id>
+    <content type="html">&lt;p&gt;By Mari0, I mean &lt;a href=&quot;http://stabyourself.net/mari0/&quot;&gt;this slice-of-genius Mario / Portal mashup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+sudo add-apt-repository ppa:bartbes/love-unstable
+sudo apt-get update
+sudo apt-get install love-unstable
+mkdir mari0 &amp;amp;&amp;amp; cd mari0
+wget http://stabyourself.net/dl.php?file=mari0-1006/mari0-linux.zip &amp;amp;&amp;amp; unzip mari0-linux.zip
+love-unstable mari0_1.6.love
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Piece of cake.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>CTags with Vim, the Quick Version</title>

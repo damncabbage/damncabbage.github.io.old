@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-04-15T02:39:38+10:00</updated>
+  <updated>2012-04-15T02:42:26+10:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -21,14 +21,19 @@
     <id>http://robhoward.id.au/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x</id>
     <content type="html">&lt;p&gt;By Mari0, I mean &lt;a href=&quot;http://stabyourself.net/mari0/&quot;&gt;this slice-of-genius Mario / Portal mashup&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;
-sudo add-apt-repository ppa:bartbes/love-unstable
-sudo apt-get update
-sudo apt-get install love-unstable
-mkdir mari0 &amp;amp;&amp;amp; cd mari0
-wget http://stabyourself.net/dl.php?file=mari0-1006/mari0-linux.zip &amp;amp;&amp;amp; unzip mari0-linux.zip
-love-unstable mari0_1.6.love
-&lt;/code&gt;&lt;/p&gt;
+&lt;div&gt;&lt;figure role=code&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
+&lt;span class='line'&gt;2&lt;/span&gt;
+&lt;span class='line'&gt;3&lt;/span&gt;
+&lt;span class='line'&gt;4&lt;/span&gt;
+&lt;span class='line'&gt;5&lt;/span&gt;
+&lt;span class='line'&gt;6&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class='code' width='100%'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;div class='line'&gt;sudo add-apt-repository ppa:bartbes/love-unstable
+&lt;/div&gt;&lt;div class='line'&gt;sudo apt-get update
+&lt;/div&gt;&lt;div class='line'&gt;sudo apt-get install love-unstable
+&lt;/div&gt;&lt;div class='line'&gt;mkdir mari0 &amp;&amp; cd mari0
+&lt;/div&gt;&lt;div class='line'&gt;wget http://stabyourself.net/dl.php?file=mari0-1006/mari0-linux.zip &amp;&amp; unzip mari0-linux.zip
+&lt;/div&gt;&lt;div class='line'&gt;love-unstable mari0_1.6.love&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Piece of cake.&lt;/p&gt;
 </content>

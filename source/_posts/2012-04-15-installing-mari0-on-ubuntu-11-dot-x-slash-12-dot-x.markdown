@@ -11,13 +11,13 @@ categories:
 
 By Mari0, I mean [this slice-of-genius Mario / Portal mashup](http://stabyourself.net/mari0/).
 
-```
+{% codeblock %}
 sudo add-apt-repository ppa:bartbes/love-unstable
 sudo apt-get update
 sudo apt-get install love-unstable
 mkdir mari0 && cd mari0
 wget http://stabyourself.net/dl.php?file=mari0-1006/mari0-linux.zip && unzip mari0-linux.zip
 love-unstable mari0_1.6.love
-```
+{% endcodeblock %}
 
 Piece of cake.

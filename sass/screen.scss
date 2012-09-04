@@ -13,7 +13,7 @@ em { font-style: italic; }
 // Typography
 @import "partials/fonts";
 // Sizes: 12, 14, 16, 18, 21, 24, 36, 48, 60, 72
-.heading-font { font-family: 'Sorts Mill Goudy', 'Georgia', 'Times', 'Times New Roman', serif; }
+.heading-font { font-family: 'Sorts Mill Goudy', 'Georgia', 'Times', 'Times New Roman', serif; font-weight: bold; }
 .copy-font    { font-family: 'Helvetica Neue', 'Arial', sans-serif; }
 
 // Vertical Rhythm

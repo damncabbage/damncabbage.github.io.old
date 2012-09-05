@@ -51,7 +51,7 @@ a {
 	text-decoration: none;
 }
 
-a.link {
+a.link { // @extended by copy blocks.
 	color: $feature;
 	&:hover, &:active {
 		text-decoration: underline;
@@ -99,16 +99,14 @@ header#masthead {
 }
 
 
-article {
-	@include trailer(3);
-
+article, section {
 	h1, h2, h3, h4 { @extend .heading-font; }
 	h1 { @include adjust-font-size-to(32px); }
 	h2 { @include adjust-font-size-to(24px); }
 	h3 { @include adjust-font-size-to(21px); }
 	h4 { @include adjust-font-size-to(18px); }
 
-	header {
+	header, .summary {
 		h1 {
 			position: relative; top: -4px; left: -1px; // Pull up to line up with menu, and left to counteract glyph padding.
 		}
@@ -120,12 +118,40 @@ article {
 	}
 }
 
+article {
+	@include trailer(3);
+}
+
 #blog-archives {
 	ul li {
 		display: block;
 		@include trailer(1);
 		p.meta a { @extend a.link; }
 	}
+}
+
+#splash {
+  section {
+    @include trailer(1);
+  }
+  nav {
+    margin-top: -0.5em;
+    a { @extend a.link; }
+  }
+
+  .thumbs {
+    li > a {
+      @include clearfix;
+      margin-bottom: 1em;
+      display: block;
+    }
+    img {
+      float: left;
+      margin-right: 15px;
+      height: 70px;
+      border: 1px solid #aaa;
+    }
+  }
 }
 
 .copy {

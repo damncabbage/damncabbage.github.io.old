@@ -1,35 +1,93 @@
 ---
 layout: default
+footer: true
 ---
 
-<div class="blog-index">
-{% assign index = true %}
-{% for post in paginator.posts %}
-{% assign content = post.content %}
-  <article>
-    {% include article.html %}
-  </article>
-{% endfor %}
-<nav role="pagination">
-  <div>
-    {% if paginator.next_page %}
-      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
-    {% endif %}
-    <a href="/blog/archives">Blog Archives</a>
-    {% if paginator.previous_page %}
-    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
-    {% endif %}
-  </div>
-</nav>
-{% if site.disqus_short_name %}
-<script type="text/javascript">
-    var disqus_shortname = '{{ site.disqus_short_name }}';
-    (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-{% endif %}
+<div id="splash">
+
+  <section class="blog-recent">
+    <h1>Latest Scribblings</h1>
+    <ul class="summary">
+    {% for post in paginator.posts limit:4 %}
+      <li>{% include archive_post.html %}</li>
+    {% endfor %}
+    </ul>
+    <nav>
+      <a href="/blog">More Entries &raquo;</a>
+    </nav>
+  </section>
+
+  <section class="projects">
+    <h1>On the Boil</h1>
+    <!--
+      booth
+      smash 2013
+
+    -->
+    <ul class="summary thumbs">
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="project-archives">
+    <h1>In the Cooler</h1>
+    <!--
+      joinus.smash
+      derringer
+    -->
+    <ul class="summary thumbs">
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test test test tes test test tes test test tes test test tes test test tes test test tes</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="talks">
+    <h1>Live On-Stage</h1>
+    <ul class="summary thumbs">
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+      <li><a href="#">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Test</h2>
+        <p>Test</p>
+      </a></li>
+    </ul>
+  </section>
 </div>
+
+

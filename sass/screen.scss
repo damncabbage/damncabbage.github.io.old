@@ -132,7 +132,7 @@ article {
 
 #splash {
   section {
-    @include trailer(1);
+    @include trailer(2);
   }
   nav {
     margin-top: -0.5em;
@@ -140,17 +140,21 @@ article {
   }
 
   .thumbs {
+    margin-top: 0.2em;
+
     li > a {
       @include clearfix;
-      margin-bottom: 1em;
       display: block;
+      margin-bottom: 1em;
     }
     img {
       float: left;
-      margin-right: 15px;
       height: 70px;
+      margin-right: 15px;
       border: 1px solid #aaa;
     }
+    h2 { line-height: 1.2em; padding-top: 0.2em; }
+    p { line-height: 1.4em; position: static; }
   }
 }
 

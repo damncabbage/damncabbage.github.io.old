@@ -45,13 +45,12 @@
   <div id="container">
     <nav id="primary" role="navigation"><a class="illustration" href="/">A head of cabbage.</a>
 <ul role="main-navigation">
-  <li><a href="/">Blog Stream</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="http://twitter.com/damncabbage">@damncabbage</a></li>
-  <li><a href="https://github.com/damncabbage">GitHub</a></li>
-  <li><a href="https://github.com/smashcon">SMASH!</a></li> 
-  <!-- <li><a href="/projects">Projects</a></li>
-  <li><a href="/projects/smash">SMASH!</a></li> -->
+  <li><a href="/blog/">Blog Stream</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="http://twitter.com/damncabbage/">@damncabbage</a></li>
+  <li><a href="https://github.com/damncabbage/">GitHub</a></li>
+  <li><a href="https://github.com/smashcon/">SMASH!</a></li> 
+  <li><a href="http://speakerdeck.com/u/damncabbage/">Speakerdeck</a></li> 
 </ul>
 </nav>
     <div id="content">
@@ -60,18 +59,15 @@
   <p class="tagline">Rob Howard and the Infinite Sadness</p>
 
 </header>
-      <div class="blog-index">
+      <div id="splash">
 
-
-
-  <article>
+  <section class="blog-recent">
+    <h1>Latest Scribblings</h1>
+    <ul class="summary">
     
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x/">Installing Mari0 on Ubuntu 11.x / 12.x</a></h1>
-    
-    
-      <p class="meta">Posted on
+      <li>
+<h2><a href="/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x/">Installing Mari0 on Ubuntu 11.x / 12.x</a></h2>
+<p class="meta">Posted on
 
 
 
@@ -87,43 +83,11 @@
   
 
 
+</li>
     
-  </header>
-
-
-  <div class="copy"><p>By Mari0, I mean <a href="http://stabyourself.net/mari0/">this slice-of-genius Mario / Portal mashup</a>.</p>
-
-<div><figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-</pre></td><td class='code' width='100%'><pre><code class=''><div class='line'>sudo add-apt-repository ppa:bartbes/love-unstable
-</div><div class='line'>sudo apt-get update
-</div><div class='line'>sudo apt-get install love-unstable
-</div><div class='line'>mkdir mari0 && cd mari0
-</div><div class='line'>wget http://stabyourself.net/dl.php?file=mari0-1006/mari0-linux.zip && unzip mari0-linux.zip
-</div><div class='line'>love-unstable mari0_1.6.love</div></code></pre></td></tr></table></div></figure></div>
-
-
-<p>Piece of cake.</p>
-</div>
-  
-  
-
-
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/ctags-with-vim/">CTags With Vim, the Quick Version</a></h1>
-    
-    
-      <p class="meta">Posted on
+      <li>
+<h2><a href="/blog/2012/03/ctags-with-vim/">CTags with Vim, the Quick Version</a></h2>
+<p class="meta">Posted on
 
 
 
@@ -139,35 +103,11 @@
   
 
 
+</li>
     
-  </header>
-
-
-  <div class="copy"><ol>
-<li><code>sudo apt-get install ctags</code> (Debian/Ubuntu Linux), or <code>brew install ctags</code> (OS X).</li>
-<li>In <code>~/.vimrc</code>, add <code>set tags=tags</code></li>
-<li>Go to your project directory, and run <code>ctags -R</code></li>
-<li>When editing, put your cursor over a variable, method or class and hit <code>Ctrl-]</code> to jump to its definition.</li>
-</ol>
-
-
-<p>(<em>Bonus step</em>: Go back to secretly coveting Intellisense.)</p>
-</div>
-  
-  
-
-
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/01/pilfering-gems-testing-with-timecop/">Pilfering Gems: Testing With Timecop</a></h1>
-    
-    
-      <p class="meta">Posted on
+      <li>
+<h2><a href="/blog/2012/01/pilfering-gems-testing-with-timecop/">Pilfering Gems: Testing With Timecop</a></h2>
+<p class="meta">Posted on
 
 
 
@@ -183,38 +123,11 @@
   
 
 
+</li>
     
-  </header>
-
-
-  <div class="copy"><p><em>This is the first in a short series of posts showing you how to cherry-pick some of the niftier things (libraries, techniques, whatever) from the Ruby world for use in your PHP work. All code examples are <a href="https://github.com/damncabbage/pilfering-gems-examples">available here in this GitHub repo</a>.</em></p>
-
-<p><a href="https://github.com/jtrupiano/timecop">Timecop</a> is a library that makes testing time-dependant code a cinch.</p>
-
-<p>Some code is temporally bound. The output of a graphing calculator isn&#8217;t going to change if you run it now or next week, but something like a prize-draw competition will produce wildly different results depending when a punter puts in an entry. Testing this latter case is where you wedge Timecop.</p>
-
-<p>Take the example of that prize-draw competition. It&#8217;s initially closed, no entries allowed; it opens for a while, during which you can enter, and then finally, it closes again and a winner is drawn.</p>
-
-<p>Let&#8217;s run through how we can tackle testing this.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/01/pilfering-gems-testing-with-timecop/">Read more &rarr;</a>
-    </footer>
-  
-
-
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/flags-vs-constants-short-long-days-of-the-week/">Flags vs Constants, and Short-Long Days of the Week</a></h1>
-    
-    
-      <p class="meta">Posted on
+      <li>
+<h2><a href="/blog/2011/12/flags-vs-constants-short-long-days-of-the-week/">Flags vs Constants, and Short-Long Days of the Week</a></h2>
+<p class="meta">Posted on
 
 
 
@@ -230,184 +143,64 @@
   
 
 
+</li>
     
-  </header>
+    </ul>
+    <nav>
+      <a href="/blog">More Entries &raquo;</a>
+    </nav>
+  </section>
 
+  <section class="projects">
+    <h1>On the Boil</h1>
+    <ul class="summary thumbs">
+      <li><a href="https://github.com/smashcon/derringer">
+        <img src="/images/projects/derringer.jpg" />
+        <h2>Derringer</h2>
+        <p>A ticket scanning app written for and used at SMASH! this year. Ruby, CouchDB, auto-syncing, and 3500 happy customers through the door.</p>
+      </a></li>
+      <li><a href="https://github.com/smashcon/booth">
+        <img src="/images/projects/tickets.png" />
+        <h2>Booth</h2>
+        <p>SMASH!&#8217;s ticket sales system in development for 2013. Being built on Spree for maximum wheel-reinvention minimisation.</p>
+      </a></li>
+    </ul>
+  </section>
 
-  <div class="copy"><p>Here&#8217;s an example: say we have a number (1) stored in a database table row, and we want to turn it into a human-readable day name, such as &#8220;Tuesday&#8221;.</p>
+  <section class="project-archives">
+    <h1>In the Cooler</h1>
+    <ul class="summary thumbs">
+      <li><a href="https://github.com/damncabbage/X-Fake-For">
+        <img src="/images/projects/x-fake-for.png" />
+        <h2>X-Fake-For</h2>
+        <p>A quick Chrome extension to fool some sites&#8217; more flimsy geo-blocking attempts.</p>
+      </a></li>
+      <li><a href="https://github.com/damncabbage/soramimi_lyrics">
+        <img src="/images/projects/karaoke.jpg" />
+        <h2>Soramimi Lyrics</h2>
+        <p>Parsing <em>Soramimi Karaoke</em> lyric files with Parslet.</p>
+      </a></li>
+    </ul>
+  </section>
 
-<p>Here was my attempt at getting it done in PHP, after checking through the arse end of the manual for the obscure date functions:</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-</pre></td><td class='code' width='100%'><pre><code class='php'><div class='line'><span class="x">// Method Signature (from http://www.php.net/manual/en/function.jddayofweek.php )</span>
-</div><div class='line'><span class="x">// mixed jddayofweek ( int $julianday [, int $mode = CAL_DOW_DAYNO ] )</span>
-</div><div class='line'>
-</div><div class='line'><span class="x">// In use:</span>
-</div><div class='line'><span class="x">echo jddayofweek(1, CAL_DOW_LONG);  // Produces &quot;Tue&quot;</span>
-</div><div class='line'><span class="x">echo jddayofweek(1, CAL_DOW_SHORT); // Produces &quot;Tuesday&quot;</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<p>Ow. So what&#8217;s going on?</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/12/flags-vs-constants-short-long-days-of-the-week/">Read more &rarr;</a>
-    </footer>
-  
-
-
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/09/less-wood-behind-more-arrows-nested-form/">Less Wood Behind More Arrows: Nested_form</a></h1>
-    
-    
-      <p class="meta">Posted on
-
-
-
-
-
-  <time datetime="2011-09-20 20:15:00 +1000" pubdate  updated >Sep 20<span>th</span>, 2011</time>
-
-
-
-
-  
-    under <a class='category' href='/blog/categories/Forms/'>Forms</a>, <a class='category' href='/blog/categories/Rails/'>Rails</a>, <a class='category' href='/blog/categories/Ruby/'>Ruby</a>
-  
-
-
-    
-  </header>
-
-
-  <div class="copy"><p><em>(Or, &#8220;Crazy forks everywhere&#8221;.)</em></p>
-
-<p>All the way back in <a href="http://railscasts.com/episodes/197-nested-model-form-part-2">RailsCast 197</a> Ryan Bates introduced us to his javascript-powered dynamic nested form gem, <a href="http://github.com/ryanb/nested_form">nested_form</a>. It&#8217;s pretty useful, and in concert with Rails&#8217; existing <code>accepts_nested_attributes_for :relation</code>, got pretty close to solving a problem I haven&#8217;t ever seen cleanly solved without unwieldy controller code and custom javascript.</p>
-
-<p>Ryan has previously kept it up to date (bless his socks), but now after a three months and a gradual accumulation of about twenty outstanding pull requests (some that fix niggles like hardcoded markup, the undocumented testing environment, and weird jumbled-attribute record creation bugs), I need to move on so I can <a href="https://github.com/smashcon/lincoln">get back to work</a>.</p>
-
-<p>Fortunately, <a href="https://github.com/elmatou">elmatou</a> forked <code>nested_form</code>, merged a bunch of changes and made plenty of his own, and put it all in <a href="https://github.com/elmatou/nested_form/tree/defacto">a branch called &#8216;defacto&#8217;</a>. These changes include:</p>
-
-<ul>
-<li>Configurable wrapper markup,</li>
-<li>Actual removal of &#8216;removed&#8217; forms,</li>
-<li>Positionable insertion of newly-added nested forms,</li>
-<li>Storage of the field template in a javascript variable, not inside a hidden <code>&lt;div&gt;</code> (meaning your markup doesn&#8217;t break when using Formtastic).</li>
-</ul>
-
-
-<p>Also fortunately, <a href="https://github.com/fxposter">fxposter</a> (a long-time <code>nested_form</code> committer) has <a href="https://github.com/fxposter/nested_form">also forked</a>, and improved the testing situation by swapping out Appraisal with an integrated dummy app.</p>
-
-<p>As is tradition for any moderately popular project, there are a ton more forks and the situation is as messy as hell, but if you need one of the above fixes sooner than later, then pull in one of these versions of <code>nested_form</code> by putting the following in your Gemfile:</p>
-
-<div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-<span class='line'>7</span>
-<span class='line'>8</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="c1"># The Ryan Bates original:</span>
-</div><div class='line'><span class="c1">#gem &#39;nested_form&#39; # The Ryan Bates original</span>
-</div><div class='line'>
-</div><div class='line'><span class="c1"># Fxposter&#39;s fork:</span>
-</div><div class='line'><span class="n">gem</span> <span class="s1">&#39;nested_form&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;git://github.com/fxposter/nested_form.git&#39;</span>
-</div><div class='line'>
-</div><div class='line'><span class="c1"># Elmatou&#39;s fork:</span>
-</div><div class='line'><span class="n">gem</span> <span class="s1">&#39;nested_form&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;git://github.com/elmatou/nested_form.git&#39;</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">&#39;defacto&#39;</span>
-</div></code></pre></td></tr></table></div></figure></div>
-
-
-<p>I&#8217;ve elected to go with Elmatou&#8217;s fork (for the moment) for the configurable markup. Formtastic&#8217;s ordered <code>&lt;li&gt;</code> field setup is not friendly at all with Ryan&#8217;s hardcoded <code>&lt;div&gt;</code> method.</p>
-
-<p>(tl;dr <a href="https://github.com/ryanb/nested_form">nested_form</a> has some odd bugs, <a href="https://github.com/elmatou/nested_form/tree/defacto">elmatou&#8217;s fork</a> has less, but <a href="https://github.com/fxposter/nested_form">fxposter&#8217;s fork</a> has a better testing setup. I&#8217;m using elmatou&#8217;s to <a href="https://github.com/smashcon/lincoln">get on with building stuff</a>. It&#8217;s all kind of sad right now.)</p>
+  <section class="talks">
+    <h1>Live, for Your Amusement</h1>
+    <ul class="summary thumbs">
+      <li><a href="https://speakerdeck.com/u/damncabbage/p/heteromorphic-fantasy-obries-state-machine">
+        <img src="/images/speakerdeck/state_machine.png" />
+        <h2>Homomorphic Fantasy: Obrie&#8217;s state_machine</h2>
+        <p>A walk-through of state machines with @obrie&#8217;s gem. Fun for anyone who doesn&#8217;t mind the occasional scary photo of an insect.</p>
+      </a></li>
+      <li><a href="https://speakerdeck.com/u/damncabbage">
+        <img src="/images/speakerdeck/php_csrf.png" />
+        <h2>PHP Series: Security, Tools and Techniques</h2>
+        <p>A short series of presentations given at a PHP dev shop, covering XSS, XSRF, Dependency Injection and Active Record.</p>
+      </a></li>
+    </ul>
+  </section>
 </div>
-  
-  
 
 
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/stop-gnome-hijacking-ssh-key-entry/">Stop GNOME &#8220;Hijacking&#8221; SSH Key Entry</a></h1>
-    
-    
-      <p class="meta">Posted on
-
-
-
-
-
-  <time datetime="2011-03-26 19:17:00 +1100" pubdate  updated >Mar 26<span>th</span>, 2011</time>
-
-
-
-
-  
-    under <a class='category' href='/blog/categories/Linux/'>Linux</a>, <a class='category' href='/blog/categories/SSH/'>SSH</a>
-  
-
-
-    
-  </header>
-
-
-  <div class="copy"><p>Here’s the scenario:</p>
-
-<ol>
-<li>You’re sitting at your desktop, and you start a Screen session.</li>
-<li>You do a bunch of work (say, lots of vim and a <code>git commit</code>); and then rush off.</li>
-<li>You log in remotely, reconnect your Screen session with <code>screen -dR</code>, and try to do something that uses an SSH key (say, you <code>git push</code> to github).</li>
-<li>Your SSH session mysteriously hangs.</li>
-<li>A Ctrl-C later and a head-scratch later, you run <code>ssh -v git@github.com</code>, and you get as far as <code>debug1: Server accepts key: pkalg ssh-rsa ...</code></li>
-</ol>
-
-
-<p>Meanwhile, back on your desktop at home, GNOME has popped up this dialog:</p>
-
-<p><img class='' src='/images/posts/gnome-password-lock.png' width='' height='' alt='GNOME says, "Enter password to unlock private key"' title='GNOME says, "Enter password to unlock private key"'></p>
-
-<p>Bollocks.</p>
-
-<h3>The Fix</h3>
-
-<p>To stop this happening again, run the following:</p>
-
-<pre><code>sudo gconftool-2 --set -t bool /apps/gnome-keyring/daemon-components/ssh false
-</code></pre>
-</div>
-  
-  
-
-
-  </article>
-
-<nav role="pagination">
-  <div>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</nav>
-
-</div>
 
     </div>
     <footer><p>

@@ -2,38 +2,46 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://robhoward.id.au/blog/2011/03/stop-gnome-hijacking-ssh-key-entry/</loc>
-        <lastmod>2012-02-20T07:16:28+11:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
     </url>
     <url>
         <loc>http://robhoward.id.au/blog/2011/09/less-wood-behind-more-arrows-nested-form/</loc>
-        <lastmod>2012-02-20T07:16:28+11:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
     </url>
     <url>
         <loc>
             http://robhoward.id.au/blog/2011/12/flags-vs-constants-short-long-days-of-the-week/
         </loc>
-        <lastmod>2012-02-20T07:16:28+11:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
     </url>
     <url>
         <loc>http://robhoward.id.au/blog/2012/01/pilfering-gems-testing-with-timecop/</loc>
-        <lastmod>2012-02-20T07:16:28+11:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
     </url>
     <url>
         <loc>http://robhoward.id.au/blog/2012/03/ctags-with-vim/</loc>
-        <lastmod>2012-03-31T22:45:03+11:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
     </url>
     <url>
         <loc>
             http://robhoward.id.au/blog/2012/04/installing-mari0-on-ubuntu-11-dot-x-slash-12-dot-x/
         </loc>
-        <lastmod>2012-04-15T02:42:20+10:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
+    </url>
+    <url>
+        <loc>http://robhoward.id.au/blog/</loc>
+        <lastmod>2012-09-05T17:25:25+10:00</lastmod>
     </url>
     <url>
         <loc>http://robhoward.id.au/blog/archives/</loc>
-        <lastmod>2012-04-15T02:42:20+10:00</lastmod>
+        <lastmod>2012-09-05T16:37:50+10:00</lastmod>
+    </url>
+    <url>
+        <loc>http://robhoward.id.au/index-summary.html</loc>
+        <lastmod>2012-09-05T16:56:18+10:00</lastmod>
     </url>
     <url>
         <loc>http://robhoward.id.au/</loc>
-        <lastmod>2012-04-15T02:42:20+10:00</lastmod>
+        <lastmod>2012-09-07T01:26:31+10:00</lastmod>
     </url>
 </urlset>

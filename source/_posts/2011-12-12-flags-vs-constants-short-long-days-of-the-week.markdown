@@ -70,7 +70,7 @@ echo should_launch_nukes(2);
 
 ### Ruby Symbols
 
-With Ruby, a symbol is like a block of granite; it's the same thing all the way through. A function that accepts `:jpg` is never going to accidentally accept a symbol like `:dow_long`. As far as the guy typing in the code cares, `:jpg` means neither `2` nor `"jpg"`; it just means `:jpg`.
+With Ruby, a symbol represents something else; it's a constant with a name the same as its value. A function that accepts `:jpg` is never going to accidentally accept a symbol like `:dow_long`. As far as the guy typing in the code cares, `:jpg` means neither `2` nor `"jpg"`; it just means `:jpg`.
 
 {% codeblock lang:ruby %}
 def launch_nukes?(status)

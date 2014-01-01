@@ -4,7 +4,7 @@
   <title>That Damn Cabbage</title>
   <link href="http://robhoward.id.au/atom.xml" rel="self"/>
   <link href="http://robhoward.id.au/"/>
-  <updated>2012-09-16T23:35:42+10:00</updated>
+  <updated>2014-01-02T02:54:22+11:00</updated>
   <id>http://robhoward.id.au/</id>
   <author>
     <name>Rob Howard</name>
@@ -475,7 +475,7 @@ After that, you can use &lt;code&gt;Timecop::travel()&lt;/code&gt; to move forwa
 
 &lt;h3&gt;Ruby Symbols&lt;/h3&gt;
 
-&lt;p&gt;With Ruby, a symbol is like a block of granite; it's the same thing all the way through. A function that accepts &lt;code&gt;:jpg&lt;/code&gt; is never going to accidentally accept a symbol like &lt;code&gt;:dow_long&lt;/code&gt;. As far as the guy typing in the code cares, &lt;code&gt;:jpg&lt;/code&gt; means neither &lt;code&gt;2&lt;/code&gt; nor &lt;code&gt;&quot;jpg&quot;&lt;/code&gt;; it just means &lt;code&gt;:jpg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With Ruby, a symbol represents something else; it's a constant with a name the same as its value. A function that accepts &lt;code&gt;:jpg&lt;/code&gt; is never going to accidentally accept a symbol like &lt;code&gt;:dow_long&lt;/code&gt;. As far as the guy typing in the code cares, &lt;code&gt;:jpg&lt;/code&gt; means neither &lt;code&gt;2&lt;/code&gt; nor &lt;code&gt;&quot;jpg&quot;&lt;/code&gt;; it just means &lt;code&gt;:jpg&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div&gt;&lt;figure role=code&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line'&gt;1&lt;/span&gt;
 &lt;span class='line'&gt;2&lt;/span&gt;

@@ -10,13 +10,14 @@
 
 
 /* Global Vars */
-$fullWidth: 960px;
+$fullWidth: 960px; // TODO: Borrow AUI's grid system, make responsive.
 
 $colorText: #222;
-$colorHighlight: #48f;
 $colorFullGrey: #222;
 $colorTwoThirdsGrey: #777;
 $colorOneThirdGrey: #aaa;
+$colorBrightRed: #e23500;
+$colorDullRed: #b02900;
 
 $underlineWeight: 4px;
 

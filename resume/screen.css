@@ -7,26 +7,26 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
+del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
+  font: inherit;
   font-size: 100%;
-  font-family: inherit;
   vertical-align: baseline;
 }
 
-body {
+html {
   line-height: 1;
-  color: black;
-  background: white;
 }
 
 ol, ul {
@@ -34,9 +34,8 @@ ol, ul {
 }
 
 table {
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
-  vertical-align: middle;
 }
 
 caption, th, td {
@@ -46,14 +45,19 @@ caption, th, td {
 }
 
 q, blockquote {
-  quotes: "" "";
+  quotes: none;
 }
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
+  content: none;
 }
 
 a img {
   border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
 }
 
 /* Global Vars */
@@ -70,7 +74,7 @@ a img {
 body {
   font-family: 'Verdana', 'Arial', sans-serif;
   background: #fff;
-  font-size: 0.85em;
+  font-size: 0.9em;
   line-height: 1.4em;
   color: #222222;
 }
@@ -92,6 +96,7 @@ a:hover, a:active {
   float: left;
   font-family: 'LeagueGothicRegular', 'Helvetica Condensed Black', 'Helvetica Condensed', 'Arial Black', 'Arial', sans-serif;
   font-size: 6em;
+  color: #e23500;
   line-height: 1em;
   text-indent: -0.02em;
   /* The font glyph has internal padding, which becomes
@@ -116,6 +121,9 @@ a:hover, a:active {
 .section li, .section p {
   text-align: justify;
 }
+.section strong, .section b {
+  font-weight: bold;
+}
 .section h2, .section h3, .section h4 {
   text-transform: uppercase;
 }
@@ -136,6 +144,12 @@ a:hover, a:active {
   /* Hack to force consistent height across headings. */
   line-height: 16px;
 }
+.section a {
+  color: #b02900;
+}
+.section a:hover, .section a:active {
+  border-bottom: 1px solid #b02900;
+}
 .section .listing {
   float: right;
   width: 720px;
@@ -152,18 +166,15 @@ a:hover, a:active {
   line-height: 16px;
 }
 .section .listing h3:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 .section .listing h3 .principal, .section .listing h3 .position {
   font-weight: bold;
 }
 .section .listing h3 .principal {
-  color: #222222;
+  color: #e23500;
   font-weight: bold;
 }
 .section .listing h3 .position, .section .listing h3 .timespan {
@@ -175,9 +186,14 @@ a:hover, a:active {
   font-size: 0.92em;
 }
 .section .listing h4 {
-  color: #4488ff;
+  color: #777777;
   padding: 1.2em 0 0;
   font-weight: bold;
+}
+.section .listing h4 a {
+  font-size: 0.92em;
+  text-transform: none;
+  font-weight: normal;
 }
 .section .listing h5 {
   padding: 0.3em 0 0.4em;
@@ -194,27 +210,14 @@ a:hover, a:active {
   padding-bottom: 0.4em;
   list-style: square outside url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sBCgoAO1ps42oAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAFklEQVQY02NUUlL6z4AHMDEQAMNDAQB0twF1MNyz0gAAAABJRU5ErkJggg==');
 }
-.section .listing ul li .mini-heading {
-  display: block;
-  padding-bottom: 0.15em;
-  font-weight: bold;
-}
-.section .listing ul li .mini-heading a {
-  padding-left: 0.1em;
-  font-size: 0.9em;
-  font-weight: normal;
-}
 .section .skills {
   *zoom: 1;
   margin-top: -0.2em;
 }
 .section .skills:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 .section .skills li {
   float: left;

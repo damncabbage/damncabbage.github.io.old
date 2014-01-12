@@ -286,10 +286,6 @@ a:hover, a:active {
   border-bottom: 1px solid #777777;
 }
 
-main {
-  display: block;
-}
-
 header[role="banner"] {
   padding-bottom: 2.4em;
 }
@@ -343,17 +339,11 @@ section .listing {
   margin-bottom: 2em;
 }
 section .listing h3 {
-  *zoom: 1;
   color: #aaaaaa;
   height: 16px;
   line-height: 16px;
   padding-bottom: 0.4em;
   margin-bottom: 0.2em;
-}
-section .listing h3:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 section .listing h3 .principal, section .listing h3 .position {
   font-weight: bold;
@@ -409,16 +399,11 @@ section .listing ul li {
   list-style: square outside url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sBCgoAO1ps42oAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAFklEQVQY02NUUlL6z4AHMDEQAMNDAQB0twF1MNyz0gAAAABJRU5ErkJggg==');
 }
 section .skills {
-  *zoom: 1;
   margin-top: -0.2em;
-}
-section .skills:after {
-  content: "";
-  display: table;
-  clear: both;
+  display: inline;
 }
 section .skills li {
-  float: left;
+  display: inline;
   padding-right: 0.8em;
   color: #777777;
 }

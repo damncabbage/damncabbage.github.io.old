@@ -4,13 +4,23 @@
  * <link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
  */
 
+// Gem-provided
 @import "compass/reset";
 @import "compass/utilities";
 @import "compass/css3";
 
+// Vendored
+@import "vendor/gridism";
 
-/* Global Vars */
-$fullWidth: 960px; // TODO: Borrow AUI's grid system, make responsive.
+// Grid Helpers
+@mixin collapsed {
+  @media screen and (max-width: 568px) {
+    @content;
+  }
+}
+
+// Global Vars
+$maxWidth: 960px; // TODO: Borrow AUI's grid system, make responsive.
 
 $colorText: #222;
 $colorFullGrey: #222;
@@ -23,5 +33,5 @@ $underlineWeight: 4px;
 
 /* Drag in all the regular styles */
 @import "partials/fonts";
-@import "partials/article";
+@import "partials/listings";
 

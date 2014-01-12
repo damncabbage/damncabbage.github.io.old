@@ -1,160 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Rob Howard | Resume</title>
-	<link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-	<link href="print.css" media="print" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <title>Rob Howard | Resume</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 <body>
+  <main>
 
-	<div id="article">
-
-		<div class="header">
-			<h1>Rob Howard</h1>
-			<ul class="details">
-				<li><a href="tel:0438421587">m: 0438 421 587</a></li>
-				<li><a href="mailto:rob@robhoward.id.au">rob@robhoward.id.au</a></li>
-				<li><a href="http://robhoward.id.au">http://robhoward.id.au</a></li>
-				<li><a href="https://github.com/damncabbage">https://github.com/damncabbage</a></li>
-			</ul>
-		</div>
-
-		<!-- Skills -->
-		<div class="section">
-			<h2>Technical Skills</h2>
-
-			<ul class="skills listing first">
-				<li class="strong">Ruby (incl. Rails, Sinatra)</li>
-				<li class="strong">Git</li>
-				<li class="strong">Javascript (FE, incl. Backbone.js)</li>
-				<li class="strong">HTML/CSS/Sass</li>
-				<li class="strong">Automated Testing (incl. RSpec, PHPUnit)</li>
-				<li class="strong">Automated Deployment (incl. Capistrano)</li>
-				<li class="strong">PHP</li>
-				<li class="strong">Bash</li>
-				<li class="medium">Linux Systems Administration</li>
-				<li class="medium">VM Dev Tooling (incl. Vagrant)</li>
-				<li class="weak">Puppet</li>
-				<li class="weak last">Bamboo</li>
-			</ul>
-		</div>
-
-		<!-- Experience -->
-		<div class="section">
-			<h2>Experience</h2>
-
-			<div class="listing first">
-				<h3><span class="principal">Bigcommerce</span> <span class="position">Software Engineer</span> <span class="timespan">(Nov 2012 - Present)</span></h3>
-				<p>Stability, deployment infrastructure, automated testing, and maintenance of the Bigcommerce storefront and merchant control panel application, with its ecosystem of dependent services.</p>
-        <ul>
-          <li><strong>Development tools.</strong> Giving the engineers, product and QA the ability to deploy versions of the store codebase to a staging environment with a web-based tool that kicks off Capistrano deployments. Introduced deployment queue processing backed by Resque + Monit.</li>
-          <li><strong>Automated Unit + Integration Testing.</strong> Writing RSpec, Capybara or PHPUnit tests (as appropriate) for every new feature or project. Introducing tests to projects with no coverage. Setup of builds with Bamboo and Travis-CI.
-          <li><strong>Automated Regression Testing.</strong> Guiding QA through writing repeatable, dependable regression tests. Running those tests against staging and production stores as part of the deployment pipeline.
-          <li><strong>Automated Build Pipeline.</strong> Currently working in the Tooling team to set up a deployment pipeline for daily deploys.</li>
-          <li><strong>Hackathon projects.</strong> A Cordova-based mobile ticketing iPhone app with PDF ticket generator. An interview candidate screening test tool (with automated verification via RSpec + Capybara hitting Heroku).</li>
-          <li><strong>Security Testing.</strong> Diving through legacy store code to find and correct security errors; reviewing pull requests for security holes.</li>
-          <li><strong>Improving test coverage, code quality.</strong> Keeping on the lookout for code to clean up within the scope of projects. Avoiding "big bang" changes where possible.</li>
-          <li><strong>Mentoring.</strong> Assisting developers with learning Git, RSpec and Ruby, and QA staff with Capybara and Pytest + Selenium.</li>
+    <header role="banner">
+      <h1>Rob Howard</h1>
+      <address>
+        <ul class="details">
+          <li><a href="tel:0438421587">m: 0438 421 587</a></li>
+          <li><a href="mailto:rob@robhoward.id.au">rob@robhoward.id.au</a></li>
+          <li><a href="http://robhoward.id.au">http://robhoward.id.au</a></li>
+          <li><a href="https://github.com/damncabbage">https://github.com/damncabbage</a></li>
         </ul>
-			</div>
+      </address>
+    </header>
 
-			<div class="listing">
-				<h3><span class="principal">SMASH! Sydney Manga And Anime Show</span> <span class="position">Developer / Lead</span> <span class="timespan">(Mar 2007 - Present)</span></h3>
-				<p>Currently working on a volunteer basis for this annual not-for-profit event as an advisory board member, and previously as a volunteer web developer, IT team lead, and the organisation's Secretary.</p>
-				<ul>
-					<li>Developed and co-designed the annual SMASH! event website (<a href="https://web.archive.org/web/20110706130041/http://www.smash.org.au/">2011</a>, <a href="http://2012.smash.org.au/">2012</a>).</li>
-					<li>Automated deployments (with Capistrano) and testing (with RSpec / Capybara).</li>
-					<li>Developed and ran a multi-terminal Ruby-based ticketing system to process pre-sales tickets on the day of the event.</li>
-					<li>Led a team of three developers working throughout the year on online and at-event infrastructure, including ticketing, event support (eg. a Karaoke system), promotional sites and administrative tools.</li>
-          <li>Trained and directed staff and volunteers both before and during the event, acting as an area manager to help ensure the smooth flow of the 6000 attendees passing through the front doors.</li>
-				</ul>
-			</div>
-
-			<div class="listing">
-				<h3><span class="principal">ABC Commercial</span> <span class="position">Web Developer</span> <span class="timespan">(Apr 2012 - Nov 2012)</span></h3>
-				<p>Maintenance work on the ABC's <a href="https://shop.abc.net.au/">Rails/Spree-based online store</a>, including bug fixes, speed improvements, and the prototyping of a Backbone.js-based shopping cart with non-JS fallback.</p>
-			</div>
-
-			<div class="listing">
-				<h3><span class="principal">Fairfax Digital / OMG</span> <span class="position">Web Developer</span> <span class="timespan">(Apr 2011 - Apr 2012)</span></h3>
-        <p>Worked as a PHP / Ruby developer building a <a href="https://dashboard.omg.com.au/">Rails-based customer dashboard</a> in tandem with a designer and tester (replacing an older Zend-Framework-based system), and maintaining internal sales tools and customer-facing promotional sites.</p>
-			</div>
-
-			<div class="listing">
-				<h3><span class="principal">Deepend Sydney</span> <span class="position">Web Developer</span> <span class="timespan">(Sept 2009 - Apr 2011)</span></h3>
-				<p>Worked as an all-rounder for this digital agency, producing and maintaining client sites with HTML/CSS/Javascript and PHP, implementing designs from designer-provided PSDs. These projects range in size from small once-off promotions to larger infrastructure development projects, including:</p>
-
-				<h4>RedBalloon (Mobile Site) <a href="http://m.redballoon.com.au">http://m.redballoon.com.au</a></h4>
-				<ul>
-					<li>Constructed with Yii PHP Framework, Compass (Sass CSS), jQuery and Rails-style database migrations.</li>
-					<li>Wrote unit tests with PHPUnit, and automated deployment with Capistrano for reliable and quick deployments.</li>
-					<li>Developed integration with RedBalloon's product API to pull in and cache content and search results.</li>
-				</ul>
-
-				<h4>FOXTEL (FOX8) <a href="http://www.fox8.tv">http://www.fox8.tv</a></h4>
-				<ul>
-					<li>Worked with a team of three to develop the initial site, built with Deepend's internal CMS (Vanilla).</li>
-          <li>Administration of the site's Apache and MySQL setup to cope with the ramping up of traffic during ANTM's time on air, working with the client to identify and resolve usability bottlenecks for production staff.</li>
-				</ul>
-
-				<h4>Nomad Agency <a href="http://www.nomadagency.com.au">http://www.nomadagency.com.au</a></h4>
-        <ul>
-          <li>Developed a demonstration advertisement for RedBalloon, targeting News Digital Media's <em>The Australian</em> iPad application, constructed using javascript and CSS3 animations.</li>
+    <!-- Skills -->
+    <section>
+      <header>
+        <h2>Skills</h2>
+      </header>
+      <article>
+        <ul class="skills listing first">
+          <li class="strong">Ruby (incl. Rails, Sinatra)</li>
+          <li class="strong">Git</li>
+          <li class="strong">Javascript (FE, incl. Backbone.js)</li>
+          <li class="strong">HTML/CSS/Sass</li>
+          <li class="strong">Automated Testing (incl. RSpec, PHPUnit)</li>
+          <li class="strong">Automated Deployment (incl. Capistrano)</li>
+          <li class="strong">PHP</li>
+          <li class="strong">Bash</li>
+          <li class="medium">Linux Systems Administration</li>
+          <li class="medium">VM Dev Tooling (incl. Vagrant)</li>
+          <li class="weak">Puppet</li>
+          <li class="weak last">Bamboo</li>
         </ul>
+      </article>
+    </section>
 
-        <h4>Presentations &amp; Demonstrations <a href="https://speakerdeck.com/damncabbage">https://speakerdeck.com/damncabbage</a></h4>
-        <ul>
-          <li>Led discussions on and gave demonstrations of available tools and techniques, including Compass/Sass, dependency injection, reflection, unit testing, automated deployment, database migrations, branching with version control, and security talks about XSS, XSRF and SQL injection.</li>
-        </ul>
-			</div>
+    <!-- Experience -->
+    <section>
+      <header>
+        <h2>Experience</h2>
+      </header>
+      <article>
+        <div class="listing first">
+          <h3><span class="principal">Bigcommerce</span> <span class="position">Software Engineer</span> <span class="timespan">(Nov 2012 - Present)</span></h3>
+          <p>Stability, deployment infrastructure, automated testing, and maintenance of the Bigcommerce storefront and merchant control panel application, with its ecosystem of dependent services.</p>
+          <ul>
+            <li><strong>Development tools.</strong> Giving the engineers, product and QA the ability to deploy versions of the store codebase to a staging environment with a web-based tool that kicks off Capistrano deployments. Introduced deployment queue processing backed by Resque + Monit.</li>
+            <li><strong>Automated Unit + Integration Testing.</strong> Writing RSpec, Capybara or PHPUnit tests (as appropriate) for every new feature or project. Introducing tests to projects with no coverage. Setup of builds with Bamboo and Travis-CI.
+            <li><strong>Automated Regression Testing.</strong> Guiding QA through writing repeatable, dependable regression tests. Running those tests against staging and production stores as part of the deployment pipeline.
+            <li><strong>Automated Build Pipeline.</strong> Currently working in the Tooling team to set up a deployment pipeline for daily deploys.</li>
+            <li><strong>Hackathon projects.</strong> A Cordova-based mobile ticketing iPhone app with PDF ticket generator. An interview candidate screening test tool (with automated verification via RSpec + Capybara hitting Heroku).</li>
+            <li><strong>Security Testing.</strong> Diving through legacy store code to find and correct security errors; reviewing pull requests for security holes.</li>
+            <li><strong>Improving test coverage, code quality.</strong> Keeping on the lookout for code to clean up within the scope of projects. Avoiding "big bang" changes where possible.</li>
+            <li><strong>Mentoring.</strong> Assisting developers with learning Git, RSpec and Ruby, and QA staff with Capybara and Pytest + Selenium.</li>
+          </ul>
+        </div>
 
-			<div class="listing">
-				<h3><span class="principal">Yahoo!7</span> <span class="position">Media Engineer</span> <span class="timespan">(Oct 2008 - Aug 2009)</span></h3>
-        <ul>
-          <li>Worked as a web developer implementing the back-end logic and feed processing for Yahoo!7's News (<a href="http://au.news.yahoo.com">http://au.news.yahoo.com</a>) and Sports (<a href="http://au.sports.yahoo.com">http://au.sports.yahoo.com</a>) pages, building site components using Yahoo!'s internal extensible XML/PHP-based framework ("Maple").</li>
-					<li>Integrated Media sites with external clients' sites and webservices, eg. Expedia flight data, Cadability sport statistics.</li>
-				</ul>
-			</div>
+        <div class="listing">
+          <h3><span class="principal">SMASH!</span> <span class="position">Developer / Lead</span> <span class="timespan">(Mar 2007 - Present)</span></h3>
+          <p>Currently working on a volunteer basis for the <a href="http://www.smash.org.au">SMASH! Sydney Manga and Anime Show</a> annual not-for-profit event as an advisory board member, and previously as a volunteer web developer, IT team lead, and the organisation's Secretary.</p>
+          <ul>
+            <li>Developed and co-designed the annual SMASH! event website (<a href="https://web.archive.org/web/20110706130041/http://www.smash.org.au/">2011</a>, <a href="http://2012.smash.org.au/">2012</a>).</li>
+            <li>Automated deployments (with Capistrano) and testing (with RSpec / Capybara).</li>
+            <li>Developed and ran a multi-terminal Ruby-based ticketing system to process pre-sales tickets on the day of the event.</li>
+            <li>Led a team of three developers working throughout the year on online and at-event infrastructure, including ticketing, event support (eg. a Karaoke system), promotional sites and administrative tools.</li>
+            <li>Trained and directed staff and volunteers both before and during the event, acting as an area manager to help ensure the smooth flow of the 6000 attendees passing through the front doors.</li>
+          </ul>
+        </div>
 
-			<div class="listing">
-				<h3><span class="principal">PPS Internet</span> <span class="position">Systems Administrator / Developer</span> <span class="timespan">(Aug 2007 - Oct 2008)</span></h3>
-				<p>Worked as a systems administrator, providing development support for projects as required.</p>
-				<ul>
-					<li>With a team of three, planned, implemented and maintained network infrastructure, including monitoring, Perl/Bash-based administration scripts, and software/hardware installations and upgrades.</li>
-					<li>Developed "NextMail Groups", a Zend-Framework-based web application that integrates with Mailman and clients' Google Apps accounts.</li>
-					<li>Trained junior system administrators.</li>
-				</ul>
-			</div>
+        <div class="listing">
+          <h3><span class="principal">ABC Commercial</span> <span class="position">Web Developer</span> <span class="timespan">(Apr 2012 - Nov 2012)</span></h3>
+          <p>Maintenance work on the ABC's <a href="https://shop.abc.net.au/">Rails/Spree-based online store</a>, including bug fixes, speed improvements, and the prototyping of a Backbone.js-based shopping cart with non-JS fallback.</p>
+        </div>
 
-			<div class="listing">
-				<h3><span class="principal">Squiz.net</span> <span class="position">Matrix Developer</span> <span class="timespan">(Dec 2004 - July 2007)</span></h3>
-        <ul>
-          <li>Worked as a developer maintaining Squiz's then-flagship product, the MySource Matrix CMS (<a href="http://matrix.squiz.net">http://matrix.squiz.net</a>), using PHP, PHPUnit, Postgres, Oracle, Bash, and CVS to manage and backport code changes across multiple branches.</li>
-					<li>Worked on development projects and provided support for major business clients including Kaz Technology Services (BLIS Project, SOAP integration), Austereo / Triple M (Mville Ebay-style auctions), NSW Department of Lands (content migration tools), and Radio New Zealand (content import scripts).</li>
-				</ul>
-			</div>
-		</div>
+        <div class="listing">
+          <h3><span class="principal">Fairfax Digital / OMG</span> <span class="position">Web Developer</span> <span class="timespan">(Apr 2011 - Apr 2012)</span></h3>
+          <p>Worked as a PHP / Ruby developer building a <a href="https://dashboard.omg.com.au/">Rails-based customer dashboard</a> in tandem with a designer and tester (replacing an older Zend-Framework-based system), and maintaining internal sales tools and customer-facing promotional sites.</p>
+        </div>
 
-		<!-- Education -->
-		<div class="section">
-			<h2>Education</h2>
+        <div class="listing">
+          <h3><span class="principal">Deepend Sydney</span> <span class="position">Web Developer</span> <span class="timespan">(Sept 2009 - Apr 2011)</span></h3>
+          <p>Worked as an all-rounder for this digital agency, producing and maintaining client sites with HTML/CSS/Javascript and PHP, implementing designs from designer-provided PSDs. These projects range in size from small once-off promotions to larger infrastructure development projects, including:</p>
 
-			<div class="listing first">
-				<h3><span class="principal">University of Technology, Sydney</span></h3>
-				<p>Bachelor of Science (IT), Diploma of Professional Practice</p>
-			</div>
-		</div>
+          <h4>RedBalloon (Mobile Site) <a href="http://m.redballoon.com.au">http://m.redballoon.com.au</a></h4>
+          <ul>
+            <li>Constructed with Yii PHP Framework, Compass (Sass CSS), jQuery and Rails-style database migrations.</li>
+            <li>Wrote unit tests with PHPUnit, and automated deployment with Capistrano for reliable and quick deployments.</li>
+            <li>Developed integration with RedBalloon's product API to pull in and cache content and search results.</li>
+          </ul>
 
-		<!-- Certifications -->
-		<div class="section">
-			<h2>Certifications</h2>
+          <h4>FOXTEL (FOX8) <a href="http://www.fox8.tv">http://www.fox8.tv</a></h4>
+          <ul>
+            <li>Worked with a team of three to develop the initial site, built with Deepend's internal CMS (Vanilla).</li>
+            <li>Administration of the site's Apache and MySQL setup to cope with the ramping up of traffic during ANTM's time on air, working with the client to identify and resolve usability bottlenecks for production staff.</li>
+          </ul>
 
-			<div class="listing first">
-				<h3><span class="principal">Zend Certified Engineer (PHP 5.3)</span></h3>
-			</div>
-		</div>
-	</div>
+          <h4>Nomad Agency <a href="http://www.nomadagency.com.au">http://www.nomadagency.com.au</a></h4>
+          <ul>
+            <li>Developed a demonstration advertisement for RedBalloon, targeting News Digital Media's <em>The Australian</em> iPad application, constructed using javascript and CSS3 animations.</li>
+          </ul>
 
+          <h4>Presentations &amp; Demonstrations <a href="https://speakerdeck.com/damncabbage">https://speakerdeck.com/damncabbage</a></h4>
+          <ul>
+            <li>Led discussions on and gave demonstrations of available tools and techniques, including Compass/Sass, dependency injection, reflection, unit testing, automated deployment, database migrations, branching with version control, and security talks about XSS, XSRF and SQL injection.</li>
+          </ul>
+        </div>
+
+        <div class="listing">
+          <h3><span class="principal">Yahoo!7</span> <span class="position">Media Engineer</span> <span class="timespan">(Oct 2008 - Aug 2009)</span></h3>
+          <ul>
+            <li>Worked as a web developer implementing the back-end logic and feed processing for Yahoo!7's News (<a href="http://au.news.yahoo.com">http://au.news.yahoo.com</a>) and Sports (<a href="http://au.sports.yahoo.com">http://au.sports.yahoo.com</a>) pages, building site components using Yahoo!'s internal extensible XML/PHP-based framework ("Maple").</li>
+            <li>Integrated Media sites with external clients' sites and webservices, eg. Expedia flight data, Cadability sport statistics.</li>
+          </ul>
+        </div>
+
+        <div class="listing">
+          <h3><span class="principal">PPS Internet</span> <span class="position">Sysadmin / Developer</span> <span class="timespan">(Aug 2007 - Oct 2008)</span></h3>
+          <p>Worked as a systems administrator, providing development support for projects as required.</p>
+          <ul>
+            <li>With a team of three, planned, implemented and maintained network infrastructure, including monitoring, Perl/Bash-based administration scripts, and software/hardware installations and upgrades.</li>
+            <li>Developed "NextMail Groups", a Zend-Framework-based web application that integrates with Mailman and clients' Google Apps accounts.</li>
+            <li>Trained junior system administrators.</li>
+          </ul>
+        </div>
+
+        <div class="listing">
+          <h3><span class="principal">Squiz.net</span> <span class="position">Matrix Developer</span> <span class="timespan">(Dec 2004 - July 2007)</span></h3>
+          <ul>
+            <li>Worked as a developer maintaining Squiz's then-flagship product, the MySource Matrix CMS (<a href="http://matrix.squiz.net">http://matrix.squiz.net</a>), using PHP, PHPUnit, Postgres, Oracle, Bash, and CVS to manage and backport code changes across multiple branches.</li>
+            <li>Worked on development projects and provided support for major business clients including Kaz Technology Services (BLIS Project, SOAP integration), Austereo / Triple M (Mville Ebay-style auctions), NSW Department of Lands (content migration tools), and Radio New Zealand (content import scripts).</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <header>
+        <h2>Education</h2>
+      </header>
+      <article>
+        <div class="listing first">
+          <h3><span class="principal">University of Technology, Sydney</span></h3>
+          <p>Bachelor of Science (IT), Diploma of Professional Practice</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <header>
+        <h2>Certifications</h2>
+      </header>
+      <article>
+        <div class="listing first">
+          <h3><span class="principal">Zend Certified Engineer (PHP 5.3)</span></h3>
+        </div>
+      </article>
+    </section>
+
+  </main>
 </body>
 </html>

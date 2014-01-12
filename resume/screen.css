@@ -60,7 +60,200 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* Global Vars */
+/*
+ * Gridism
+ * A simple, responsive, and handy CSS grid by @cobyism
+ * https://github.com/cobyism/gridism
+ */
+/* Preserve some sanity */
+.grid, header[role="banner"], section,
+.unit,
+header[role="banner"] h1,
+header[role="banner"] address,
+section header,
+section article {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Set up some rules to govern the grid */
+.grid, header[role="banner"], section {
+  display: block;
+  clear: both;
+}
+
+.grid .unit, header[role="banner"] .unit, section .unit, header[role="banner"] h1, header[role="banner"] address, header[role="banner"] section header, section header[role="banner"] header, section header, header[role="banner"] section article, section header[role="banner"] article, section article {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+/* This ensures the outer gutters are equal to the (doubled) inner gutters. */
+.grid .unit:first-child, header[role="banner"] .unit:first-child, section .unit:first-child, header[role="banner"] h1:first-child, header[role="banner"] address:first-child, section header:first-child, section article:first-child {
+  padding-left: 20px;
+}
+
+.grid .unit:last-child, header[role="banner"] .unit:last-child, section .unit:last-child, header[role="banner"] h1:last-child, header[role="banner"] address:last-child, section header:last-child, section article:last-child {
+  padding-right: 20px;
+}
+
+/* Nested grids already have padding though, so let’s nuke it */
+.unit .unit:first-child, header[role="banner"] h1 .unit:first-child, header[role="banner"] address .unit:first-child, section header .unit:first-child, section article .unit:first-child, .unit header[role="banner"] h1:first-child, header[role="banner"] .unit h1:first-child, header[role="banner"] h1 h1:first-child, header[role="banner"] address h1:first-child, section header[role="banner"] h1:first-child, header[role="banner"] section article h1:first-child, .unit header[role="banner"] address:first-child, header[role="banner"] .unit address:first-child, header[role="banner"] h1 address:first-child, header[role="banner"] address address:first-child, section header[role="banner"] address:first-child, header[role="banner"] section article address:first-child, .unit section header:first-child, section .unit header:first-child, header[role="banner"] h1 section header:first-child, header[role="banner"] address section header:first-child, section header header:first-child, section article header:first-child, .unit section article:first-child, section .unit article:first-child, header[role="banner"] h1 section article:first-child, header[role="banner"] address section article:first-child, section header article:first-child, section article article:first-child {
+  padding-left: 0;
+}
+
+.unit .unit:last-child, header[role="banner"] h1 .unit:last-child, header[role="banner"] address .unit:last-child, section header .unit:last-child, section article .unit:last-child, .unit header[role="banner"] h1:last-child, header[role="banner"] .unit h1:last-child, header[role="banner"] h1 h1:last-child, header[role="banner"] address h1:last-child, section header[role="banner"] h1:last-child, header[role="banner"] section article h1:last-child, .unit header[role="banner"] address:last-child, header[role="banner"] .unit address:last-child, header[role="banner"] h1 address:last-child, header[role="banner"] address address:last-child, section header[role="banner"] address:last-child, header[role="banner"] section article address:last-child, .unit section header:last-child, section .unit header:last-child, header[role="banner"] h1 section header:last-child, header[role="banner"] address section header:last-child, section header header:last-child, section article header:last-child, .unit section article:last-child, section .unit article:last-child, header[role="banner"] h1 section article:last-child, header[role="banner"] address section article:last-child, section header article:last-child, section article article:last-child {
+  padding-right: 0;
+}
+
+.unit .grid:first-child > .unit, header[role="banner"] h1 .grid:first-child > .unit, header[role="banner"] address .grid:first-child > .unit, section header .grid:first-child > .unit, section article .grid:first-child > .unit, .unit header[role="banner"]:first-child > .unit, header[role="banner"] h1 header[role="banner"]:first-child > .unit, header[role="banner"] address header[role="banner"]:first-child > .unit, section header header[role="banner"]:first-child > .unit, section article header[role="banner"]:first-child > .unit, .unit section:first-child > .unit, header[role="banner"] h1 section:first-child > .unit, header[role="banner"] address section:first-child > .unit, section header section:first-child > .unit, section article section:first-child > .unit, .unit header[role="banner"] .grid:first-child > h1, header[role="banner"] .unit .grid:first-child > h1, header[role="banner"] h1 .grid:first-child > h1, header[role="banner"] address .grid:first-child > h1, section header[role="banner"] .grid:first-child > h1, header[role="banner"] section article .grid:first-child > h1, .unit header[role="banner"]:first-child > h1, header[role="banner"] h1 header[role="banner"]:first-child > h1, header[role="banner"] address header[role="banner"]:first-child > h1, section header header[role="banner"]:first-child > h1, section article header[role="banner"]:first-child > h1, .unit header[role="banner"] section:first-child > h1, header[role="banner"] .unit section:first-child > h1, header[role="banner"] h1 section:first-child > h1, header[role="banner"] address section:first-child > h1, section header[role="banner"] section:first-child > h1, header[role="banner"] section article section:first-child > h1, .unit header[role="banner"] .grid:first-child > address, header[role="banner"] .unit .grid:first-child > address, header[role="banner"] h1 .grid:first-child > address, header[role="banner"] address .grid:first-child > address, section header[role="banner"] .grid:first-child > address, header[role="banner"] section article .grid:first-child > address, .unit header[role="banner"]:first-child > address, header[role="banner"] h1 header[role="banner"]:first-child > address, header[role="banner"] address header[role="banner"]:first-child > address, section header header[role="banner"]:first-child > address, section article header[role="banner"]:first-child > address, .unit header[role="banner"] section:first-child > address, header[role="banner"] .unit section:first-child > address, header[role="banner"] h1 section:first-child > address, header[role="banner"] address section:first-child > address, section header[role="banner"] section:first-child > address, header[role="banner"] section article section:first-child > address, .unit section .grid:first-child > header, section .unit .grid:first-child > header, header[role="banner"] h1 section .grid:first-child > header, header[role="banner"] address section .grid:first-child > header, section header .grid:first-child > header, section article .grid:first-child > header, .unit section header[role="banner"]:first-child > header, section .unit header[role="banner"]:first-child > header, header[role="banner"] h1 section header[role="banner"]:first-child > header, header[role="banner"] address section header[role="banner"]:first-child > header, section header header[role="banner"]:first-child > header, section article header[role="banner"]:first-child > header, .unit section:first-child > header, header[role="banner"] h1 section:first-child > header, header[role="banner"] address section:first-child > header, section header section:first-child > header, section article section:first-child > header, .unit section .grid:first-child > article, section .unit .grid:first-child > article, header[role="banner"] h1 section .grid:first-child > article, header[role="banner"] address section .grid:first-child > article, section header .grid:first-child > article, section article .grid:first-child > article, .unit section header[role="banner"]:first-child > article, section .unit header[role="banner"]:first-child > article, header[role="banner"] h1 section header[role="banner"]:first-child > article, header[role="banner"] address section header[role="banner"]:first-child > article, section header header[role="banner"]:first-child > article, section article header[role="banner"]:first-child > article, .unit section:first-child > article, header[role="banner"] h1 section:first-child > article, header[role="banner"] address section:first-child > article, section header section:first-child > article, section article section:first-child > article {
+  padding-top: 0;
+}
+
+.unit .grid:last-child > .unit, header[role="banner"] h1 .grid:last-child > .unit, header[role="banner"] address .grid:last-child > .unit, section header .grid:last-child > .unit, section article .grid:last-child > .unit, .unit header[role="banner"]:last-child > .unit, header[role="banner"] h1 header[role="banner"]:last-child > .unit, header[role="banner"] address header[role="banner"]:last-child > .unit, section header header[role="banner"]:last-child > .unit, section article header[role="banner"]:last-child > .unit, .unit section:last-child > .unit, header[role="banner"] h1 section:last-child > .unit, header[role="banner"] address section:last-child > .unit, section header section:last-child > .unit, section article section:last-child > .unit, .unit header[role="banner"] .grid:last-child > h1, header[role="banner"] .unit .grid:last-child > h1, header[role="banner"] h1 .grid:last-child > h1, header[role="banner"] address .grid:last-child > h1, section header[role="banner"] .grid:last-child > h1, header[role="banner"] section article .grid:last-child > h1, .unit header[role="banner"]:last-child > h1, header[role="banner"] h1 header[role="banner"]:last-child > h1, header[role="banner"] address header[role="banner"]:last-child > h1, section header header[role="banner"]:last-child > h1, section article header[role="banner"]:last-child > h1, .unit header[role="banner"] section:last-child > h1, header[role="banner"] .unit section:last-child > h1, header[role="banner"] h1 section:last-child > h1, header[role="banner"] address section:last-child > h1, section header[role="banner"] section:last-child > h1, header[role="banner"] section article section:last-child > h1, .unit header[role="banner"] .grid:last-child > address, header[role="banner"] .unit .grid:last-child > address, header[role="banner"] h1 .grid:last-child > address, header[role="banner"] address .grid:last-child > address, section header[role="banner"] .grid:last-child > address, header[role="banner"] section article .grid:last-child > address, .unit header[role="banner"]:last-child > address, header[role="banner"] h1 header[role="banner"]:last-child > address, header[role="banner"] address header[role="banner"]:last-child > address, section header header[role="banner"]:last-child > address, section article header[role="banner"]:last-child > address, .unit header[role="banner"] section:last-child > address, header[role="banner"] .unit section:last-child > address, header[role="banner"] h1 section:last-child > address, header[role="banner"] address section:last-child > address, section header[role="banner"] section:last-child > address, header[role="banner"] section article section:last-child > address, .unit section .grid:last-child > header, section .unit .grid:last-child > header, header[role="banner"] h1 section .grid:last-child > header, header[role="banner"] address section .grid:last-child > header, section header .grid:last-child > header, section article .grid:last-child > header, .unit section header[role="banner"]:last-child > header, section .unit header[role="banner"]:last-child > header, header[role="banner"] h1 section header[role="banner"]:last-child > header, header[role="banner"] address section header[role="banner"]:last-child > header, section header header[role="banner"]:last-child > header, section article header[role="banner"]:last-child > header, .unit section:last-child > header, header[role="banner"] h1 section:last-child > header, header[role="banner"] address section:last-child > header, section header section:last-child > header, section article section:last-child > header, .unit section .grid:last-child > article, section .unit .grid:last-child > article, header[role="banner"] h1 section .grid:last-child > article, header[role="banner"] address section .grid:last-child > article, section header .grid:last-child > article, section article .grid:last-child > article, .unit section header[role="banner"]:last-child > article, section .unit header[role="banner"]:last-child > article, header[role="banner"] h1 section header[role="banner"]:last-child > article, header[role="banner"] address section header[role="banner"]:last-child > article, section header header[role="banner"]:last-child > article, section article header[role="banner"]:last-child > article, .unit section:last-child > article, header[role="banner"] h1 section:last-child > article, header[role="banner"] address section:last-child > article, section header section:last-child > article, section article section:last-child > article {
+  padding-bottom: 0;
+}
+
+/* Let people nuke the gutters/padding completely in a couple of ways */
+.no-gutters .unit, .no-gutters header[role="banner"] h1, header[role="banner"] .no-gutters h1, .no-gutters header[role="banner"] address, header[role="banner"] .no-gutters address, .no-gutters section header, section .no-gutters header, .no-gutters section article, section .no-gutters article,
+.unit.no-gutters,
+header[role="banner"] h1.no-gutters,
+header[role="banner"] address.no-gutters,
+section header.no-gutters,
+section article.no-gutters {
+  padding: 0 !important;
+}
+
+/* Wrapping at a maximum width is optional */
+.wrap .grid, body .grid, .wrap header[role="banner"], body header[role="banner"], .wrap section, body section,
+.grid.wrap,
+body.grid,
+header.wrap[role="banner"],
+section.wrap {
+  max-width: 978px;
+  margin: 0 auto;
+}
+
+/* Width classes also have shorthand versions numbered as fractions
+ * For example: for a grid unit 1/3 (one third) of the parent width,
+ * simply apply class="w-1-3" to the element. */
+.grid .whole, header[role="banner"] .whole, section .whole, .grid .w-1-1, header[role="banner"] .w-1-1, section .w-1-1 {
+  width: 100%;
+}
+
+.grid .half, header[role="banner"] .half, section .half, .grid .w-1-2, header[role="banner"] .w-1-2, section .w-1-2 {
+  width: 50%;
+}
+
+.grid .one-third, header[role="banner"] .one-third, section .one-third, .grid .w-1-3, header[role="banner"] .w-1-3, section .w-1-3 {
+  width: 33.3332%;
+}
+
+.grid .two-thirds, header[role="banner"] .two-thirds, section .two-thirds, .grid .w-2-3, header[role="banner"] .w-2-3, section .w-2-3 {
+  width: 66.6665%;
+}
+
+.grid .one-quarter, header[role="banner"] .one-quarter, section .one-quarter, header[role="banner"] section header, section header[role="banner"] header, section header, .grid .w-1-4, header[role="banner"] .w-1-4, section .w-1-4 {
+  width: 25%;
+}
+
+.grid .three-quarters, header[role="banner"] .three-quarters, section .three-quarters, header[role="banner"] section article, section header[role="banner"] article, section article, .grid .w-3-4, header[role="banner"] .w-3-4, section .w-3-4 {
+  width: 75%;
+}
+
+.grid .one-fifth, header[role="banner"] .one-fifth, section .one-fifth, .grid .w-1-5, header[role="banner"] .w-1-5, section .w-1-5 {
+  width: 20%;
+}
+
+.grid .two-fifths, header[role="banner"] .two-fifths, section .two-fifths, header[role="banner"] address, .grid .w-2-5, header[role="banner"] .w-2-5, section .w-2-5 {
+  width: 40%;
+}
+
+.grid .three-fifths, header[role="banner"] .three-fifths, section .three-fifths, header[role="banner"] h1, .grid .w-3-5, header[role="banner"] .w-3-5, section .w-3-5 {
+  width: 60%;
+}
+
+.grid .four-fifths, header[role="banner"] .four-fifths, section .four-fifths, .grid .w-4-5, header[role="banner"] .w-4-5, section .w-4-5 {
+  width: 80%;
+}
+
+.grid .golden-small, header[role="banner"] .golden-small, section .golden-small, .grid .w-g-s, header[role="banner"] .w-g-s, section .w-g-s {
+  width: 38.2716%;
+}
+
+/* Golden section: smaller piece */
+.grid .golden-large, header[role="banner"] .golden-large, section .golden-large, .grid .w-g-l, header[role="banner"] .w-g-l, section .w-g-l {
+  width: 61.7283%;
+}
+
+/* Golden section: larger piece */
+/* Clearfix after every .grid */
+.grid, header[role="banner"], section {
+  *zoom: 1;
+}
+
+.grid:before, header[role="banner"]:before, section:before, .grid:after, header[role="banner"]:after, section:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.grid:after, header[role="banner"]:after, section:after {
+  clear: both;
+}
+
+/* Utility classes */
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+/* Responsive Stuff */
+@media screen and (max-width: 568px) {
+  /* Stack anything that isn’t full-width on smaller screens */
+  .grid .unit, header[role="banner"] .unit, section .unit, header[role="banner"] h1, header[role="banner"] address, header[role="banner"] section header, section header[role="banner"] header, section header, header[role="banner"] section article, section header[role="banner"] article, section article {
+    width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .unit .grid .unit, header[role="banner"] h1 .grid .unit, header[role="banner"] address .grid .unit, section header .grid .unit, section article .grid .unit, .unit header[role="banner"] .unit, header[role="banner"] h1 header[role="banner"] .unit, header[role="banner"] address header[role="banner"] .unit, section header header[role="banner"] .unit, section article header[role="banner"] .unit, .unit section .unit, header[role="banner"] h1 section .unit, header[role="banner"] address section .unit, section header section .unit, section article section .unit, header[role="banner"] .unit .grid h1, header[role="banner"] h1 .grid h1, header[role="banner"] address .grid h1, section header[role="banner"] .grid h1, header[role="banner"] section article .grid h1, .unit header[role="banner"] h1, header[role="banner"] h1 header[role="banner"] h1, header[role="banner"] address header[role="banner"] h1, section header[role="banner"] header[role="banner"] h1, section article header[role="banner"] h1, header[role="banner"] .unit section h1, header[role="banner"] h1 section h1, header[role="banner"] address section h1, section header[role="banner"] section h1, header[role="banner"] section article section h1, header[role="banner"] .unit .grid address, header[role="banner"] h1 .grid address, header[role="banner"] address .grid address, section header[role="banner"] .grid address, header[role="banner"] section article .grid address, .unit header[role="banner"] address, header[role="banner"] h1 header[role="banner"] address, header[role="banner"] address header[role="banner"] address, section header[role="banner"] header[role="banner"] address, section article header[role="banner"] address, header[role="banner"] .unit section address, header[role="banner"] h1 section address, header[role="banner"] address section address, section header[role="banner"] section address, header[role="banner"] section article section address, section .unit .grid header, section header .grid header, section article .grid header, section .unit header[role="banner"] header, section header header[role="banner"] header, section article header[role="banner"] header, .unit section header, header[role="banner"] h1 section header, header[role="banner"] address section header, section header section header, section article section header, section .unit .grid article, section header .grid article, section article .grid article, section .unit header[role="banner"] article, section header header[role="banner"] article, section article header[role="banner"] article, .unit section article, header[role="banner"] h1 section article, header[role="banner"] address section article, section header section article, section article section article {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  /* Sometimes, you just want to be different on small screens */
+  .center-on-mobiles {
+    text-align: center !important;
+  }
+
+  .hide-on-mobiles {
+    display: none !important;
+  }
+}
+/* Expand the wrap a bit further on larger screens */
+@media screen and (min-width: 1180px) {
+  .wider .grid, .wider header[role="banner"], .wider section {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+}
 /* Drag in all the regular styles */
 /* Header */
 @font-face {
@@ -77,6 +270,12 @@ body {
   font-size: 0.9em;
   line-height: 1.4em;
   color: #222222;
+  margin: 2em auto;
+}
+@media screen and (max-width: 568px) {
+  body {
+    margin: 0 auto;
+  }
 }
 
 a {
@@ -87,13 +286,14 @@ a:hover, a:active {
   border-bottom: 1px solid #777777;
 }
 
-#article {
-  width: 960px;
-  margin: 2em auto;
+main {
+  display: block;
 }
 
-.header h1 {
-  float: left;
+header[role="banner"] {
+  padding-bottom: 2.4em;
+}
+header[role="banner"] h1 {
   font-family: 'LeagueGothicRegular', 'Helvetica Condensed Black', 'Helvetica Condensed', 'Arial Black', 'Arial', sans-serif;
   font-size: 6em;
   color: #e23500;
@@ -102,137 +302,135 @@ a:hover, a:active {
   /* The font glyph has internal padding, which becomes
      evident at large sizes; counteract this. */
 }
-.header .details {
-  display: block;
-  float: right;
-}
-.header .details li {
+header[role="banner"] address li {
   display: block;
   font-size: 0.9em;
   line-height: 1.47em;
   text-align: right;
   color: #777777;
 }
+@media screen and (max-width: 568px) {
+  header[role="banner"] address li {
+    margin-right: 6px;
+  }
+}
 
-.section {
-  padding-top: 2em;
-  clear: both;
-}
-.section li, .section p {
-  text-align: justify;
-}
-.section strong, .section b {
+section strong, section b {
   font-weight: bold;
 }
-.section h2, .section h3, .section h4 {
+section h2, section h3, section h4 {
   text-transform: uppercase;
 }
-.section h2, .section h3 {
+section h2, section h3 {
   display: block;
   font-size: 1.1em;
   line-height: 15px;
   text-indent: -0.05em;
-  padding-bottom: 0.4em;
-  margin-bottom: 0.2em;
 }
-.section h2 {
-  float: left;
-  width: 225px;
-  margin-right: 15px;
+section h2 {
   font-weight: bold;
   color: #aaaaaa;
   /* Hack to force consistent height across headings. */
   line-height: 16px;
 }
-.section a {
+section a {
   color: #b02900;
 }
-.section a:hover, .section a:active {
+section a:hover, section a:active {
   border-bottom: 1px solid #b02900;
 }
-.section .listing {
-  float: right;
-  width: 720px;
-  padding: 1.4em 0 1em;
+section .listing {
+  margin-bottom: 2em;
 }
-.section .listing.first {
-  padding-top: 0;
-}
-.section .listing h3 {
+section .listing h3 {
   *zoom: 1;
   color: #aaaaaa;
-  /* Hack to force consistent height on the underlined headings. */
   height: 16px;
   line-height: 16px;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.2em;
 }
-.section .listing h3:after {
+section .listing h3:after {
   content: "";
   display: table;
   clear: both;
 }
-.section .listing h3 .principal, .section .listing h3 .position {
+section .listing h3 .principal, section .listing h3 .position {
   font-weight: bold;
 }
-.section .listing h3 .principal {
+section .listing h3 .principal {
   color: #e23500;
   font-weight: bold;
 }
-.section .listing h3 .position, .section .listing h3 .timespan {
+section .listing h3 .position, section .listing h3 .timespan {
   font-size: 0.8em;
   vertical-align: baseline;
   color: #777777;
 }
-.section .listing p, .section .listing h4, .section .listing ul {
-  font-size: 0.92em;
+@media screen and (max-width: 568px) {
+  section .listing h3 {
+    height: 3.4em;
+  }
+  section .listing h3 .principal, section .listing h3 .position {
+    display: block;
+    margin-bottom: 0.2em;
+  }
 }
-.section .listing h4 {
+section .listing p, section .listing h4, section .listing ul {
+  font-size: 0.97em;
+}
+section .listing p {
+  margin-bottom: 0.8em;
+}
+section .listing h4 {
   color: #777777;
-  padding: 1.2em 0 0;
+  padding: 0;
+  margin-top: 0.5em;
   font-weight: bold;
 }
-.section .listing h4 a {
+section .listing h4 a {
   font-size: 0.92em;
   text-transform: none;
   font-weight: normal;
 }
-.section .listing h5 {
+section .listing h5 {
   padding: 0.3em 0 0.4em;
   font-size: 0.82em;
   line-height: 1em;
 }
-.section .listing ul {
-  padding: 0.4em 0;
+section .listing ul {
+  padding: 0.2em 0;
   display: block;
 }
-.section .listing ul li {
+section .listing ul li {
   margin-left: 17px;
   padding-left: 5px;
   padding-bottom: 0.4em;
   list-style: square outside url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sBCgoAO1ps42oAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAFklEQVQY02NUUlL6z4AHMDEQAMNDAQB0twF1MNyz0gAAAABJRU5ErkJggg==');
 }
-.section .skills {
+section .skills {
   *zoom: 1;
   margin-top: -0.2em;
 }
-.section .skills:after {
+section .skills:after {
   content: "";
   display: table;
   clear: both;
 }
-.section .skills li {
+section .skills li {
   float: left;
   padding-right: 0.8em;
   color: #777777;
 }
-.section .skills li.strong {
+section .skills li.strong {
   font-weight: bold;
 }
-.section .skills li.weak {
+section .skills li.weak {
   color: #aaaaaa;
 }
-.section .skills li:after {
+section .skills li:after {
   content: ',';
 }
-.section .skills li.last:after {
+section .skills li.last:after {
   content: '';
 }

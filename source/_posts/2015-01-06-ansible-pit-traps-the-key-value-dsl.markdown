@@ -35,7 +35,7 @@ This is fine and dandy if you have plain arguments, but as is common in Ansible,
 {% codeblock lang:yaml %}
 tasks:
 - name: "Install basic packages"
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ "{{ item "}}}} state=installed
   with_items:
   - screen
   - vim
@@ -51,19 +51,19 @@ Here's a [not-so-simple example](https://github.com/ansible/ansible/issues/9067)
 
 {% codeblock lang:yaml %}
 tasks:
-- copy: "dest=/tmp/1.txt content={{ contains_quote }}"
+- copy: "dest=/tmp/1.txt content={{ "{{ contains_quote "}}}}"
 # ^-- Broken; interpreted as:
 #       copy: dest=/tmp/1.txt content=Hello"World
 #     (Throws "try quoting the entire line" error.)
 
-- copy: dest=/tmp/2.txt content="{{ contains_quote }}"
+- copy: dest=/tmp/2.txt content="{{ "{{ contains_quote "}}}}"
 # ^-- Also broken, interpreted as:
         copy: dest=/tmp/2.txt content="Hello"World"
 
-- copy: dest=/tmp/3.txt content='{{ contains_quote }}'
+- copy: dest=/tmp/3.txt content='{{ "{{ contains_quote "}}}}'
 # ^-- "Fixed" by swapping " for ' quotes, but...
 
-- copy: dest=/tmp/4.txt content='{{ contains_alt_quote }}'
+- copy: dest=/tmp/4.txt content='{{ "{{ contains_alt_quote "}}}}'
 # ^-- Also broken, interpreted as:
 #       copy: dest=/tmp/4.txt content='Hello'World'
 
@@ -72,7 +72,7 @@ vars:
   contains_alt_quote: "Hello'World"
 {% endcodeblock %}
 
-Same goes for things like `campfire: room=example subscription=example token=example msg="{{ contains_quote }}"` or anything else that could include "special" characters.
+Same goes for things like `campfire: room=example subscription=example token=example msg="{{ "{{ contains_quote "}}}}"` or anything else that could include "special" characters.
 
 It's a fruitless game of whack-a-mole.
 
@@ -86,7 +86,7 @@ tasks:
 - name: "Long-form Hash"
   service:
     dest: "/tmp/whatever.txt"
-    content: "{{ contains_quotes_or_other_things }}"
+    content: "{{ "{{ contains_quotes_or_other_things "}}}}"
 - name: "Inline Hash"
   service: { name: "httpd", state: "running" }
 {% endcodeblock %}

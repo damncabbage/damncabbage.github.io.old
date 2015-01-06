@@ -191,9 +191,15 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg="{{ contains_quote }}"</code> or anything else that could include &#8220;special&#8221; characters.</p>
+<p>Same goes for things like:</p>
 
-<p>It&#8217;s a fruitless game of whack-a-mole.</p>
+<ul>
+<li><code>campfire: room=example subscription=example token=example msg="{{ contains_a_quote_or_newline }}"</code></li>
+<li><code>command:  cap deploy -s branch=master</code> (Whinges about the <code>=</code>)</li>
+</ul>
+
+
+<p>&#8230; or anything else that could include &#8220;special&#8221; characters. It&#8217;s a fruitless game of whack-a-mole.</p>
 
 <h3>The Fix</h3>
 
@@ -206,17 +212,19 @@
 <span class='line'>5</span>
 <span class='line'>6</span>
 <span class='line'>7</span>
+<span class='line'>8</span>
 </pre></td><td class='code' width='100%'><pre><code class='yaml'><div class='line'><span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;Long-form</span><span class="nv"> </span><span class="s">Hash&quot;</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
 </div><div class='line'>    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/tmp/whatever.txt&quot;</span>
 </div><div class='line'>    <span class="l-Scalar-Plain">content</span><span class="p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">contains_quotes_or_other_things</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</div><div class='line'>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;Inline</span><span class="nv"> </span><span class="s">Hash&quot;</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&quot;httpd&quot;</span><span class="p-Indicator">,</span> <span class="nv">state</span><span class="p-Indicator">:</span> <span class="s">&quot;running&quot;</span> <span class="p-Indicator">}</span>
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>And if you&#8217;re using something like <a href="http://docs.ansible.com/shell_module.html">shell</a> or <a href="http://docs.ansible.com/command_module.html">command</a> that expect a string AND key=value arguments (eg. <code>shell: "something --file /home/foo/bar.txt creates=/home/foo/bar.txt"</code>), you can instead provide an <code>args</code> key:</p>
+<p>And if you&#8217;re using something like <a href="http://docs.ansible.com/shell_module.html">shell</a> or <a href="http://docs.ansible.com/command_module.html">command</a> that expect a string <em>and</em> <code>key=value</code> arguments (eg. <code>shell: "something --file /home/foo/bar.txt creates=/home/foo/bar.txt"</code>), you can instead provide an <code>args</code> key:</p>
 
 <div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -231,7 +239,7 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>Why not use <code>service: name=httpd state=running</code> sometimes and <code>service: { name: "httpd", state: "running" }</code> other times? Safety. Or, rather, a step towards safety. Remembering the edge cases for <code>key=value</code> can be done, yes, but it&#8217;s another edge case in a tool that&#8217;s arguably already full of edge cases.</p>
+<p>Why not use <code>service: name=httpd state=running</code> sometimes, and <code>service: { name: "{{some_variable }}", state: "running" }</code> other times when needed for variable interpolation or special-case <code>=</code> usage? Consistency, in attempt to increase safety. Remembering the special rules for <code>key=value</code> can be done, yes, but it&#8217;s another edge case in a tool that&#8217;s arguably already <a href="https://github.com/ansible/ansible/issues/9899">full of</a> <a href="https://github.com/ansible/ansible/issues/9856">edge</a> <a href="https://github.com/ansible/ansible/issues/8219">cases</a>; sticking to the &#8220;Always use YAML hashes&#8221; rule means one less thing to forget about or train the new ops people up on.</p>
 
 <p>And hey, think of it like what people used to do with SQL; nobody does <code>$sql = "SELECT * FROM users WHERE name = '$username'";</code> anymore, right?</p>
 

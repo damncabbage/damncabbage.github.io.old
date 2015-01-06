@@ -72,9 +72,12 @@ vars:
   contains_alt_quote: "Hello'World"
 {% endcodeblock %}
 
-Same goes for things like `campfire: room=example subscription=example token=example msg="{{ "{{ contains_quote "}}}}"` or anything else that could include "special" characters.
+Same goes for things like:
 
-It's a fruitless game of whack-a-mole.
+* `campfire: room=example subscription=example token=example msg="{{ "{{ contains_a_quote_or_newline "}}}}"`
+* `command:  cap deploy -s branch=master` (Whinges about the `=`)
+
+... or anything else that could include "special" characters. It's a fruitless game of whack-a-mole.
 
 
 ### The Fix
@@ -87,11 +90,12 @@ tasks:
   service:
     dest: "/tmp/whatever.txt"
     content: "{{ "{{ contains_quotes_or_other_things "}}}}"
+
 - name: "Inline Hash"
   service: { name: "httpd", state: "running" }
 {% endcodeblock %}
 
-And if you're using something like [shell](http://docs.ansible.com/shell_module.html) or [command](http://docs.ansible.com/command_module.html) that expect a string AND key=value arguments (eg. `shell: "something --file /home/foo/bar.txt creates=/home/foo/bar.txt"`), you can instead provide an `args` key:
+And if you're using something like [shell](http://docs.ansible.com/shell_module.html) or [command](http://docs.ansible.com/command_module.html) that expect a string *and* `key=value` arguments (eg. `shell: "something --file /home/foo/bar.txt creates=/home/foo/bar.txt"`), you can instead provide an `args` key:
 
 {% codeblock lang:yaml %}
 tasks:
@@ -101,7 +105,7 @@ tasks:
     creates: "/home/foo/bar.txt"
 {% endcodeblock %}
 
-Why not use `service: name=httpd state=running` sometimes and `service: { name: "httpd", state: "running" }` other times? Safety. Or, rather, a step towards safety. Remembering the edge cases for `key=value` can be done, yes, but it's another edge case in a tool that's arguably already full of edge cases.
+Why not use `service: name=httpd state=running` sometimes, and `service: { name: "{{ "{{some_variable "}}}}", state: "running" }` other times when needed for variable interpolation or special-case `=` usage? Consistency, in attempt to increase safety. Remembering the special rules for `key=value` can be done, yes, but it's another edge case in a tool that's arguably already [full of](https://github.com/ansible/ansible/issues/9899) [edge](https://github.com/ansible/ansible/issues/9856) [cases](https://github.com/ansible/ansible/issues/8219); sticking to the "Always use YAML hashes" rule means one less thing to forget about or train the new ops people up on.
 
 And hey, think of it like what people used to do with SQL; nobody does `$sql = "SELECT * FROM users WHERE name = '$username'";` anymore, right?
 

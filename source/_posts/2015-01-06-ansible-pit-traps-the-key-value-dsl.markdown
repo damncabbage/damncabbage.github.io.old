@@ -72,12 +72,7 @@ vars:
   contains_alt_quote: "Hello'World"
 {% endcodeblock %}
 
-Same goes for things like:
-
-* `campfire: room=example subscription=example token=example msg="{{ "{{ contains_a_quote_or_newline "}}}}"`
-* `command:  cap deploy -s branch=master` (Whinges about the `=`)
-
-... or anything else that could include "special" characters. It's a fruitless game of whack-a-mole.
+Same goes for things like `campfire: room=example subscription=example token=example msg="{{ "{{ contains_a_quote "}}}}"` or `copy: dest=/tmp/1.txt content={{ contains_a_newline_forgot_to_quote }}`. It's a fruitless game of whack-a-mole.
 
 
 ### The Fix
@@ -105,8 +100,6 @@ tasks:
     creates: "/home/foo/bar.txt"
 {% endcodeblock %}
 
-Why not use `service: name=httpd state=running` sometimes, and `service: { name: "{{ "{{some_variable "}}}}", state: "running" }` other times when needed for variable interpolation or special-case `=` usage? Consistency, in attempt to increase safety. Remembering the special rules for `key=value` can be done, yes, but it's another edge case in a tool that's arguably already [full of](https://github.com/ansible/ansible/issues/9899) [edge](https://github.com/ansible/ansible/issues/9856) [cases](https://github.com/ansible/ansible/issues/8219); sticking to the "Always use YAML hashes" rule means one less thing to forget about or train the new ops people up on.
+Why not use `service: name=httpd state=running` sometimes, and `service: { name: "{{ "{{some_variable "}}}}", state: "running" }` other times when needed for variable interpolation? Consistency, in an attempt to increase safety; sticking to the "Always use YAML hashes" rule means one less thing to forget about or train the new ops people up on.
 
-And hey, think of it like what people used to do with SQL; nobody does `$sql = "SELECT * FROM users WHERE name = '$username'";` anymore, right?
-
-<small>... Right? D:</small>
+Remembering the special rules for `key=value` can be done, yes, but it's another edge case in a tool that's arguably already [full of](https://github.com/ansible/ansible/issues/9899) [unsafe](https://github.com/ansible/ansible/issues/9856) [edge cases](https://github.com/ansible/ansible/issues/8219).

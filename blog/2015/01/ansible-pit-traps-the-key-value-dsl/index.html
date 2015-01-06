@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>That Damn Cabbage: Ansible Pit-Traps: The Hash-in-a-String DSL</title>
+  <meta name="author" content="Rob Howard" />
+  
+
+  
+
+  <link rel="canonical" href="http://robhoward.id.au/blog/2015/01/ansible-pit-traps-the-key-value-dsl/" />
+  <link href="/atom.xml" rel="alternate" title="That Damn Cabbage" type="application/atom+xml" />
+
+  <link href="/favicon.png" rel="icon" type="image/png" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+
+  <!--
+    <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+    <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  -->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12459174-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body  >
+  <div id="container">
+    <nav id="primary" role="navigation"><a class="illustration" href="/">A head of cabbage.</a>
+<ul role="main-navigation">
+  <li><a href="/blog/">Blog Stream</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="http://twitter.com/damncabbage/">@damncabbage</a></li>
+  <li><a href="https://github.com/damncabbage/">GitHub</a></li>
+  <li><a href="https://github.com/smashcon/">SMASH!</a></li> 
+  <li><a href="http://speakerdeck.com/u/damncabbage/">Speakerdeck</a></li> 
+</ul>
+</nav>
+    <div id="content">
+      <header id="masthead"><h1><a href="/">That Damn Cabbage</a></h1>
+
+  <p class="tagline">Rob Howard and the Infinite Sadness</p>
+
+</header>
+      <article class="hentry">
+  
+  <header>
+    
+      <h1 class="entry-title">Ansible Pit-Traps: The Hash-in-a-String DSL</h1>
+    
+    
+      <p class="meta">Posted on
+
+
+
+
+
+  <time datetime="2015-01-06 23:22:00 +1100" pubdate  updated >Jan 6<span>th</span>, 2015</time>
+
+
+
+
+  
+    under <a class='category' href='/blog/categories/Ansible/'>Ansible</a>, <a class='category' href='/blog/categories/Ops/'>Ops</a>
+  
+
+
+    
+  </header>
+
+
+<div class="copy"><p>Or, as you may see them in the docs, <a href="http://docs.ansible.com/playbooks_intro.html#tasks-list">&#8220;key=value&#8221; options for module actions</a>. They look a bit like this:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found</p>
+
+<p>Every playbook file is a YAML file; what we have above is a list of one task hash that has two keys (<code>name</code> and <code>service</code>), with a string value for each.</p>
+
+<p>Formatted properly, the above looks like:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found<!--more--></p>
+
+<h3>The Problem</h3>
+
+<p>What&#8217;s going on is that Ansible has <a href="https://github.com/ansible/ansible/blob/fe53d86a83b8fdd9019c1237fd37e3295e8df2b5/lib/ansible/module_utils/splitter.py#L51">its own key=value parser that it runs over the strings</a>, which then <a href="https://github.com/ansible/ansible/blob/d3c9eda15b0028b4a0621f313c6ee53eef439d43/lib/ansible/runner/__init__.py#L993">runs the Jinja2 templating engine over</a>.</p>
+
+<p>This is fine and dandy if you have plain arguments, but as is common in Ansible, you often want to interpolate in variables. Here&#8217;s a simple example:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found</p>
+
+<p>Here&#8217;s a <a href="https://github.com/ansible/ansible/issues/9067">not-so-simple example</a>:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found</p>
+
+<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg=""</code> or anything else that could include &#8220;special&#8221; characters.</p>
+
+<p>It&#8217;s a fruitless game of whack-a-mole.</p>
+
+<h3>The Fix</h3>
+
+<p>Stick to using YAMLs own features for structured data; use a hash:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found</p>
+
+<p>And if you&#8217;re using something like <a href="http://docs.ansible.com/shell_module.html">shell</a> or <a href="http://docs.ansible.com/command_module.html">command</a> that expect a string AND key=value arguments (eg. <code>shell: "something --file /home/foo/bar.txt creates=/home/foo/bar.txt"</code>), you can instead provide an <code>args</code> key:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;markdown&#8217; found</p>
+
+<p>Why not use <code>service: name=httpd state=running</code> sometimes and <code>service: { name: "httpd", state: "running" }</code> other times? Safety. Or, rather, a step towards safety. Remembering the edge cases for <code>key=value</code> can be done, yes, but it&#8217;s another edge case in a tool that&#8217;s arguably already full of edge cases.</p>
+
+<p>And hey, think of it like what people used to do with SQL; nobody does <code>$sql = "SELECT * FROM users WHERE name = '$username'";</code> anymore, right?</p>
+
+<p><small>&#8230; Right? D:</small></p>
+</div>
+
+
+
+  
+</article>
+
+    </div>
+    <footer><p>
+  Copyright &copy; 2015, Rob Howard - <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+</footer>
+  </div>
+</body>
+</html>

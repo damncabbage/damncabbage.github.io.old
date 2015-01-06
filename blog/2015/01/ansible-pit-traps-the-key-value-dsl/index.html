@@ -239,7 +239,9 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>Why not use <code>service: name=httpd state=running</code> sometimes, and <code>service: { name: "{{some_variable }}", state: "running" }</code> other times when needed for variable interpolation or special-case <code>=</code> usage? Consistency, in attempt to increase safety. Remembering the special rules for <code>key=value</code> can be done, yes, but it&#8217;s another edge case in a tool that&#8217;s arguably already <a href="https://github.com/ansible/ansible/issues/9899">full of</a> <a href="https://github.com/ansible/ansible/issues/9856">edge</a> <a href="https://github.com/ansible/ansible/issues/8219">cases</a>; sticking to the &#8220;Always use YAML hashes&#8221; rule means one less thing to forget about or train the new ops people up on.</p>
+<p>Why not use <code>service: name=httpd state=running</code> sometimes, and <code>service: { name: "{{some_variable }}", state: "running" }</code> other times when needed for variable interpolation or special-case <code>=</code> usage? Consistency, in an attempt to increase safety.</p>
+
+<p>Remembering the special rules for <code>key=value</code> can be done, yes, but it&#8217;s another edge case in a tool that&#8217;s arguably already <a href="https://github.com/ansible/ansible/issues/9899">full of</a> <a href="https://github.com/ansible/ansible/issues/9856">edge</a> <a href="https://github.com/ansible/ansible/issues/8219">cases</a>; sticking to the &#8220;Always use YAML hashes&#8221; rule means one less thing to forget about or train the new ops people up on.</p>
 
 <p>And hey, think of it like what people used to do with SQL; nobody does <code>$sql = "SELECT * FROM users WHERE name = '$username'";</code> anymore, right?</p>
 

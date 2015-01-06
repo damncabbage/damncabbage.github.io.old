@@ -133,7 +133,7 @@
 <span class='line'>12</span>
 </pre></td><td class='code' width='100%'><pre><code class='yaml'><div class='line'><span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;Install</span><span class="nv"> </span><span class="s">basic</span><span class="nv"> </span><span class="s">packages&quot;</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg= state=installed</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg={{ item }} state=installed</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">with_items</span><span class="p-Indicator">:</span>
 </div><div class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">screen</span>
 </div><div class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">vim</span>
@@ -169,19 +169,19 @@
 <span class='line'>19</span>
 <span class='line'>20</span>
 </pre></td><td class='code' width='100%'><pre><code class='yaml'><div class='line'><span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
-</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="s">&quot;dest=/tmp/1.txt</span><span class="nv"> </span><span class="s">content=&quot;</span>
+</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="s">&quot;dest=/tmp/1.txt</span><span class="nv"> </span><span class="s">content={{</span><span class="nv"> </span><span class="s">contains_quote</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </div><div class='line'><span class="c1"># ^-- Broken; interpreted as:</span>
 </div><div class='line'><span class="c1">#       copy: dest=/tmp/1.txt content=Hello&quot;World</span>
 </div><div class='line'><span class="c1">#     (Throws &quot;try quoting the entire line&quot; error.)</span>
 </div><div class='line'>
-</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/2.txt content=&quot;&quot;</span>
+</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/2.txt content=&quot;{{ contains_quote }}&quot;</span>
 </div><div class='line'><span class="c1"># ^-- Also broken, interpreted as:</span>
 </div><div class='line'>        <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/2.txt content=&quot;Hello&quot;World&quot;</span>
 </div><div class='line'>
-</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/3.txt content=&#39;&#39;</span>
+</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/3.txt content=&#39;{{ contains_quote }}&#39;</span>
 </div><div class='line'><span class="c1"># ^-- &quot;Fixed&quot; by swapping &quot; for &#39; quotes, but...</span>
 </div><div class='line'>
-</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/4.txt content=&#39;&#39;</span>
+</div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/4.txt content=&#39;{{ contains_alt_quote }}&#39;</span>
 </div><div class='line'><span class="c1"># ^-- Also broken, interpreted as:</span>
 </div><div class='line'><span class="c1">#       copy: dest=/tmp/4.txt content=&#39;Hello&#39;World&#39;</span>
 </div><div class='line'>
@@ -191,7 +191,7 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg=""</code> or anything else that could include &#8220;special&#8221; characters.</p>
+<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg="{{ contains_quote }}"</code> or anything else that could include &#8220;special&#8221; characters.</p>
 
 <p>It&#8217;s a fruitless game of whack-a-mole.</p>
 
@@ -210,7 +210,7 @@
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;Long-form</span><span class="nv"> </span><span class="s">Hash&quot;</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
 </div><div class='line'>    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/tmp/whatever.txt&quot;</span>
-</div><div class='line'>    <span class="l-Scalar-Plain">content</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
+</div><div class='line'>    <span class="l-Scalar-Plain">content</span><span class="p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">contains_quotes_or_other_things</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;Inline</span><span class="nv"> </span><span class="s">Hash&quot;</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&quot;httpd&quot;</span><span class="p-Indicator">,</span> <span class="nv">state</span><span class="p-Indicator">:</span> <span class="s">&quot;running&quot;</span> <span class="p-Indicator">}</span>
 </div></code></pre></td></tr></table></div></figure></div>

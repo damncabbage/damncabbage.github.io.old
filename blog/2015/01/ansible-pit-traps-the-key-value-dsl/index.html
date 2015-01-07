@@ -180,7 +180,7 @@
 </div><div class='line'>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/2.txt content=&quot;{{ contains_quote }}&quot;</span>
 </div><div class='line'><span class="c1"># ^-- Also broken, interpreted as:</span>
-</div><div class='line'>        <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/2.txt content=&quot;Hello&quot;World&quot;</span>
+</div><div class='line'><span class="c1">#       copy: dest=/tmp/2.txt content=&quot;Hello&quot;World&quot;</span>
 </div><div class='line'>
 </div><div class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/tmp/3.txt content=&#39;{{ contains_quote }}&#39;</span>
 </div><div class='line'><span class="c1"># ^-- &quot;Fixed&quot; by swapping &quot; for &#39; quotes, but...</span>

@@ -86,7 +86,11 @@
   </header>
 
 
-<div class="copy"><p>Or, as you may see them in the docs, <a href="http://docs.ansible.com/playbooks_intro.html#tasks-list">&#8220;key=value&#8221; options for module actions</a>. They look a bit like this:</p>
+<div class="copy"><p><em><strong>Preface</strong>: I have no great love for Ansible, but nor do I want to rag on it excessively; I&#8217;ve chosen to roll it out at the company I work for, at least until we have time to invest in a &#8220;shorter-lived, disposable VMs&#8221; infrastructure using something like Terraform + Packer.</em></p>
+
+<p><em>I gave a <a href="https://speakerdeck.com/damncabbage/ansible-a-puppet-users-perspective-devops-sydney-2014">presentation in September called &#8220;Ansible: A Puppet User&#8217;s Perspective&#8221;</a> that elaborates on the problems I see with both Ansible <strong>and</strong> Puppet, in the context of the &#8220;long-lived system&#8221; model they were both built for.</em></p>
+
+<p>Ansible has a hash-in-a-string format that, in the docs, may be better known as <a href="http://docs.ansible.com/playbooks_intro.html#tasks-list">&#8220;key=value&#8221; options for module actions</a>. They look a bit like this:</p>
 
 <div><figure role=code> <div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
 <span class='line'>2</span>
@@ -191,7 +195,7 @@
 </div></code></pre></td></tr></table></div></figure></div>
 
 
-<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg="{{ contains_a_quote }}"</code> or <code>copy: dest=/tmp/1.txt content={{ contains_a_new_line_oops_forgot_the_quotes }}</code>. It&#8217;s a fruitless game of whack-a-mole.</p>
+<p>Same goes for things like <code>campfire: room=example subscription=example token=example msg="{{ contains_a_quote }}"</code> or <code>copy: dest=/tmp/1.txt content={{ contains_a_newline_forgot_to_quote }}</code>. It&#8217;s a fruitless game of whack-a-mole.</p>
 
 <h3>The Fix</h3>
 

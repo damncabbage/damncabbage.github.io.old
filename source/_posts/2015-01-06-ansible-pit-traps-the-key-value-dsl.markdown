@@ -8,9 +8,9 @@ categories:
 - Ops
 ---
 
-<em>*Preface*: I have no great love for Ansible, but nor do I want to rag on it excessively; I've chosen to roll it out at the company I work for, at least until we have time to invest in a "shorter-lived, disposable VMs" infrastructure using something like Terraform + Packer.</em>
+<em><strong>Preface<strong>: I have no great love for Ansible, but nor do I want to rag on it excessively; I've chosen to roll it out at the company I work for, at least until we have time to invest in a "shorter-lived, disposable VMs" infrastructure using something like Terraform + Packer.</em>
 
-<em>I gave a [presentation in September called "Ansible: A Puppet User's Perspective"](https://speakerdeck.com/damncabbage/ansible-a-puppet-users-perspective-devops-sydney-2014) that elaborates on the problems I see with both Ansible *and* Puppet, in the context of the "long-lived system" model they were both built for.</em>
+<em>I gave a [presentation in September called "Ansible: A Puppet User's Perspective"](https://speakerdeck.com/damncabbage/ansible-a-puppet-users-perspective-devops-sydney-2014) that elaborates on the problems I see with both Ansible <strong>and</strong> Puppet, in the context of the "long-lived system" model they were both built for.</em>
 
 Ansible has a hash-in-a-string format that, in the docs, may be better known as ["key=value" options for module actions](http://docs.ansible.com/playbooks_intro.html#tasks-list). They look a bit like this:
 
